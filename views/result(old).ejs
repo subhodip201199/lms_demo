@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en"
+      dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+              <title> Hashimia International Academy</title>
+              <link rel="icon" href="logo.jpeg" type="image/gif" sizes="16x16">
+
+        <!-- Prevent the demo from appearing in search engines -->
+        <meta name="robots"
+              content="noindex">
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/vendor/spinkit.css"
+              rel="stylesheet">
+
+        <!-- Perfect Scrollbar -->
+        <link type="text/css"
+              href="./public/vendor/perfect-scrollbar.css"
+              rel="stylesheet">
+
+        <!-- Material Design Icons -->
+        <link type="text/css"
+              href="./public/css/material-icons.css"
+              rel="stylesheet">
+
+        <!-- Font Awesome Icons -->
+        <link type="text/css"
+              href="./public/css/fontawesome.css"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/css/preloader.css"
+              rel="stylesheet">
+
+        <!-- App CSS -->
+        <link type="text/css"
+              href="./public/css/app.css"
+              rel="stylesheet">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.css"></script>
+        <script scr="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.map"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.min.css"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.min.js"></script>
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+
+        <script>
+            function print() {
+                printJS({
+                printable: 'printcontent',
+                type: 'html',
+                targetStyles: ['*'],
+                //header: 'PrintJS - Print Form With Customized Header'
+                })
+            }   
+        </script>
+
+
+        <script>
+           
+            var std_id;
+            var session;
+            var student_class;
+            var test_name;
+
+
+
+            function show(){
+
+                var formEl = document.forms.session_dropdown;
+                var formData = new FormData(formEl);
+                session = formData.get('session');
+                student_class = formData.get('student_class');
+                test_name = formData.get('test')
+
+            
+                $('#tbody1 td').remove();
+                $('#result_table tr').remove();
+               
+                
+                if(!session || !student_class || !test_name){
+                    alert("Please select from all the dropdowns!")
+                } else {
+                const url11111 = "/student_result/getdata?student_class=" + student_class + "&test_name=" + test_name + "&session=" + session;
+    
+                fetch(url11111)
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (data) {
+                        std_id = data[0].student_id;
+                        student_name = data[0].student_name
+                       
+                        student_class = data[0].student_class;
+                        //std_semester = data[0].semester;
+                        session = data[0].session;
+                        //std_rollNo = data[0].roll_no;
+                        test_name = data[0].test_name;
+                        result = data[0].result;
+                        /*
+                        std_mother_name = data[0].mother_name;
+                        std_guardian_name = data[0].guardian_name;
+                        std_relation = data[0].relation;
+                        std_guardian_phone = data[0].guardian_phone;
+                        std_student_phone = data[0].student_phone;
+                        std_student_email = data[0].email;
+                        std_student_aadhaar = data[0].aadhaar_no;
+                        std_student_address = data[0].address; */
+
+
+                        document.getElementById("profile_photo").innerHTML = '<img src="'+ std_id +'_profile-picture.jpg"' + ' class="img-thumbnail img-responsive student-profile-image" alt="profile photo">';
+                    
+
+                        $('#std_id').append('<td style="width:50%;font-weight: bolder;color:#000000;font-size: 18px;border: solid 1px #000000;">Student ID: </td>' +
+                        '<td style="width:50%;color: #000000;font-size:18px;">' + std_id + '</td>');
+
+                        $('#std_name').append('<td style="width:50%;font-weight: bolder;color:#000000;font-size: 18px; border: solid 1px #000000;"> Name: </td>' +
+                        '<td style="width:50%;color: #000000;font-size:18px;">' + student_name + '</td>');
+
+                        
+                        $('#std_class').append('<td style="width:50%;font-weight: bolder;color:#000000;font-size: 18px;border: solid 1px #000000;">Class: </td>' +
+                        '<td style="width:50%;color: #000000;font-size:18px;">' + student_class + '</td>');
+
+
+                        $('#test_name').append('<td style="width:50%;font-weight: bolder;color:#000000;font-size: 18px; border: solid 1px #000000;">Test Name: </td>' +
+                        '<td style="width:50%;color: #000000;font-size:18px;">' + test_name + '</td>');
+
+
+                        $('#session').append('<td style="width:50%;font-weight: bolder;color:#000000;font-size: 18px; border: solid 1px #000000;">Session: </td>' +
+                        '<td style="width:50%;color: #000000;font-size:18px;">' + session + '</td>');
+
+
+                        //$('#std_det1').append('<h6>Roll No. : ' + std_rollNo + '</h6>');
+//
+                        //$('#td1').append(''+ std_father_name +'');
+                        //$('#td2').append(''+ std_mother_name +'');
+                        //$('#td3').append(''+ std_guardian_name +'');
+                        //$('#td4').append(''+ std_relation +'');
+                        //$('#td5').append(''+ std_guardian_phone +'');
+                        //$('#td6').append(''+ std_student_phone +'');
+                        //$('#td7').append(''+ std_student_email +'');
+                        //$('#td8').append(''+ std_student_aadhaar +'');
+                        //$('#td9').append(''+ std_student_address +'');
+
+
+                        //$('#edit_form').attr('action', '/student-profile/edit?student_id=' + std_id + '');
+//
+                        //$('#qualification_form').attr('action', '/StudentQualifications/add?student_id=' + std_id + '');
+//
+//
+                        //$('#input1').append('<input id="input_1" type="text" name="firstname" class="form-control" placeholder="Firstname" required="" >');
+                        //document.getElementById('input_1').value= std_fname ;
+                        //
+                        //$('#input2').append('<input id="input_2" type="text" name="lastname" class="form-control" placeholder="Lastname" required=""  >');
+                        //document.getElementById('input_2').value= std_lname ;
+                        //
+                        //$('#input3').append('<input id="input_3" type="text" name="fatherName" class="form-control" placeholder="Father Name" >');
+                        //document.getElementById('input_3').value= std_father_name ;
+//
+                        //$('#input4').append('<input id="input_4" type="text" name="motherName" class="form-control" placeholder="Mother Name" >');
+                        //document.getElementById('input_4').value= std_mother_name ;
+//
+                        //$('#input5').append('<input id="input_5" type="text" name="guardianName" class="form-control" placeholder="Guardian Name" >');
+                        //document.getElementById('input_5').value= std_guardian_name ;
+                        //
+                        //$('#input6').append('<input id="input_6" type="text" name="relation" class="form-control" placeholder="Relation with Guardian" >');
+                        //document.getElementById('input_6').value= std_relation ;
+                        //
+                        //$('#input7').append(' <input id="input_7" type="text" name="guardianPhone" class="form-control" placeholder="Guardian Phone" >');
+                        //document.getElementById('input_7').value= std_guardian_phone ;
+                        //
+                        //$('#input8').append('<input id="input_8" type="text" name="studentPhone" class="form-control" placeholder="Student Phone" required="" >');
+                        //document.getElementById('input_8').value= std_student_phone ;
+                        //
+                        //$('#input9').append('<input id="input_9" type="text" name="email" class="form-control" placeholder="E-mail" >');
+                        //document.getElementById('input_9').value= std_student_email ;
+                        //
+                        //$('#input10').append('<input id="input_10" type="text" name="rollNo" class="form-control" placeholder="Roll Number" >');
+                        //document.getElementById('input_10').value= std_rollNo ;
+                        //
+                        //$('#input11').append('<input id="input_11" type="text" name="aadhaar" class="form-control" placeholder="Aadhaar Number" >');
+                        //document.getElementById('input_11').value= std_student_aadhaar ;
+                        //
+                        //$('#input12').append(' <textarea rows="6" name="address" class="form-control" placeholder="Address">' + std_student_address + '</textarea>');
+                        
+                        var mainContainer = document.getElementById("result_table");
+
+                        
+                            //var id = data[i].id;
+
+                            var codes = new Array();
+                            var codes_notNull = new Array();
+
+                            var subjects = new Array();
+                            var subjects_notNull = new Array();
+
+                            var full_marks_arr = new Array();
+                            var full_marks_arr_notNull = new Array();
+
+                            var obtained_marks =new Array();
+                            var obtained_marks_notNull =new Array();
+
+                            var grade =new Array();
+                            var grade_notNull =new Array();
+
+
+                            codes.push(data[0].code1);
+                            codes.push(data[0].code2);
+                            codes.push(data[0].code3);
+                            codes.push(data[0].code4);
+                            codes.push(data[0].code5);
+                            codes.push(data[0].code6);
+                            codes.push(data[0].code7);
+                            codes.push(data[0].code8);
+                            codes.push(data[0].code9);
+                            codes.push(data[0].code10);
+                            codes.push(data[0].code11);
+                            codes.push(data[0].code12);
+                            codes.push(data[0].code13);
+                            codes.push(data[0].code14);
+                            codes.push(data[0].code15);
+                            codes.push(data[0].code16);
+                            codes.push(data[0].code17);
+                            codes.push(data[0].code18);
+                            codes.push(data[0].code19);
+                            codes.push(data[0].code20);
+
+                            subjects.push(data[0].subject1);
+                            subjects.push(data[0].subject2);
+                            subjects.push(data[0].subject3);
+                            subjects.push(data[0].subject4);
+                            subjects.push(data[0].subject5);
+                            subjects.push(data[0].subject6);
+                            subjects.push(data[0].subject7);
+                            subjects.push(data[0].subject8);
+                            subjects.push(data[0].subject9);
+                            subjects.push(data[0].subject10);
+                            subjects.push(data[0].subject11);
+                            subjects.push(data[0].subject12);
+                            subjects.push(data[0].subject13);
+                            subjects.push(data[0].subject14);
+                            subjects.push(data[0].subject15);
+                            subjects.push(data[0].subject16);
+                            subjects.push(data[0].subject17);
+                            subjects.push(data[0].subject18);
+                            subjects.push(data[0].subject19);
+                            subjects.push(data[0].subject20);
+
+                            full_marks_arr.push(data[0].full_marks1);
+                            full_marks_arr.push(data[0].full_marks2);
+                            full_marks_arr.push(data[0].full_marks3);
+                            full_marks_arr.push(data[0].full_marks4);
+                            full_marks_arr.push(data[0].full_marks5);
+                            full_marks_arr.push(data[0].full_marks6);
+                            full_marks_arr.push(data[0].full_marks7);
+                            full_marks_arr.push(data[0].full_marks8);
+                            full_marks_arr.push(data[0].full_marks9);
+                            full_marks_arr.push(data[0].full_marks10);
+                            full_marks_arr.push(data[0].full_marks11);
+                            full_marks_arr.push(data[0].full_marks12);
+                            full_marks_arr.push(data[0].full_marks13);
+                            full_marks_arr.push(data[0].full_marks14);
+                            full_marks_arr.push(data[0].full_marks15);
+                            full_marks_arr.push(data[0].full_marks16);
+                            full_marks_arr.push(data[0].full_marks17);
+                            full_marks_arr.push(data[0].full_marks18);
+                            full_marks_arr.push(data[0].full_marks19);
+                            full_marks_arr.push(data[0].full_marks20);
+
+                            obtained_marks.push(data[0].obtained_marks1);
+                            obtained_marks.push(data[0].obtained_marks2);
+                            obtained_marks.push(data[0].obtained_marks3);
+                            obtained_marks.push(data[0].obtained_marks4);
+                            obtained_marks.push(data[0].obtained_marks5);
+                            obtained_marks.push(data[0].obtained_marks6);
+                            obtained_marks.push(data[0].obtained_marks7);
+                            obtained_marks.push(data[0].obtained_marks8);
+                            obtained_marks.push(data[0].obtained_marks9);
+                            obtained_marks.push(data[0].obtained_marks10);
+                            obtained_marks.push(data[0].obtained_marks11);
+                            obtained_marks.push(data[0].obtained_marks12);
+                            obtained_marks.push(data[0].obtained_marks13);
+                            obtained_marks.push(data[0].obtained_marks14);
+                            obtained_marks.push(data[0].obtained_marks15);
+                            obtained_marks.push(data[0].obtained_marks16);
+                            obtained_marks.push(data[0].obtained_marks17);
+                            obtained_marks.push(data[0].obtained_marks18);
+                            obtained_marks.push(data[0].obtained_marks19);
+                            obtained_marks.push(data[0].obtained_marks20);
+
+                            grade.push(data[0].grade1);
+                            grade.push(data[0].grade2);
+                            grade.push(data[0].grade3);
+                            grade.push(data[0].grade4);
+                            grade.push(data[0].grade5);
+                            grade.push(data[0].grade6);
+                            grade.push(data[0].grade7);
+                            grade.push(data[0].grade8);
+                            grade.push(data[0].grade9);
+                            grade.push(data[0].grade10);
+                            grade.push(data[0].grade11);
+                            grade.push(data[0].grade12);
+                            grade.push(data[0].grade13);
+                            grade.push(data[0].grade14);
+                            grade.push(data[0].grade15);
+                            grade.push(data[0].grade16);
+                            grade.push(data[0].grade17);
+                            grade.push(data[0].grade18);
+                            grade.push(data[0].grade19);
+                            grade.push(data[0].grade20);
+                
+
+                            for (i=0; i< codes.length; i++) {
+                                if(codes[i] !== null){
+                                    codes_notNull.push(codes[i]);
+                                    subjects_notNull.push(subjects[i]);
+                                    full_marks_arr_notNull.push(full_marks_arr[i]);
+                                    obtained_marks_notNull.push(obtained_marks[i]);
+                                    grade_notNull.push(grade[i]);
+                                }
+                            }
+
+                            console.log(codes_notNull, subjects_notNull, full_marks_arr_notNull, obtained_marks_notNull, grade_notNull);
+
+
+                            var total_obtained = new Number();
+                            var total_FM = new Number();
+                            var percentage = new Number();
+                    
+                   
+                        for(i=0; i< codes_notNull.length; i++){
+                          
+                            total_obtained += parseInt(obtained_marks_notNull[i]);
+                            total_FM += parseInt(full_marks_arr_notNull[i]);
+                            
+                            var div = document.createElement("tr");
+                            div.innerHTML = '<tr>' +
+
+                                                '<td>'+ 
+                                                    codes_notNull[i] +
+                                                '</td>' +
+                                                '<td>' + 
+                                                    subjects_notNull[i] + 
+                                                '</td>' +
+                                                '<td>' + 
+                                                    full_marks_arr_notNull[i] +
+                                                '</td>' +
+                                                '<td>' +
+                                                    obtained_marks_notNull[i] +
+                                                '</td>' +
+                                                '<td>' +
+                                                    grade_notNull[i] +
+                                                '</td>' +
+                                                
+                                            
+                                            '</tr>' ;
+                            mainContainer.appendChild(div);
+                          
+                        }
+                        percentage = parseInt((total_obtained/total_FM)*100);
+                        console.log(total_obtained,total_FM,percentage);
+
+                        document.getElementById("total_FM").innerHTML = 'Total: ' + total_FM + '';
+                        document.getElementById("total_obtained").innerHTML = 'Total Obtained: ' + total_obtained + '';
+                        
+                        document.getElementById("percentage").innerHTML = 'Percentage: <b>' + percentage + '%</b>';
+                        
+                        document.getElementById("result").innerHTML = 'Result: <b>' + result + '</b>';
+
+                        //$('#total_FM').append(total_FM);
+                        //$('#total_obtained').append(total_obtained);
+                        
+                    })
+                    .catch(function (err) {
+                        console.log('error: ' + err);
+                    });
+                }
+            }
+            </script>
+    </head>
+
+    <body class="layout-sticky-subnav layout-default ">
+
+        <div class="preloader">
+            <div class="sk-chase">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+            </div>
+
+            <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+            <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+        </div>
+
+        <!-- Header Layout -->
+        <div class="mdk-header-layout js-mdk-header-layout">
+
+            <!-- Header -->
+
+            <div id="header"
+                 class="mdk-header js-mdk-header mb-0"
+                 data-fixed
+                 data-effects="">
+                <div class="mdk-header__content">
+
+                    <!-- Navbar -->
+
+                    <div class="navbar navbar-expand pr-0 navbar-dark-pickled-bluewood navbar-shadow"
+                         id="default-navbar"
+                         data-primary>
+
+                        <!-- Navbar Toggler -->
+
+                        <button class="navbar-toggler w-auto mr-16pt d-block rounded-0"
+                                type="button"
+                                data-toggle="sidebar">
+                            <span class="material-icons">short_text</span>
+                        </button>
+
+                        <!-- // END Navbar Toggler -->
+
+                        <!-- Navbar Brand -->
+
+                        <a href="/home"
+                           class="navbar-brand mr-16pt">
+
+                            <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
+
+                                <span class="avatar-title rounded"><img src="logo.jpeg"
+                                    alt="logo"
+                                    class="img-fluid" /></span>
+
+                            </span>
+
+                            <span class="d-none d-lg-block">Welcome Admin</span>
+                        </a>
+
+                        <!-- // END Navbar Brand -->
+
+                        
+
+                        <!-- // END Navbar Search -->
+
+                        <div class="flex"></div>
+
+                        <!-- Navbar Menu -->
+
+                        <div class="nav navbar-nav flex-nowrap d-flex mr-16pt">
+
+                            <div class="nav-item dropdown">
+                                <a href="#"
+                                   class="nav-link d-flex align-items-center dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   data-caret="false">
+
+                                    <span class="avatar avatar-sm mr-8pt2">
+
+                                        <span class="avatar-title rounded-circle bg-primary"><i class="material-icons">account_box</i></span>
+
+                                    </span>
+
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <div class="dropdown-header"><strong>Account</strong></div>
+                                    <a class="dropdown-item"
+                                       href="/edit-account">Edit Account</a>
+                                    <a class="dropdown-item"
+                                       href="/logout">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- // END Navbar Menu -->
+
+                    </div>
+
+                    <!-- // END Navbar -->
+
+                </div>
+            </div>
+            <!-- // END Header -->
+       
+            <!-- Header Layout Content -->
+            <div class="mdk-header-layout__content page-content ">
+
+                <div class="content-wrapper">
+                <div class="container-fluid softnic-container-fluid">
+                    <!-- Breadcrumb-->
+                    <div class="row pt-2 pb-2">
+                        <div class="col-sm-9">
+                            <h4 class="page-title">Student Result</h4>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                                <li class="breadcrumb-item"><a href="javaScript: void();">Student Profile</a></li>
+                                <li class="breadcrumb-item"><a href="javaScript: void();">Student Result</a></li>
+                            </ol>
+                        </div>
+                        
+                    </div>
+                    <!-- End Breadcrumb-->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                      <div class="card mb-2">
+                                        <div class="card-header">
+                                            <h5 class="pull-left">Student Result</h5>
+                                            <form id="session_dropdown">
+                                                <br>
+                                                <label for="input-21" class="col-sm-3 col-form-label" style="position: relative; right: 130px;">Class</label>
+                                                <div class="col-sm-3">
+                                                    <div class="input-group">
+                                                        <select class="form-control single-select" id="student_class" name="student_class">
+                                                            <option value="">Select Class</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <script>
+                                                    const url5 = "/studentClass/getdata";
+                                                
+                                                    fetch(url5)
+                                                        .then(function (response) {
+                                                            return response.json();
+                                                        })
+                                                        .then(function (data) {
+                                                        
+                                                            appendData2(data);
+                                                        })
+                                                        .catch(function (err) {
+                                                            console.log('error: ' + err);
+                                                        });
+                                                    
+                                                        function appendData2(data) {
+                                                                    //var mainContainer = document.getElementById("doctor_id");
+                                                        
+                                                                    for (var i = 0; i < data.length; i++) {
+                                                                    
+                                                                    
+                                                                    
+                                                                        var id = data[i].id;
+                                                                    
+                                                                        var daySelect = document.getElementById("student_class");
+                                                                        var myOption = document.createElement("option");
+                                                                        myOption.text = data[i].class_name;
+                                                                        myOption.value = data[i].class_name;
+                                                                        daySelect.add(myOption);
+                                                                    
+                                                                    }
+                                                        }
+                                                    
+                                                </script>
+                                                <label for="input-21" class="col-sm-3 col-form-label">Session</label>
+                                                <div class="col-sm-3">
+                                                    <div class="input-group">
+                                                        <div class="input-group">
+                                                            <select id="sessions" name="session" class="form-control single-select">
+                                                                <option value="">Select Session</option>
+
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <script>
+                                                    const url4 = "/studentSession/getdata";
+                                                
+                                                    fetch(url4)
+                                                        .then(function (response) {
+                                                            return response.json();
+                                                        })
+                                                        .then(function (data) {
+                                                        
+                                                            appendData1(data);
+                                                        })
+                                                        .catch(function (err) {
+                                                            console.log('error: ' + err);
+                                                        });
+                                                    
+                                                        function appendData1(data) {
+                                                                    //var mainContainer = document.getElementById("doctor_id");
+                                                        
+                                                                    for (var i = 0; i < data.length; i++) {
+                                                                    
+                                                                    
+                                                                    
+                                                                        var id = data[i].id;
+                                                                    
+                                                                        var daySelect = document.getElementById("sessions");
+                                                                        var myOption = document.createElement("option");
+                                                                        myOption.text = data[i].session_name;
+                                                                        myOption.value = data[i].session_name;
+                                                                        daySelect.add(myOption);
+                                                                    
+                                                                    
+                                                                    }
+                                                        }
+                                                    
+                                                </script>
+                                                <label for="input-21" class="col-sm-3 col-form-label">Test Name</label>
+                                                <div class="col-sm-3">
+                                                    <div class="input-group">
+                                                        <div class="input-group">
+                                                            <select id="test4" name="test" class="form-control single-select">
+                                                                <option value="">Select Test Name</option>
+
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <script>
+                                                    const url7 = "/studenttest/getdata";
+                                                
+                                                    fetch(url7)
+                                                        .then(function (response) {
+                                                            return response.json();
+                                                        })
+                                                        .then(function (data) {
+                                                        
+                                                            appendData7(data);
+                                                        })
+                                                        .catch(function (err) {
+                                                            console.log('error: ' + err);
+                                                        });
+                                                    
+                                                        function appendData7(data) {
+                                                                    //var mainContainer = document.getElementById("doctor_id");
+                                                        
+                                                                    for (var i = 0; i < data.length; i++) {
+                                                                    
+                                                                    
+                                                                        var daySelect = document.getElementById("test4");
+                                                                        var myOption = document.createElement("option");
+                                                                        myOption.text = data[i].test_name;
+                                                                        myOption.value = data[i].test_name;
+                                                                        daySelect.add(myOption);
+                                                                    
+                                                                    }
+                                                        }
+                                                    
+                                                </script>
+                                            </form>
+                                            <div id="show_session">
+                                                                
+                                            </div>
+                                            <br>
+                                            <button type="button" class="btn btn-primary waves-effect waves-light m-1" onclick="show()"> Show </button>
+                                            <button type="button" class="btn btn-primary waves-effect waves-light m-1 pull-right softnic-profile-edit-btn" data-toggle="modal" data-target="#editProfile"> <i class="fa fa-pencil"></i> &nbsp; Create Result </button>                                            
+                                            <button type="button" class="btn btn-primary waves-effect waves-light m-1 pull-right softnic-profile-edit-btn" onclick="print()"> <i class="fas fa-download"></i> &nbsp; Print </button>
+                                        </div>
+                                        <div id="printcontent" style="overflow: hidden; background-color: white;">
+                                            <div class="card-body pt-0">
+                                                <div class="col-lg-12">
+                                                    
+                                                    <div style="margin-left:2%;margin-right:2%;width:96%;font-family:arial;font-size:15px;color: #222;margin-top:15px;">
+                                                        <table style="width:100%;">
+                                                            <tr>
+                                                                <td style="width: 80%; text-align: left;">
+                                                                    
+                                                                        <img style="max-width: 120px; max-height: 120px;" src="logo.png" />
+                                                                        <br><span style="font-weight: 400;font-size: 24px;color: #141299;margin-bottom:0px;padding-bottom:0px;">Hashimia International Academy</span>
+                                                                        <br>Piyara, West Bengal 743425
+                                                                        <br>Grade Card
+                                                                    
+                                                                </td>
+                                                                <td>
+                                                                <div id="profile_photo" style="height: 60%; width: 60%;">
+                                                                                                          
+                                                                </div>   </td>                                                      
+                                                            </tr>
+                                                        </table>
+                                                        <table style="border: solid 1px #000000;margin-top:30px;width:100%;">
+
+                                                            <tbody id="tbody1">
+                                                            <tr id="std_id" style="border: solid 1px #000000;">
+                                                            </tr>
+
+                                                            <tr id="std_name">
+                                                            </tr>
+
+                                                            <tr id="std_class" style="border: solid 1px #000000;">
+                                                                
+                                                            </tr>
+
+                                                            <tr id="session" style="border: solid 1px #000000;">
+                                                                
+                                                            </tr>
+
+                                                            <tr id="test_name">
+                                                                
+                                                            </tr>
+                                                            </tbody>
+                                                        </table><br>
+
+                                                        <table style="border: solid 1px #000000;margin-top:30px;width:100%;" border="1">
+                                                          <thead>
+                                                            <tr style="border: solid 1px #000000;">
+                                                                <td style="font-weight: bolder;color: #000000;font-size:18px;border: solid 1px #000000;">Sl No. </td>
+                                                                <td style="font-weight: bolder;color: #000000;font-size:18px;border: solid 1px #000000;">Subject Name </td>
+                                                                <td style="font-weight: bolder;color: #000000;font-size:18px;border: solid 1px #000000;">Full Mark</td>
+                                                                <td style="font-weight: bolder;color: #000000;font-size:18px;border: solid 1px #000000;">Obtained Mark</td>
+                                                                <td style="font-weight: bolder;color: #000000;font-size:18px;border: solid 1px #000000;">Grade</td>
+                                                            </tr>
+                                                          </thead>
+                                                          <tbody id="result_table">
+
+                                                          </tbody>
+                                                            
+                                                        </table><br>
+
+                                                        <table style="border: solid 1px #000000;margin-top:30px;width:100%;" id="fixed">
+                                                            <tr style="border: solid 1px #000000;">
+                                                                <td id="total_FM" style="width:50%;font-weight: bolder;color:#000000;font-size: 18px;border: solid 1px #000000;"> </td>
+                                                                <td id="total_obtained" style="width:50%;font-weight: bolder;color: #000000;font-size:18px; border: solid 1px #000000;"> </td>
+                                                            </tr>
+                                                            <tr style="border: solid 1px #000000;">
+                                                                
+                                                                <td id="result" style="width:50%;font-weight: bolder;color:#000000;font-size: 18px;border: solid 1px #000000;"></td>
+                                                                <td id="percentage" style="width:50%;font-weight: bolder;color:#000000;font-size: 18px; border: solid 1px #000000;" colspan="2"></td>
+
+                                                            </tr>
+                                                            
+                                                        </table><br>
+
+                                                       
+                                                        
+                                                        <div style="float: left; padding-top: 2px;">
+                                                            
+                                                            
+                                                            <ul>
+                                                                <li style="font-weight: bolder;">Note:</li>
+                                                                <br>
+                                                                <p><b>PP</b> - Passed and Promoted</p>
+                                                                <p><b>X</b> - Ineligible for Promotion</p>
+                                                            </ul>
+                                                            
+                                                            
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div id="editor"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+        <!--Modal Start-->
+        <div class="modal fade" id="editProfile" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Customize Your Result</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form action="/result_edit" method="post">
+                    <div class="modal-body">
+                        
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Test Name</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="testname" class="form-control" placeholder="Please write your academy test name" required="">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Please Enter Number of Subject</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-list"></i></span>
+                                    </div>
+                                    <select name="semesterCount" id="semesterCount" class="form-control single-select" required>
+                                        <option value="">Select</option>
+                                         
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div id="semFeesHtmlHolder" class="col-sm-3 col-form-label" style="margin-left: 10px;">
+                                   
+
+                                               
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div id="semFeesHtmlHolder1" class="col-sm-3 col-form-label" style="margin-left: 10px;">
+                                   
+
+                                               
+                            </div>
+                        </div>
+                        
+                        <!--Eta lGbe-->
+                        <!--<div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Please Enter Your Grade</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-list"></i></span>
+                                    </div>
+                                    <select name="" id="" class="form-control single-select">
+                                        <option value="">Select</option>
+                                        <option value="O">O</option>
+                                        <option value="A+">A+</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                        <option value="F">Fail</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>-->
+
+
+
+                        
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Please Enter Your Result Status</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-list"></i></span>
+                                    </div>
+                                    <select name="result" id="result" class="form-control single-select" required>
+                                        <option value="">Select</option>
+                                        <option value="PP">PP</option>
+                                        <option value="X">X</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    <input type="hidden" name="sid" value="370">
+                    <div class="modal-footer">
+                        
+                        <button type="submit" name="updateStudentProfile" class="btn btn-primary"><i class="fa fa-check-square-o"></i>&nbsp;Update</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white border-top-2 mt-auto">
+            <div class="container page__container page-section d-flex flex-column">
+                <p class="text-70 brand mb-24pt">
+                    <img class="brand-icon"
+                         src="maze.jpeg"
+                         width="150"
+                         alt="mazesoftsolution">
+                </p>
+                <p class="measure-lead-max text-50 small mr-8pt">We have reached an age where the entire world is reduced to a global village. In this realm of connected living and sharing, we envision a future that will redefine the very purpose of our existence. Today, the solutions are more refined than the demand itself. What we get is better than what we asked for. Businesses, big or small, look for companies that will refine their business needs, more than offering a ready solution. They look for companies that offer competitive web and mobile apps development, e-commerce, and Open-source CMS development to propel their business expansion.</p>
+                <p class="text-50 small mt-n1 mb-0">Developed by <a href="http://www.mazesoftsolutions.com/">Maze Soft Solution</a></p>
+            </div>
+        </div>
+    </div>
+        <!--Modal End-->
+
+        
+        <!-- Drawer -->
+
+        <div class="mdk-drawer js-mdk-drawer"
+             id="default-drawer">
+            <div class="mdk-drawer__content">
+                <div class="sidebar sidebar-dark-pickled-bluewood sidebar-left"
+                     data-perfect-scrollbar>
+
+                    <!-- Sidebar Content -->
+
+                    <a href="/home"
+                       class="sidebar-brand ">
+                        <!-- <img class="sidebar-brand-icon" src="/public/images/illustration/student/128/white.svg" alt="Luma"> -->
+
+                        <span class="avatar avatar-xl sidebar-brand-icon h-auto">
+
+                            <span class="avatar-title rounded"><img src="logo.jpeg"
+                                alt="logo"
+                                class="img-fluid" /></span>
+
+                        </span>
+
+                        <span>Welcome Admin</span>
+                    </a>
+
+                    
+                        
+                    <ul class="sidebar-menu">
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/home">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">home</span>
+                                <span class="sidebar-menu-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/cashbook">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">receipt</span>
+                                <span class="sidebar-menu-text">Cashbook</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/fees_payment">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">shopping_cart</span>
+                                <span class="sidebar-menu-text">Fees Payments</span>
+                            </a>
+                        </li>
+                        <ul class="sidebar-menu">
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button js-sidebar-collapse"
+                                   data-toggle="collapse"
+                                   href="#enterprise_menu">
+                                    <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">donut_large</span>
+                                    Applications
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse sm-indent"
+                                    id="enterprise_menu">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/contact">
+                                            <span class="sidebar-menu-text">Contact</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/add_contact">
+                                            <span class="sidebar-menu-text">Add Contact</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button disabled"
+                                           href="/hr-dashboard">
+                                            <span class="sidebar-menu-text">Applications</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button disabled"
+                                           href="/employees">
+                                            <span class="sidebar-menu-text">Add Applications</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#productivity_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">local_library</span>
+                                Students
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="productivity_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/student">
+                                        <span class="sidebar-menu-text">Students</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_student">
+                                        <span class="sidebar-menu-text">Add Students</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/room">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">room</span>
+                                <span class="sidebar-menu-text">Create Room</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#ecommerce_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">people_outline</span>
+                                Staffs
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="ecommerce_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/staff">
+                                        <span class="sidebar-menu-text">Staffs</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_staff">
+                                        <span class="sidebar-menu-text">Add Staffs</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#messaging_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">dvr</span>
+                                Classes
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="messaging_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/class">
+                                        <span class="sidebar-menu-text">Classes</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_class">
+                                        <span class="sidebar-menu-text">Add Classes</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#account_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                Departments
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="account_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/department">
+                                        <span class="sidebar-menu-text">Departments</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_department">
+                                        <span class="sidebar-menu-text">Add Departments</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#community_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                Sessions
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="community_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/session">
+
+                                        <span class="sidebar-menu-text">Sessions</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_session">
+
+                                        <span class="sidebar-menu-text">Add Sessions</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#components_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">account_box</span>
+                                Users
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="components_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/user">
+                                        <span class="sidebar-menu-text">Users</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_user">
+                                        <span class="sidebar-menu-text">Add Users</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/invoice">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">message</span>
+                                <span class="sidebar-menu-text">Invoices</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/finance">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">trending_up</span>
+                                <span class="sidebar-menu-text">Finance</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/system_history">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">access_time</span>
+                                <span class="sidebar-menu-text">System History</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/bin">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">help</span>
+                                <span class="sidebar-menu-text">Recyle Bin</span>
+                            </a>
+                        </li>
+                    </ul>
+                    
+
+                    <!-- // END Sidebar Content -->
+
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- // END Drawer -->
+
+        <!-- jQuery -->
+        <script src="./public/vendor/jquery.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="./public/vendor/popper.min.js"></script>
+        <script src="./public/vendor/bootstrap.min.js"></script>
+
+        <!-- Perfect Scrollbar -->
+        <script src="./public/vendor/perfect-scrollbar.min.js"></script>
+
+        <!-- DOM Factory -->
+        <script src="./public/vendor/dom-factory.js"></script>
+
+        <!-- MDK -->
+        <script src="./public/vendor/material-design-kit.js"></script>
+
+        <!-- App JS -->
+        <script src="./public/js/app.js"></script>
+
+        <!-- Preloader -->
+        <script src="./public/js/preloader.js"></script>
+
+
+        <script>
+
+            $(document).ready(function() {
+
+                
+
+                $('#semesterCount').on('change', function(){
+                    var count = $(this).val();
+                    var thtml = '';
+                    var thtml1 = '';
+                    for (i=1; i <= count; i++) {
+                        thtml += '<div class="form-group row"><label for="input-21">Subject '+i+'</label><div class="col-sm-9"><div class="input-group"><input type="text" name="serial_number" placeholder="Serial Number" required><input type="text" name="subject_name" placeholder="Subject Name" required><input type="text" name="full_marks" placeholder="Full Marks" required><input type="text" name="obtained_marks" placeholder="Obtained Marks" required><input type="text" name="grade" placeholder="Grade" required></div></div></div>';
+                    }
+                    $('#semFeesHtmlHolder').html(thtml);
+
+                });
+
+
+				$("#studentPhotoId").change(function(){
+				    if (this.files && this.files[0]) {
+				        var reader = new FileReader();
+
+				        reader.onload = function (e) {
+				            $('.add-student-profile-image').attr('src', e.target.result);
+				        }
+
+				        reader.readAsDataURL(this.files[0]);
+					}
+				});
+            
+            });
+            
+        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+       
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+
+
+        <script>
+            $(document).on('click','#cmd',function(){
+            let pdf = new jsPDF();
+            let section=$('#content');
+            let page= function() {
+                pdf.save('student_result.pdf');
+            
+            };
+            
+            pdf.addHTML(section,page);
+            })
+        </script>
+
+
+
+    </body>
+</html>

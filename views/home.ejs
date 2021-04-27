@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en"
+      dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Chrome, Firefox OS and Opera -->
+        <meta name="theme-color" content="#FDFEFE">
+
+        <title> Hashimia International Academy</title>
+        <link rel="icon" href="logo.jpeg" type="image/gif" sizes="16x16">
+
+        <!-- Prevent the demo from appearing in search engines -->
+        <meta name="robots"
+              content="noindex">
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="/public/vendor/spinkit.css"
+              rel="stylesheet">
+
+        <!-- Perfect Scrollbar -->
+        <link type="text/css"
+              href="/public/vendor/perfect-scrollbar.css"
+              rel="stylesheet">
+
+        <!-- Material Design Icons -->
+        <link type="text/css"
+              href="/public/css/material-icons.css"
+              rel="stylesheet">
+
+        <!-- Font Awesome Icons -->
+        <link type="text/css"
+              href="/public/css/fontawesome.css"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="/public/css/preloader.css"
+              rel="stylesheet">
+
+        <!-- App CSS -->
+        <link type="text/css"
+              href="/public/css/app.css"
+              rel="stylesheet">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        
+        
+        <script>
+
+            const url1111 = "/dashboard/getdata";
+
+    
+
+            fetch(url1111)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    if(data[0].credit !== null){
+                        var credit = data[0].credit;
+                    }else {
+                        var credit = 0;
+                    }
+
+                    if(data[0].debit !== null){
+                        var debit = data[0].debit;
+                    }else {
+                        var debit = 0;
+                    }
+                    
+                    if(data[0].earning !== null){
+                        var earning = data[0].earning;
+                    }else {
+                        var earning = 0;
+                    }
+                    
+                    
+                    document.getElementById("total_credit").innerHTML = '<h4 class="h2 mb-0">₹ ' + credit + '</h4>' +
+                                        '<div><b>Total Credit This Month</b></div>'
+                
+                    document.getElementById("total_debit").innerHTML = '<h4 class="h2 mb-0">₹ ' + debit + '</h4>' +
+                                        '<div><b>Total Debit This Month</b></div>'
+
+                    document.getElementById("total_earning").innerHTML = '<h4 class="h2 mb-0">₹ ' + earning + '</h4>' +
+                                        '<div><b>Total Earning This Month</b></div>'
+
+                })
+                .catch(function (err) {
+                    console.log('error: ' + err);
+                });
+            
+                    
+        </script>
+    </head>
+
+    <body class="layout-sticky-subnav layout-default ">
+
+        <div class="preloader">
+            <div class="sk-chase">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+            </div>
+
+            <!-- <div class="sk-bounce">
+                    <div class="sk-bounce-dot"></div>
+                    <div class="sk-bounce-dot"></div>
+            </div> -->
+
+            <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples -->
+        </div>
+
+        <!-- Header Layout -->
+        <div class="mdk-header-layout js-mdk-header-layout">
+
+            <!-- Header -->
+
+            <div id="header"
+                 class="mdk-header js-mdk-header mb-0"
+                 data-fixed
+                 data-effects="">
+                <div class="mdk-header__content">
+
+                    <!-- Navbar -->
+
+                    <div class="navbar navbar-expand pr-0 navbar-dark-pickled-bluewood navbar-shadow"
+                         id="default-navbar"
+                         data-primary>
+
+                        <!-- Navbar Toggler -->
+
+                        <button class="navbar-toggler w-auto mr-16pt d-block rounded-0"
+                                type="button"
+                                data-toggle="sidebar">
+                            <span class="material-icons">short_text</span>
+                        </button>
+
+                        <!-- // END Navbar Toggler -->
+
+                        <!-- Navbar Brand -->
+
+                        <a href="/home"
+                           class="navbar-brand mr-16pt">
+
+                            <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
+
+                                <span class="avatar-title rounded"><img src="logo.jpeg"
+                                    alt="logo"
+                                    class="img-fluid" /></span>
+
+                            </span>
+
+                            <span class="d-none d-lg-block">Welcome Admin</span>
+                        </a>
+
+                        <!-- // END Navbar Brand -->
+
+                        
+
+                        <!-- // END Navbar Search -->
+
+                        <div class="flex"></div>
+
+                        <!-- Navbar Menu -->
+
+                        <div class="nav navbar-nav flex-nowrap d-flex mr-16pt">
+
+                            <div class="nav-item dropdown">
+                                <a href="#"
+                                   class="nav-link d-flex align-items-center dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   data-caret="false">
+
+                                    <span class="avatar avatar-sm mr-8pt2">
+
+                                        <span class="avatar-title rounded-circle bg-primary"><i class="material-icons">account_box</i></span>
+
+                                    </span>
+
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <div class="dropdown-header"><strong>Account</strong></div>
+                                    <a class="dropdown-item"
+                                       href="/edit-account">Edit Account</a>
+                                    <a class="dropdown-item"
+                                       href="/logout">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- // END Navbar Menu -->
+
+                    </div>
+
+                    <!-- // END Navbar -->
+
+                </div>
+            </div>
+
+            <!-- // END Header -->
+
+            <!-- Header Layout Content -->
+            <div class="mdk-header-layout__content page-content ">
+
+                <div class="pt-32pt">
+                    <div class="container page__container d-flex flex-column flex-md-row align-items-center text-center text-sm-left">
+                        <div class="flex d-flex flex-column flex-sm-row align-items-center mb-24pt mb-md-0">
+
+                            <div class="mb-24pt mb-sm-0 mr-sm-24pt">
+                                <h2 class="mb-0">Dashboard</h2>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="page-section border-bottom-2">
+                    <div class="container page__container">
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="card border-1 border-left-3 border-left-accent text-center mb-lg-0 quick1">
+                                    <div class="card-body" id="total_credit">
+                                        
+                                    </div>
+
+                            
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="card text-center mb-lg-0 border-1 border-left-3 border-left-accent quick1">
+                                    <div class="card-body" id="total_debit">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="card text-center mb-lg-0 border-1 border-left-3 border-left-accent quick1">
+                                    <div class="card-body" id="total_earning">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                </div>
+                <style>
+                    .quick:hover{
+                        height: 130px;
+                        width: 350px;
+                    }
+                    .quick1:hover{
+                        height: 110px;
+                        width: 350px;
+                    }
+                </style>
+                 <div class="container page__container page-section">
+
+                    <div class="page-separator">
+                        <div class="page-separator__text">Quick Access</div>
+                    </div>
+                    <div class="card card-body mb-32pt">
+                             <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="card text-center mb-lg-0 quick" style="background-image: linear-gradient(to bottom right, #BA4A00, #F4D03F);">
+                                        <a href="/add_student"><div class="card-body">
+                                            <h2 class="mb-0"><i class="fa fa-user-plus" style="font-size:36px; color:black;"></i></h2>
+                                            <div style="font-size: 20px; color:black;">Add Students</div>
+                                        </div>
+                                    </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card text-center mb-lg-0 quick" style="background-image: linear-gradient(to bottom right, #0070ba, #20f8ff);">
+                                        <a href="/sms"><div class="card-body">
+                                            <h4 class="h2 mb-0"><i class="fa fa-send-o" style="color:black;font-size:36px"></i></h4>
+                                            <div style="font-size: 20px; color:black;">Send SMS</div>
+                                        </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card text-center mb-lg-0 quick" style="background-image: linear-gradient(to bottom right, #287910, #1ddb26);">
+                                        <a href="/fees_payment"><div class="card-body">
+                                            <h4 class="h2 mb-0"><i class="fa fa-money" style="color:black;font-size:36px"></i></h4>
+                                            <div style="font-size: 20px; color:black;">Fees Payment</div>
+                                        </div>
+                                        </a>
+                                    </div>
+                                </div>
+                             </div>
+                            
+                             <hr>
+                             <hr>
+
+                             <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="card text-center mb-lg-0 quick" style="background-image: linear-gradient(to bottom right, #707B7C, #B2BABB);">
+                                        <a href="/student"><div class="card-body">
+                                            <h4 class="h2 mb-0"><i class="fa fa-user" style="color:black;font-size:36px"></i></h4>
+                                            <div style="font-size: 20px; color:black;">Student</div>
+                                            
+                                        </div></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card text-center mb-lg-0 quick" style="background-image: linear-gradient(to bottom right, #bb1676, #e100ff);">
+                                        <a href="/finance"><div class="card-body">
+                                            <h4 class="h2 mb-0"><i class="fa fa-check-square-o" style="color:black;font-size:36px"></i></h4>
+                                            <div style="font-size: 20px; color:black;">Finance</div>
+                                        </div></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card text-center mb-lg-0 quick" style="background-image: linear-gradient(to bottom right, #a9ac0d, #eeff00);">
+                                        <a href="/cashbook"><div class="card-body">
+                                            <h4 class="h2 mb-0"><i class="fa fa-book" style="color:black;font-size:36px"></i></h4>
+                                            <div style="font-size: 20px; color:black;">Cashbook</div>
+                                        </div></a>
+                                    </div>
+                                </div>
+                             
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="container page__container page-section">
+                    <div class="row mb-8pt">
+                        <div class="col-lg-6">
+
+                            <div class="page-separator">
+                                <div class="page-separator__text">SMS</div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="media align-items-center">
+                                        <div class="media-body">
+                                          <p class="text-primary">SMS Balance</p>
+                                          <h4 class="text-primary">
+                                              0 </h4>
+                                        </div>
+                                        
+                                          <i class="fa fa-envelope text-primary" style="font-size:38px;"></i>
+                                      </div>
+                                    
+                                    <div class="media align-items-center">
+                                        <div class="media-body">
+                                          <p class="text-success">SMS Sent</p>
+                                          <h4 class="text-success">
+                                              0 </h4>
+                                        </div>
+                                        
+                                          <i class="fa fa-envelope-open text-success" style="font-size:38px;"></i>
+                                      </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- // END Header Layout Content -->
+
+            <!-- Footer 
+
+            <div class="bg-white border-top-2 mt-auto">
+                <div class="container page__container page-section d-flex flex-column">
+                    <p class="text-70 brand mb-24pt">
+                        <img class="brand-icon"
+                             src="/public/images/logo/black-70@2x.jpeg"
+                             width="30"
+                             alt="Luma"> Luma
+                    </p>
+                    <p class="measure-lead-max text-50 small mr-8pt">Luma is a beautifully crafted user interface for modern Education Platforms, including Courses & Tutorials, Video Lessons, Student and Teacher Dashboard, Curriculum Management, Earnings and Reporting, ERP, HR, CMS, Tasks, Projects, eCommerce and more.</p>
+                    <p class="mb-8pt d-flex">
+                        <a href=""
+                           class="text-70 text-underline mr-8pt small">Terms</a>
+                        <a href=""
+                           class="text-70 text-underline small">Privacy policy</a>
+                    </p>
+                    <p class="text-50 small mt-n1 mb-0">Copyright 2019 &copy; All rights reserved.</p>
+                </div>
+            </div>-->
+
+            <!-- // END Footer -->
+            <div class="bg-white border-top-2 mt-auto">
+                <div class="container page__container page-section d-flex flex-column">
+                    <p class="text-70 brand mb-24pt">
+                        <img class="brand-icon"
+                             src="maze.jpeg"
+                             width="150"
+                             alt="mazesoftsolution">
+                    </p>
+                    <p class="measure-lead-max text-50 small mr-8pt">We have reached an age where the entire world is reduced to a global village. In this realm of connected living and sharing, we envision a future that will redefine the very purpose of our existence. Today, the solutions are more refined than the demand itself. What we get is better than what we asked for. Businesses, big or small, look for companies that will refine their business needs, more than offering a ready solution. They look for companies that offer competitive web and mobile apps development, e-commerce, and Open-source CMS development to propel their business expansion.</p>
+                    <p class="text-50 small mt-n1 mb-0">Developed by <a href="http://www.mazesoftsolutions.com/">Maze Soft Solution</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- // END Header Layout -->
+
+        <!-- Drawer -->
+
+        <div class="mdk-drawer js-mdk-drawer"
+             id="default-drawer">
+            <div class="mdk-drawer__content">
+                <div class="sidebar sidebar-dark-pickled-bluewood sidebar-left"
+                     data-perfect-scrollbar>
+
+                    <!-- Sidebar Content -->
+
+                    <a href="/home"
+                       class="sidebar-brand ">
+                        <!-- <img class="sidebar-brand-icon" src="/public/images/illustration/student/128/white.svg" alt="Luma"> -->
+
+                        <span class="avatar avatar-xl sidebar-brand-icon h-auto">
+
+                            <span class="avatar-title rounded"><img src="logo.jpeg"
+                                alt="logo"
+                                class="img-fluid" /></span>
+
+                        </span>
+
+                        <span>Welcome Admin</span>
+                    </a>
+
+                    
+                        
+                    <ul class="sidebar-menu">
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/home">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">home</span>
+                                <span class="sidebar-menu-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/cashbook">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">receipt</span>
+                                <span class="sidebar-menu-text">Cashbook</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/fees_payment">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">shopping_cart</span>
+                                <span class="sidebar-menu-text">Fees Payments</span>
+                            </a>
+                        </li>
+                        <ul class="sidebar-menu">
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button js-sidebar-collapse"
+                                   data-toggle="collapse"
+                                   href="#enterprise_menu">
+                                    <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">donut_large</span>
+                                    Applications
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse sm-indent"
+                                    id="enterprise_menu">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/contact">
+                                            <span class="sidebar-menu-text">Contact</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/add_contact">
+                                            <span class="sidebar-menu-text">Add Contact</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button disabled"
+                                           href="/hr-dashboard">
+                                            <span class="sidebar-menu-text">Applications</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button disabled"
+                                           href="/employees">
+                                            <span class="sidebar-menu-text">Add Applications</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#productivity_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">local_library</span>
+                                Students
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="productivity_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/student">
+                                        <span class="sidebar-menu-text">Students</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_student">
+                                        <span class="sidebar-menu-text">Add Students</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/room">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">room</span>
+                                <span class="sidebar-menu-text">Create Room</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#ecommerce_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">people_outline</span>
+                                Staffs
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="ecommerce_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/staff">
+                                        <span class="sidebar-menu-text">Staffs</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_staff">
+                                        <span class="sidebar-menu-text">Add Staffs</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#messaging_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">dvr</span>
+                                Classes
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="messaging_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/class">
+                                        <span class="sidebar-menu-text">Classes</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_class">
+                                        <span class="sidebar-menu-text">Add Classes</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#account_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                Departments
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="account_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/department">
+                                        <span class="sidebar-menu-text">Departments</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_department">
+                                        <span class="sidebar-menu-text">Add Departments</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#community_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                Sessions
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="community_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/session">
+
+                                        <span class="sidebar-menu-text">Sessions</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_session">
+
+                                        <span class="sidebar-menu-text">Add Sessions</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#components_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">account_box</span>
+                                Users
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="components_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/user">
+                                        <span class="sidebar-menu-text">Users</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_user">
+                                        <span class="sidebar-menu-text">Add Users</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/invoice">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">message</span>
+                                <span class="sidebar-menu-text">Invoices</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/finance">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">trending_up</span>
+                                <span class="sidebar-menu-text">Finance</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/system_history">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">access_time</span>
+                                <span class="sidebar-menu-text">System History</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/bin">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">help</span>
+                                <span class="sidebar-menu-text">Recyle Bin</span>
+                            </a>
+                        </li>
+                    </ul>
+                    
+
+                    <!-- // END Sidebar Content -->
+
+                </div>
+            </div>
+        </div>
+
+        <!-- // END Drawer -->
+
+        <!-- jQuery -->
+        <script src="/public/vendor/jquery.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="/public/vendor/popper.min.js"></script>
+        <script src="/public/vendor/bootstrap.min.js"></script>
+
+        <!-- Perfect Scrollbar -->
+        <script src="/public/vendor/perfect-scrollbar.min.js"></script>
+
+        <!-- DOM Factory -->
+        <script src="/public/vendor/dom-factory.js"></script>
+
+        <!-- MDK -->
+        <script src="/public/vendor/material-design-kit.js"></script>
+
+        <!-- App JS -->
+        <script src="/public/js/app.js"></script>
+
+        <!-- Preloader -->
+        <script src="/public/js/preloader.js"></script>
+
+        <!-- Global Settings -->
+        <script src="/public/js/settings.js"></script>
+
+        <!-- Moment.js -->
+        <script src="/public/vendor/moment.min.js"></script>
+        <script src="/public/vendor/moment-range.js"></script>
+
+        <!-- Chart.js -->
+        <script src="/public/vendor/Chart.min.js"></script>
+
+        <!-- UI Charts Page JS -->
+        <script src="/public/js/chartjs-rounded-bar.js"></script>
+        <script src="/public/js/chartjs.js"></script>
+
+        <!-- Chart.js Samples -->
+        <script src="/public/js/page.instructor-dashboard.js"></script>
+
+        <!-- List.js -->
+        <script src="/public/vendor/list.min.js"></script>
+        <script src="/public/js/list.js"></script>
+
+    </body>
+
+</html>

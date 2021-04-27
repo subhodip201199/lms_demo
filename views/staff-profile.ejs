@@ -1,0 +1,1371 @@
+
+<!DOCTYPE html>
+<html lang="en"
+      dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+              <title> Hashimia International Academy</title>
+              <link rel="icon" href="logo.jpeg" type="image/gif" sizes="16x16">
+
+        <!-- Prevent the demo from appearing in search engines -->
+        <meta name="robots"
+              content="noindex">
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/vendor/spinkit.css"
+              rel="stylesheet">
+
+        <!-- Perfect Scrollbar -->
+        <link type="text/css"
+              href="./public/vendor/perfect-scrollbar.css"
+              rel="stylesheet">
+
+        <!-- Material Design Icons -->
+        <link type="text/css"
+              href="./public/css/material-icons.css"
+              rel="stylesheet">
+
+        <!-- Font Awesome Icons -->
+        <link type="text/css"
+              href="./public/css/fontawesome.css"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/css/preloader.css"
+              rel="stylesheet">
+
+        <!-- App CSS -->
+        <link type="text/css"
+              href="./public/css/app.css"
+              rel="stylesheet">
+
+     
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+   <!-- jQuery -->
+   <script src="./public/vendor/jquery.min.js"></script>
+
+        <script>
+           
+            var staff_id;
+                const url = "/search_staffs/getdata";
+    
+                fetch(url)
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (data) {
+                        staff_id = data[0].staff_id;
+                        staff_fname = data[0].first_name;
+                        staff_lname = data[0].last_name;
+                       
+                        staff_department = data[0].department;
+                        staff_joindate = data[0].joindate;
+                        staff_father_name = data[0].father_name;
+                        
+                       
+                       
+                        staff_phone = data[0].phone;
+                        staff_email = data[0].email;
+                        staff_aadhaar = data[0].aadhaar_no;
+                        staff_address = data[0].address;
+                        staff_total_salary = data[0].totalsalary;
+                        
+                        $('#qualification_form').attr('action', '/StaffQualifications/add?staff_id=' + staff_id + '');
+                        
+                        $('#staff_det_id').append('<h5 class="pull-left">EMPLOYEE ID : ' + staff_id + '</h5>');
+
+                        $('#staff_det1').append('<h3>' + staff_fname + ' ' +staff_lname + '</h3>');
+                        $('#staff_det1').append('<h6>Department : ' + staff_department + '</h6>');
+                       
+                        $('#staff_det1').append('<h6>Joining Date : ' + staff_joindate + '</h6>');
+                       
+
+                        $('#td1').append(''+ staff_father_name +'');
+                        $('#td2').append(''+ staff_phone +'');
+                        $('#td3').append(''+ staff_email +'');
+                        $('#td4').append(''+ staff_aadhaar +'');
+                        $('#td5').append(''+ staff_address +'');
+                        $('#sal_det').append('<center><h4 class="mb-0">' + staff_total_salary + '</h4></center>' + 
+                        '<center><span>Total Salary</span></center>');
+
+                       
+
+                        $('#edit_form').attr('action', '/staff-profile/edit?staff_id=' + staff_id + '');
+
+
+                        $('#input1').append('<input id="input_1" type="text" name="firstname" class="form-control" placeholder="Firstname" required="" >');
+                        document.getElementById('input_1').value= staff_fname ;
+                        
+                        $('#input2').append('<input id="input_2" type="text" name="lastname" class="form-control" placeholder="Lastname" required=""  >');
+                        document.getElementById('input_2').value= staff_lname ;
+                        
+                        $('#input3').append('<input id="input_3" type="text" name="fatherName" class="form-control" placeholder="Father Name" >');
+                        document.getElementById('input_3').value= staff_father_name ;
+                        
+                        $('#input4').append('<input id="input_4" type="text" name="phone" class="form-control" placeholder="staff Phone" required="" >');
+                        document.getElementById('input_4').value= staff_phone ;
+                        
+                        $('#input5').append('<input id="input_5" type="text" name="email" class="form-control" placeholder="E-mail" >');
+                        document.getElementById('input_5').value= staff_email ;
+                        
+                        $('#input6').append('<input id="input_6" type="text" name="aadhaar" class="form-control" placeholder="Aadhaar Number" >');
+                        document.getElementById('input_6').value= staff_aadhaar ;
+                        
+                        $('#input7').append('<input id="input_7" type="text" name="salary" class="form-control" placeholder="Salary" >');
+                        document.getElementById('input_7').value= staff_total_salary ;
+                        
+                        $('#input8').append('<input id="input_8" type="text" name="joinDate" class="form-control" placeholder="Joining Date" >');
+                        document.getElementById('input_8').value= staff_joindate ;
+                        
+                        $('#input9').append(' <textarea rows="6" name="address" class="form-control" placeholder="Address">' + staff_address + '</textarea>');
+
+
+                        $('#profile_photo').append('<img src="'+ staff_id +'_profile-picture.jpg"' + ' class="img-thumbnail img-responsive student-profile-image" alt="profile photo">');
+                        $('#profile_photo_edit').append('<img src="'+ staff_id +'_profile-picture.jpg"' + ' class="img-thumbnail img-responsive add-student-profile-image" alt="profile photo">');
+                            
+                     
+                       
+                        $('#show_aadhaar1').attr('src', '/documents/' + staff_id + '_aadhaar.pdf');
+                        $('#show_pan1').attr('src', '/documents/' + staff_id + '_pan.pdf');
+                        $('#show_bank1').attr('src', '/documents/' + staff_id + '_bank.pdf');
+                        
+                    })
+                    .catch(function (err) {
+                        console.log('error: ' + err);
+                    });
+    
+    
+        </script>
+
+        <script>
+                                                           
+            const url1 = "/StaffQualifications/getdata";
+        
+            fetch(url1)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    $("#tbody_qual tr").remove(); 
+                    appendData22(data);
+                })
+                .catch(function (err) {
+                    console.log('error: ' + err);
+                });
+            
+            
+            
+            
+            function appendData22(data) {
+                var mainContainer = document.getElementById("tbody_qual");
+                
+                for (var i = 0; i < data.length; i++) {
+                
+                
+                
+                    var id = data[i].id;
+                    
+                
+                    var div = document.createElement("tr");
+                    div.innerHTML = '<tr>' +
+                                        
+                                        '<td>'+ 
+                                            data[i].examination +
+                                        '</td>' +
+                                        '<td>' + 
+                                            data[i].board + 
+                                        '</td>' +
+                                        '<td>' + 
+                                            data[i].subjects +
+                                        '</td>' +
+                                        '<td>' +
+                                            data[i].total_marks +
+                                        '</td>' +
+                                        '<td>' +
+                                            data[i].obtained +
+                                        '</td>' +
+                                        '<td>' +
+                                            data[i].percentage +
+                                        '</td>' +
+                                        '<td>' +
+                                            data[i].year +
+                                        '</td>' +
+                                    '</tr>' ;
+                    mainContainer.appendChild(div);
+                }
+            }
+                                                            
+            function remove_staff(){
+            alert("Staff successfully removed!");
+            
+
+            window.location.href = "/staff/remove"; 
+        }                                                                      
+                                                                
+        </script>
+        
+
+
+    </head>
+
+    <body class="layout-sticky-subnav layout-default ">
+
+        <div class="preloader">
+            <div class="sk-chase">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+            </div>
+
+            <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+            <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples -->
+        </div>
+
+        <!-- Header Layout -->
+        <div class="mdk-header-layout js-mdk-header-layout">
+
+            <!-- Header -->
+
+            <div id="header"
+                 class="mdk-header js-mdk-header mb-0"
+                 data-fixed
+                 data-effects="">
+                <div class="mdk-header__content">
+
+                    <!-- Navbar -->
+
+                    <div class="navbar navbar-expand pr-0 navbar-dark-pickled-bluewood navbar-shadow"
+                         id="default-navbar"
+                         data-primary>
+
+                        <!-- Navbar Toggler -->
+
+                        <button class="navbar-toggler w-auto mr-16pt d-block rounded-0"
+                                type="button"
+                                data-toggle="sidebar">
+                            <span class="material-icons">short_text</span>
+                        </button>
+
+                        <!-- // END Navbar Toggler -->
+
+                        <!-- Navbar Brand -->
+
+                        <a href="/home"
+                           class="navbar-brand mr-16pt">
+
+                            <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
+
+                                <span class="avatar-title rounded"><img src="logo.jpeg"
+                                    alt="logo"
+                                    class="img-fluid" /></span>
+
+                            </span>
+
+                            <span class="d-none d-lg-block">Welcome Admin</span>
+                        </a>
+
+                        <!-- // END Navbar Brand -->
+
+                        
+
+                        <!-- // END Navbar Search -->
+
+                        <div class="flex"></div>
+
+                        <!-- Navbar Menu -->
+
+                        <div class="nav navbar-nav flex-nowrap d-flex mr-16pt">
+
+                            <div class="nav-item dropdown">
+                                <a href="#"
+                                   class="nav-link d-flex align-items-center dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   data-caret="false">
+
+                                    <span class="avatar avatar-sm mr-8pt2">
+
+                                        <span class="avatar-title rounded-circle bg-primary"><i class="material-icons">account_box</i></span>
+
+                                    </span>
+
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <div class="dropdown-header"><strong>Account</strong></div>
+                                    <a class="dropdown-item"
+                                       href="/edit-account">Edit Account</a>
+                                    <a class="dropdown-item"
+                                       href="/logout">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- // END Navbar Menu -->
+
+                    </div>
+
+                    <!-- // END Navbar -->
+
+                </div>
+            </div>
+
+            <!-- // END Header -->
+
+            <!-- Header Layout Content -->
+            <div class="mdk-header-layout__content page-content ">
+                <div class="clearfix"></div>
+            <div class="content-wrapper">
+                <div class="container-fluid softnic-container-fluid">
+                    <!-- Breadcrumb-->
+                    <div class="row pt-2 pb-2">
+                        <div class="col-sm-9">
+                            <h4 class="page-title">Employee Profile</h4>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                                <li class="breadcrumb-item"><a href="javaScript: void();">Employee Profile</a></li>
+                            </ol>
+                        </div>
+                        
+                    </div>
+                    <!-- End Breadcrumb-->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card mb-2">
+                                        <div class="card-header" id="staff_det_id">
+                                            <button type="button" onclick="remove_staff()" class="btn btn-outline-danger btn-sm waves-effect waves-light m-1 pull-right" data-toggle="modal" data-target="#removeStudentPassModal"><i class="fa fa-trash mr-1"></i> REMOVE</button>
+                                            <button type="button" class="btn btn-outline-dark btn-sm waves-effect waves-light m-1 pull-right softnic-profile-edit-btn" data-toggle="modal" data-target="#editProfile"> <i class="fa fa-pencil"></i> Edit </button>
+                                            <button type="button" class="btn btn-outline-dark btn-sm waves-effect waves-light m-1 pull-right" data-toggle="modal" data-target="#propic"> <i class="fa fa-user"></i> &nbsp;Profile Photo </button>
+
+                                        </div>
+                                        <div >
+                                            <div class="card-body">
+                                                <div id="profile_photo" class="col-lg-2 softnic-f-l">
+                                                                                                          
+                                                </div>
+                                                <div class="col-lg-10 softnic-f-l" ID="staff_det1">
+                                                    
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <hr>
+                                                <div class="col-lg-12">
+                                                    <div class="table-responsive">
+                                                        <table class="table softnic-profile-table">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th scope="row">Father Name<span>:</span></th>
+                                                                    <td id="td1"></td>
+                                                                    <th scope="row">Phone<span>:</span></th>
+                                                                    <td id="td2"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">E-mail<span>:</span></th>
+                                                                    <td id="td3"></td>
+                                                                    <th scope="row">Aadhaar No<span>:</span></th>
+                                                                    <td  id="td4"></td>
+                                                                    
+                                                                </tr>
+                                                            
+                                                            </tbody>
+                                                        </table>
+                                                        <table class="table softnic-profile-table">
+                                                            <tbody>
+                                                                <tr class="softnic-no-border-top">
+                                                                    <th scope="row">Address<span>:</span></th> 
+                                                                    <td id="td5"></td>
+                                                            
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card mb-2">
+                                        <div class="card-header">
+                                            <h5 class="pull-left">Educational Qualification</h5>
+                                            <button type="button" class="btn btn-outline-dark btn-sm waves-effect waves-light m-1 pull-right softnic-profile-edit-btn" data-toggle="modal" data-target="#addEducation"> <i class="fa fa-plus"></i> Add </button>
+                                        </div>
+                                        <div >
+                                            <div class="card-body">
+                                                
+                                                <div class="col-lg-12">
+                                                    <div class="table-responsive">
+                                                        <table id="stf_qual" class="table softnic-profile-edu-table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="row">Examnation</th>
+                                                                    <th scope="row">Board</th>
+                                                                    <th scope="row">Subjects</th>
+                                                                    <th scope="row">Total Markes</th>
+                                                                    <th scope="row">Obtained</th>
+                                                                    <th scope="row">Percentage</th>
+                                                                    <th scope="row">Year</th>
+                                                                </tr>
+                                                                                                                                        
+                                                            </thead>
+
+                                                            <tbody id="tbody_qual">
+                                                                
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br><br>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card mb-2">
+                                        <div class="card-header">
+                                            <h5 class="pull-left">Salary Details</h5>
+                                            <button type="button" class="btn btn-outline-dark btn-sm waves-effect waves-light m-1 pull-right softnic-profile-edit-btn" data-toggle="modal" data-target="#makeManualPayment"> <i class="fa fa-plus"></i> Pay </button>
+                                        </div>
+                                        <div >
+                                            <div class="card-body">
+                                                <div class="col-lg-12">
+                                                    <div class="col-lg-4 pull-left dep-uts-money">
+                                                        <div class="card gradient-deepblue">
+                                                            <div class="card-body">
+                                                                <div class="media">
+                                                                    <div class="media-body text-left" id="sal_det">
+                                                                        
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <!-- <div class="col-lg-4 pull-right">
+                                                        <div class="card gradient-branding">
+                                                            <div class="card-body">
+                                                                <div class="media">
+                                                                    <div class="media-body text-left">
+                                                                        <h4 class="text-white mb-0">Rs. 50000</h4>
+                                                                        <span class="text-white">Outstanding </span>
+                                                                    </div>
+                                                                    <div class="align-self-center w-circle-icon rounded border border-white">
+                                                                        <i class="fa fa-money text-white"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> -->
+                                                </div>
+                                                <br><br>
+                                                
+
+
+                                                <div class="col-lg-12 pull-left">
+                                                    <h5>Payment History</h5>
+                                                    <hr>
+                                                    <div class="table-responsive">
+                                                        <table class="table softnic-profile-edu-table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Purpose</th>
+                                                                    <th>Date</th>
+                                                                    <th>Amount</th>
+                                                                    <th>Payment Method</th>
+                                                                    <th>Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="staff_payment">
+                                                                
+                                                            
+                                                                        
+                                                            </tbody>
+                                                        </table>
+
+                                                        <script>
+                                                            const url9 = "/staff_payment/getdata";
+                                    
+                                                            fetch(url9)
+                                                                .then(function (response) {
+                                                                    return response.json();
+                                                                })
+                                                                .then(function (data) {
+                                                                
+                                                                    appendData33(data);
+                                                                })
+                                                                .catch(function (err) {
+                                                                    console.log('error: ' + err);
+                                                                });
+                                                            
+                                                                function appendData33(data) {
+                                                                    var mainContainer = document.getElementById("staff_payment");
+                
+                                                                    for (var i = 0; i < data.length; i++) {
+                                                                    
+                                                                    
+                                                                    
+                                                                        var id = data[i].id;
+
+                                                                    
+                                                                        var div = document.createElement("tr");
+                                                                        div.innerHTML = '<tr>' +
+
+                                                                                            '<td>'+ 
+                                                                                                data[i].purpose +
+                                                                                            '</td>' +
+                                                                                            '<td>' + 
+                                                                                                data[i].payment_date+ 
+                                                                                            '</td>' +
+                                                                                            '<td>' + 
+                                                                                                data[i].amount +
+                                                                                            '</td>' +
+                                                                                            '<td>' + 
+                                                                                                data[i].payment_method +
+                                                                                            '</td>' +
+                                                                                            '<td>' + 
+                                                                                                '<button id="' + id + '" class="btn btn-outline-danger waves-effect waves-light m-1 btn-sm-softnic removeContClk" onClick="delete_click(this.id)"><i class="fa fa-trash"></i></button>' +
+                                                                                            '</td>' +
+                                                                                            
+                                                                                        '</tr>' ;
+                                                                        mainContainer.appendChild(div);
+                                                                    }
+                                                                }
+                                                                
+
+                                                                function delete_click(clicked_id) {
+                                                                    alert("Payment Reverted!" );
+                                                                    
+                                                                    const url  = "staff_payment/remove?id=" +  clicked_id;
+                                                        
+                                                                    fetch(url)
+                                                                        .then(function (response) {
+                                                                                return null;
+                                                                            })
+                                                                            .then(function () {
+                                                                                status_click();
+                                                                            })
+                                                                            .catch(function (err) {
+                                                                                console.log('error: ' + err);
+                                                                            });
+                                                                }
+
+                                                                function status_click() {
+                                                                    const url = "staff_payment/getdata";
+
+                                                                    fetch(url)
+                                                                        .then(function (response) {
+                                                                            return response.json();
+                                                                        })
+                                                                        .then(function (data) {
+                                                                            $("#staff_payment tr").remove();
+                                                                            appendData(data);
+                                                                        })
+                                                                        .catch(function (err) {
+                                                                            console.log('error: ' + err);
+                                                                        });
+
+                                                                        function appendData(data) {
+                                                                            
+                                                                            var mainContainer = document.getElementById("staff_payment");
+
+                                                                            for (var i = 0; i < data.length; i++) {
+                                                                            
+                                                                            
+                                                                            
+                                                                                var id = data[i].id;
+                                                                            
+                                                                                var div = document.createElement("tr");
+                                                                                div.innerHTML = '<tr>' +
+
+                                                                                                    '<td>'+ 
+                                                                                                        data[i].purpose +
+                                                                                                    '</td>' +
+                                                                                                    '<td>' + 
+                                                                                                        data[i].payment_date+ 
+                                                                                                    '</td>' +
+                                                                                                    '<td>' + 
+                                                                                                        data[i].amount +
+                                                                                                    '</td>' +
+                                                                                                    '<td>' + 
+                                                                                                        data[i].payment_method +
+                                                                                                    '</td>' +
+                                                                                                    '<td>' + 
+                                                                                                        '<button id="' + id + '" class="btn btn-outline-danger waves-effect waves-light m-1 btn-sm-softnic removeContClk" onClick="delete_click(this.id)"><i class="fa fa-trash"></i></button>' +
+                                                                                                    '</td>' +
+                                                                                                    
+                                                                                                '</tr>' ;
+                                                                             mainContainer.appendChild(div);
+                                                                                                    
+                                                                        }                                        
+                                                                    }
+                                                                
+                                                                    }
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card mb-2">
+                                        <div class="card-header">
+                                            <h5 class="pull-left">Documents</h5>
+                                        </div>
+                                        <div >
+                                            <div class="card-body">
+                                                <div class="col-lg-12">
+                                                    <form  action="/document_upload/staff/aadhaar" method="post" enctype="multipart/form-data">	
+                                                        <div class="row">
+                                                            <label for="aadhaar">Aadhaar Card: &nbsp;</label>
+                                                            <input id="aadhaar" name="aadhaar" type="file" name="studentDoc" required> 
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <input type="hidden" name="sid" value="370">
+                                                            <button type="submit" name="addStudentDoc" class="btn btn-primary"><i class="fa fa-plus"></i> Add</button>
+                                                        </div>
+                                                        <br><br>
+                                                    </form>
+                                                    <form  action="/document_upload/staff/pan" method="post" enctype="multipart/form-data">	
+                                                        
+                                                        <div class="row">
+                                                        <label for="pan">PAN Card: &nbsp;</label>
+                                                        <input id="pan" name="pan" type="file" name="studentDoc" required> 
+                                                        
+                                                        
+                                                        
+                                                        <input type="hidden" name="sid" value="370">
+                                                        <button type="submit" name="addStudentDoc" class="btn btn-primary"><i class="fa fa-plus"></i> Add</button>
+                                                        
+                                                        </div>
+                                                        <br><br>
+                                                    </form>
+                                                    <form  action="/document_upload/staff/bank" method="post" enctype="multipart/form-data">	
+                                                        
+                                                        <div class="row">
+                                                        <label for="bank">Bank Statement: &nbsp;</label>
+                                                        <input id="bank" name="bank" type="file" name="studentDoc" required> 
+                                                        
+                                                        
+                                                        <input type="hidden" name="sid" value="370">
+                                                        <button type="submit" name="addStudentDoc" class="btn btn-primary"><i class="fa fa-plus"></i> Add</button>
+                                                        </div>
+                                                        <br><br>
+                                                    </form>
+
+                
+
+                                                    <hr>
+                                                    <embed id="show_aadhaar1" src="" width="350px" height="550px" />
+                                                    <embed id="show_pan1" src="" width="350px" height="550px" />
+                                                    <embed id="show_bank1" src="" width="350px" height="550px" />
+
+                                                    <div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+                                                    
+                                            	</div>
+                                        	</div>
+                                    	</div>
+                                	</div>
+                            	</div>
+                        	</div>
+                    	</div>
+                	</div>
+                	<!-- End container-fluid-->
+                	<div class="overlay"></div>
+            	</div>
+            <!--End content-wrapper-->
+            </div>
+            </div>
+             <!-- modal data start -->
+
+        <div class="modal fade" id="editProfile" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Profile <font style="color: red;">(<b>*</b> You need to fill up all the field)</font></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form action="" method="post"  id="edit_form" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Firstname</label>
+                            <div class="col-sm-9">
+                                <div class="input-group" id="input1">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Lastname</label>
+                            <div class="col-sm-9">
+                                <div class="input-group" id="input2">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Father Name</label>
+                            <div class="col-sm-9">
+                                <div class="input-group" id="input3">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Phone</label>
+                            <div class="col-sm-9">
+                                <div class="input-group" id="input4">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">E-mail</label>
+                            <div class="col-sm-9">
+                                <div class="input-group" id="input5">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Aadhaar No</label>
+                            <div class="col-sm-9">
+                                <div class="input-group" id="input6">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Salary</label>
+                            <div class="col-sm-9">
+                                <div class="input-group" id="input7">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Department <b style="color: red;">*</b></label>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <select id="dept" name="department" class="form-control single-select" required>
+                                        <option value="">Select Department</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <label for="input-21" class="col-sm-3 col-form-label">Join Date</label>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <div class="input-group" id="input8">
+                                    	
+                                	</div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Address</label>
+                            <div class="col-sm-3">
+                                <div class="input-group" id="input9">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="eid" value="4">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        <button type="submit" name="updateStuffProfile" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Update Profile</button>
+                    </div>
+                    </form>
+
+                    <script type="text/javascript">
+                        function validateFileType(){
+                            var fileName = document.getElementById("studentPhotoId").value;
+                            var idxDot = fileName.lastIndexOf(".") + 1;
+                            var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+                            if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+                                //TO DO
+                            }else{
+                                alert("Only .jpg, .jpeg and .png files are allowed!");
+                            }   
+                        }
+                    </script>
+
+                    <script>
+                        const url3 = "/studentDepartment/getdata";
+
+                        fetch(url3)
+                            .then(function (response) {
+                                return response.json();
+                            })
+                            .then(function (data) {
+                            
+                                appendData(data);
+                            })
+                            .catch(function (err) {
+                                console.log('error: ' + err);
+                            });
+                        
+                            function appendData(data) {
+                                        //var mainContainer = document.getElementById("doctor_id");
+                            
+                                        for (var i = 0; i < data.length; i++) {
+                                        
+                                        
+                                        
+                                            var id = data[i].id;
+                                        
+                                            var daySelect = document.getElementById("dept");
+                                            var myOption = document.createElement("option");
+                                            myOption.text = data[i].department_name;
+                                            myOption.value = data[i].department_name;
+                                            daySelect.add(myOption);
+                                                                
+                                        }
+                            }
+
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="addEducation" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Qualification</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form id="qualification_form" action="" method="POST">
+	                    <div class="modal-body">
+	                        <div class="table-responsive">
+	                            <table class="table softnic-profile-edu-table">
+	                                <tbody>
+	                                    <tr>
+	                                        <th scope="row">Examnation</th>
+	                                        <th scope="row">Board</th>
+	                                        <th scope="row">Subjects</th>
+	                                        <th scope="row">Total Markes</th>
+	                                        <th scope="row">Obtained</th>
+	                                        <th scope="row">Percentage (%)</th>
+                                            <th scope="row">Year</th>
+	                                    </tr>
+	                                    <tr>
+	                                        <td><input class="form-control" type="text" name="exam" required></td>
+	                                        <td><input class="form-control" type="text" name="board" required></td>
+	                                        <td><textarea rows="1" class="form-control" name="subjects" required></textarea></td>
+	                                        <td><input class="form-control" type="text" name="totalMarks" required></td>
+	                                        <td><input class="form-control" type="text" name="obtained" required></td>
+	                                        <td><input class="form-control" type="text" name="percentage" required></td>
+                                            <td><input class="form-control" type="text" name="year" required></td>
+	                                    </tr>
+	                                </tbody>
+	                            </table>
+	                        </div>
+	                    </div>
+	                    <input type="hidden" name="eid" value="4">
+	                    <div class="modal-footer">
+	                        <button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+	                        <button type="submit" name="updateStuffQualification" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Add Qualification</button>
+	                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="makeManualPayment" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Make a payment</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form action="/staff_payment/pay" method="POST">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <input type="text" name="manulaPurpose" class="form-control" id="input-6" placeholder="Purpose of payment" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="manualAmount" class="form-control" id="input-2" placeholder="amount" required>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" id="input-2" name="payment_method"  value="Select Mode of transaction" required>
+                                    <option value="">Select Payment Method</option>
+                                    <option value="Bank-Transfer">Bank Transfer</option>
+                                    <option value="Cash">Cash</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-header">
+                        <button type="submit" name="makeManualPayment" class="btn btn-danger pull-right"><i class="fa fa-trash-o"></i> Pay</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="propic" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content animated">
+                    <form action="/staff_profilepic/add" method="post" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Set a Profile Picture</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div id="content" style="overflow: hidden; background-color: white;">
+                        <div class="card-body pt-0">
+                            <div class="col-lg-12">
+                                
+                                
+                                    <div class="form-group row">
+                                        <label for="input-21" class="col-sm-6 col-form-label">Staff Photo (.jpg, .jpeg, .png files only) <b style="color: red;">*</b></label>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <input id="studentPhotoId" class="form-control" type="file" name="staffPhoto" accept=".jpg, .jpeg, .png" onchange="validateFileType()" required>
+                                            </div>
+                                            <div id="profile_photo_edit">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit"  class="btn btn-success"><i class="fa fa-plus"></i>&nbsp; Submit</button>
+                    </div>
+                </form>
+                <script type="text/javascript">
+                    function validateFileType(){
+                        var fileName = document.getElementById("studentPhotoId").value;
+                        var idxDot = fileName.lastIndexOf(".") + 1;
+                        var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+                        if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+                            //TO DO
+                        }else{
+                            alert("Only .jpg, .jpeg and .png files are allowed!");
+                        }   
+                    }
+                </script>
+                </div>
+            </div>
+            <div class="bg-white border-top-2 mt-auto">
+                <div class="container page__container page-section d-flex flex-column">
+                    <p class="text-70 brand mb-24pt">
+                        <img class="brand-icon"
+                             src="maze.jpeg"
+                             width="150"
+                             alt="mazesoftsolution">
+                    </p>
+                    <p class="measure-lead-max text-50 small mr-8pt">We have reached an age where the entire world is reduced to a global village. In this realm of connected living and sharing, we envision a future that will redefine the very purpose of our existence. Today, the solutions are more refined than the demand itself. What we get is better than what we asked for. Businesses, big or small, look for companies that will refine their business needs, more than offering a ready solution. They look for companies that offer competitive web and mobile apps development, e-commerce, and Open-source CMS development to propel their business expansion.</p>
+                    <p class="text-50 small mt-n1 mb-0">Developed by <a href="http://www.mazesoftsolutions.com/">Maze Soft Solution</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- modal data end -->
+
+        <!-- Drawer -->
+
+        <div class="mdk-drawer js-mdk-drawer"
+             id="default-drawer">
+            <div class="mdk-drawer__content">
+                <div class="sidebar sidebar-dark-pickled-bluewood sidebar-left"
+                     data-perfect-scrollbar>
+
+                    <!-- Sidebar Content -->
+
+                    <a href="/home"
+                       class="sidebar-brand ">
+                        <!-- <img class="sidebar-brand-icon" src="/public/images/illustration/student/128/white.svg" alt="Luma"> -->
+
+                        <span class="avatar avatar-xl sidebar-brand-icon h-auto">
+
+                            <span class="avatar-title rounded"><img src="logo.jpeg"
+                                alt="logo"
+                                class="img-fluid" /></span>
+
+                        </span>
+
+                        <span>Welcome Admin</span>
+                    </a>
+
+                    
+                        
+                    <ul class="sidebar-menu">
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/home">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">home</span>
+                                <span class="sidebar-menu-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/cashbook">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">receipt</span>
+                                <span class="sidebar-menu-text">Cashbook</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/fees_payment">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">shopping_cart</span>
+                                <span class="sidebar-menu-text">Fees Payments</span>
+                            </a>
+                        </li>
+                        <ul class="sidebar-menu">
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button js-sidebar-collapse"
+                                   data-toggle="collapse"
+                                   href="#enterprise_menu">
+                                    <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">donut_large</span>
+                                    Applications
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse sm-indent"
+                                    id="enterprise_menu">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/contact">
+                                            <span class="sidebar-menu-text">Contact</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/add_contact">
+                                            <span class="sidebar-menu-text">Add Contact</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button disabled"
+                                           href="/hr-dashboard">
+                                            <span class="sidebar-menu-text">Applications</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button disabled"
+                                           href="/employees">
+                                            <span class="sidebar-menu-text">Add Applications</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#productivity_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">local_library</span>
+                                Students
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="productivity_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/student">
+                                        <span class="sidebar-menu-text">Students</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_student">
+                                        <span class="sidebar-menu-text">Add Students</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/room">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">room</span>
+                                <span class="sidebar-menu-text">Create Room</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#ecommerce_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">people_outline</span>
+                                Staffs
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="ecommerce_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/staff">
+                                        <span class="sidebar-menu-text">Staffs</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_staff">
+                                        <span class="sidebar-menu-text">Add Staffs</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#messaging_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">dvr</span>
+                                Classes
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="messaging_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/class">
+                                        <span class="sidebar-menu-text">Classes</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_class">
+                                        <span class="sidebar-menu-text">Add Classes</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#account_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                Departments
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="account_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/department">
+                                        <span class="sidebar-menu-text">Departments</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_department">
+                                        <span class="sidebar-menu-text">Add Departments</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#community_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                Sessions
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="community_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/session">
+
+                                        <span class="sidebar-menu-text">Sessions</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_session">
+
+                                        <span class="sidebar-menu-text">Add Sessions</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#components_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">account_box</span>
+                                Users
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="components_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/user">
+                                        <span class="sidebar-menu-text">Users</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_user">
+                                        <span class="sidebar-menu-text">Add Users</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/invoice">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">message</span>
+                                <span class="sidebar-menu-text">Invoices</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/finance">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">trending_up</span>
+                                <span class="sidebar-menu-text">Finance</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/system_history">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">access_time</span>
+                                <span class="sidebar-menu-text">System History</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/bin">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">help</span>
+                                <span class="sidebar-menu-text">Recyle Bin</span>
+                            </a>
+                        </li>
+                    </ul>
+                    
+
+                    <!-- // END Sidebar Content -->
+
+                </div>
+            </div>
+        </div>
+        <!-- // END Drawer -->
+
+        
+
+        <!-- Bootstrap -->
+        <script src="./public/vendor/popper.min.js"></script>
+        <script src="./public/vendor/bootstrap.min.js"></script>
+
+        <!-- Perfect Scrollbar -->
+        <script src="./public/vendor/perfect-scrollbar.min.js"></script>
+
+        <!-- DOM Factory -->
+        <script src="./public/vendor/dom-factory.js"></script>
+
+        <!-- MDK -->
+        <script src="./public/vendor/material-design-kit.js"></script>
+
+        <!-- App JS -->
+        <script src="./public/js/app.js"></script>
+
+        <!-- Preloader -->
+        <script src="./public/js/preloader.js"></script>
+
+
+        <script>
+
+            //make manual payment
+            $('#manualPaymentForm').on('submit', function(event){
+                event.preventDefault();
+
+                var manulaPurpose = $(this).find('input[name=manulaPurpose]').val();
+                var manualAmount = $(this).find('input[name=manualAmount]').val();
+
+                $('#manualPurposeHolder').val(manulaPurpose);
+                $('#manualAmountHolder').val(manualAmount);
+
+                $('#makeManualPayment').modal('hide');
+                $('#passwordModal2').modal('show');
+
+                $(this).find('input[name=manulaPurpose]').val('');
+                $(this).find('input[name=manualAmount]').val('');
+            });
+
+            $("#staffPhotoId").change(function(){
+			    if (this.files && this.files[0]) {
+			        var reader = new FileReader();
+
+			        reader.onload = function (e) {
+			            $('.add-staff-profile-image').attr('src', e.target.result);
+			        }
+
+			        reader.readAsDataURL(this.files[0]);
+				}
+			});
+
+			$('.rmvQualiBtn').on('click', function(){
+				var qualiId = $(this).attr('quali_id');
+				$('#qualifIdHolder').val(qualiId);
+			});
+
+
+        </script>
+
+    </body>
+</html>

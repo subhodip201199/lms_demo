@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en"
+      dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+              <title> Hashimia International Academy</title>
+              <link rel="icon" href="logo.jpeg" type="image/gif" sizes="16x16">
+
+        <!-- Prevent the demo from appearing in search engines -->
+        <meta name="robots"
+              content="noindex">
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/vendor/spinkit.css"
+              rel="stylesheet">
+
+        <!-- Perfect Scrollbar -->
+        <link type="text/css"
+              href="./public/vendor/perfect-scrollbar.css"
+              rel="stylesheet">
+
+        <!-- Material Design Icons -->
+        <link type="text/css"
+              href="./public/css/material-icons.css"
+              rel="stylesheet">
+
+        <!-- Font Awesome Icons -->
+        <link type="text/css"
+              href="./public/css/fontawesome.css"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/css/preloader.css"
+              rel="stylesheet">
+
+        <!-- App CSS -->
+        <link type="text/css"
+              href="./public/css/app.css"
+              rel="stylesheet">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+
+    <body class="layout-sticky-subnav layout-default ">
+
+        <div class="preloader">
+            <div class="sk-chase">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+            </div>
+
+            <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+            <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples -->
+        </div>
+
+        <!-- Header Layout -->
+        <div class="mdk-header-layout js-mdk-header-layout">
+
+            <!-- Header -->
+
+            <div id="header"
+                 class="mdk-header js-mdk-header mb-0"
+                 data-fixed
+                 data-effects="">
+                <div class="mdk-header__content">
+
+                    <!-- Navbar -->
+
+                    <div class="navbar navbar-expand pr-0 navbar-dark-pickled-bluewood navbar-shadow"
+                         id="default-navbar"
+                         data-primary>
+
+                        <!-- Navbar Toggler -->
+
+                        <button class="navbar-toggler w-auto mr-16pt d-block rounded-0"
+                                type="button"
+                                data-toggle="sidebar">
+                            <span class="material-icons">short_text</span>
+                        </button>
+
+                        <!-- // END Navbar Toggler -->
+
+                        <!-- Navbar Brand -->
+
+                        <a href="/home"
+                           class="navbar-brand mr-16pt">
+
+                            <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
+
+                                <span class="avatar-title rounded bg-primary"><img src="/public/images/illustration/student/128/white.svg"
+                                         alt="logo"
+                                         class="img-fluid" /></span>
+
+                            </span>
+
+                            <span class="d-none d-lg-block">Welcome Admin</span>
+                        </a>
+
+                        <!-- // END Navbar Brand -->
+
+                        
+
+                        <!-- // END Navbar Search -->
+
+                        <div class="flex"></div>
+
+                        <!-- Navbar Menu -->
+
+                        <div class="nav navbar-nav flex-nowrap d-flex mr-16pt">
+
+                            <div class="nav-item dropdown">
+                                <a href="#"
+                                   class="nav-link d-flex align-items-center dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   data-caret="false">
+
+                                    <span class="avatar avatar-sm mr-8pt2">
+
+                                        <span class="avatar-title rounded-circle bg-primary"><i class="material-icons">account_box</i></span>
+
+                                    </span>
+
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <div class="dropdown-header"><strong>Account</strong></div>
+                                    <a class="dropdown-item"
+                                       href="/edit-account">Edit Account</a>
+                                    <a class="dropdown-item"
+                                       href="/logout">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- // END Navbar Menu -->
+
+                    </div>
+
+                    <!-- // END Navbar -->
+
+                </div>
+            </div>
+
+            <!-- // END Header -->
+
+            <!-- Header Layout Content -->
+            <div class="mdk-header-layout__content page-content ">
+
+                <div class="clearfix"></div>
+                <div class="content-wrapper">
+                <div class="container-fluid softnic-container-fluid">
+                    <!-- Breadcrumb-->
+                    <div class="row pt-2 pb-2">
+                        <div class="col-sm-9">
+                            <h4 class="page-title">View Expense</h4>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                                <li class="breadcrumb-item"><a href="javaScript:void();">View Expense</a></li>
+                            </ol>
+                        </div>
+                        
+                    </div>
+                    <!-- End Breadcrumb-->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                      <div class="card mb-2">
+                                        <div class="card-header">
+                                            <h5 class="pull-left">View Expense Slip</h5>
+                                            <!--<button type="button" class="btn btn-primary waves-effect waves-light m-1 pull-right softnic-profile-edit-btn" data-toggle="modal" data-target="#editProfile"> <i class="fa fa-pencil"></i> &nbsp; Edit </button>-->
+                                            <button type="button" id="cmd" class="btn btn-primary waves-effect waves-light m-1 pull-right softnic-profile-edit-btn"> <i class="fas fa-download"></i> &nbsp; Print </button>
+                                        </div>
+                                        <div id="content" style="overflow: hidden; background-color: white;">
+                                            <div class="card-body pt-0">
+                                                <div class="col-lg-12">
+                                                    
+                                                    <div style="margin-left:2%;margin-right:2%;width:96%;font-family:arial;font-size:15px;color: #222;margin-top:15px;">
+                                                        <table style="width:100%;">
+                                                            <tr>
+                                                                <td style="width:30%;"><img style="max-width: 120px; max-height: 120px;" src="logo.png" /></td>
+                                                                <td style="width:70%;text-align:right;">
+                                                                    <span style="font-weight: 400;font-size: 24px;color: #141299;margin-bottom:0px;padding-bottom:0px;">Hashimia International Academy</span>
+                                                                    <br>Piyara, West Bengal 743425
+                                                             <br>+91 9564948722 | admin@hia.org                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <table style="border-bottom:solid 1px #000000;margin-top:30px;width:100%;">
+                                                            <tr>
+                                                                <td style="width:50%;font-weight: bolder;color:#000000;font-size: 17px;">Employee ID: <b>STD100363</b></td>
+                                                                <td style="width:50%;text-align:right;color: #000000;font-size:18px; font-weight: bolder;">Receipt : <b>#105</b></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width:50%;font-weight: bolder;color:#000000;font-size: 17px;">Issue Date: <b>17/02/2021</b></td>
+                                                                <td style="width:50%;text-align:right;color: #000000;font-size:18px; font-weight: bolder;">Mode Of Payment :<b> cash</b></td>
+                                                            </tr>
+                                                        </table><br>
+
+                                                        <table style="width:100%; line-height: 40px; border: 1px solid #000000; position: relative;">
+                                                            <tr>
+                                                                <td style="height:25px;width:7%;padding-left:10px; color:#000000;">Name <span style="float: right;">:</span> </td>
+                                                                <td style="height:25px;width:15%;padding-left: 15px; color:#000000;">akash hassan</td>
+                                                                <td style="height:25px;width:7%;padding-left:10px;">Department <span style="float: right;">:</span></td>
+                                                                <td style="height:25px;width:20%; padding-left: 15px;"></td>
+                                                                
+                                                            </tr>
+                                                            
+                                                            <tr>
+                                                                <td style="height:25px;width:7%;padding-left:10px;">Mobile <span style="float: right;">:</span></td>
+                                                                <td style="height:25px;width:15%; padding-left: 15px;">9856323021</td>
+                                                                <td style="height:25px;width:7%;padding-left:10px;">E-mail <span style="float: right;">:</span></td>
+                                                                <td style="height:25px;width:20%; padding-left: 15px;">test@gmail.com</td>
+                                                            </tr>
+
+                                                            
+                                                        </table>
+
+                                                        <table style="width:100%;margin-top:20px;">
+                                                            <tr>
+                                                                
+                                                                <td style="width:20%;"></td>
+                                                                
+                                                            </tr>
+                                                        </table>
+                                                        
+                                                        <table style="font-size:15px;text-align:left;width:100%;">
+                                                            <tr>
+                                                                <td style="height:25px;width:100%;">Purpose :</td>
+                                                            </tr>
+                                                            
+                                                            
+                                                        </table>
+
+                                                        <table style="width:100%;margin-top:20px; border-top: 1px solid #050505;">
+                                                            <tr>
+                                                                <td style="width:20%;"></td>
+                                                                <td style="width:40%;">
+                                                                    <table style="word-spacing: 20px;font-size:14px;width:100%;text-align:right;">
+                                                                        <tr>
+                                                                            <td style="width:50%;line-height: 28px;color:#141299;font-weight:bolder;font-size:16px;">Total :</td>
+                                                                            <td style="width:50%;font-size:16px;line-height: 28px;font-weight:bold;">10,000.00₹ </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        
+                                                        <div style="float: left; padding-top: 2px;">
+                                                            
+                                                            <img style="float: right;margin-top: 10px;">
+                                                            <br><br><br><br>
+                                                            <p style="float: right;margin-top: 5px;">#employee name,Thank you.</p>
+                                                            
+                                                        </div>
+
+                                                        <div style="float: right;">
+                                                            <br><br><br><br>
+                                                            <span style="border-top: 1px solid #020202; padding-top: 5px;">Paid by <b>Hashimia International Academy</b></span>
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    
+
+                                                </div>
+
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div id="editor"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!--Modal Start
+        <div class="modal fade" id="editProfile" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Payment Data</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form action="action/user.action.php" method="post" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Academy Logo</label>
+                            <div class="col-sm-9">
+                                
+                                    <div class="input-group">
+                                        <input id="studentPhotoId" class="form-control" type="file" name="academyPhoto">
+                                    </div>
+    
+                                    <img src="assets/images/avatar/profile_avatar.png" class="img-thumbnail img-responsive add-student-profile-image" alt="Academy photo">
+                                
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Academy Name</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="academyname" class="form-control" placeholder="Please write your academy name" required="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Academy Address</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <textarea type="text" name="academy-address" class="form-control" placeholder="Please write your academy address"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Accountant Name</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="acc-name" class="form-control" placeholder="Please write your accountant name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Accountant Contact Number</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="acc-contact-number" class="form-control" placeholder="Please write your accountant phone number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Email Address</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="email-address" class="form-control" placeholder="Please write your academy email address">
+                                </div>
+                            </div>
+                        </div>
+                        <br><br><br>
+                        <div class="modal-header">
+                            <h5 class="modal-title">Edit Payment Details</h5>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Tusion Fees:</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="tusion-fees" class="form-control" placeholder="Please write your academy tusion fees">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Food Allowance:</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="food allowance" class="form-control" placeholder="Please write your academy food allowance">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Electricity:</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="electricity" class="form-control" placeholder="Please write your academy electricity">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Hostel Fees:</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="hostel-fees" class="form-control" placeholder="Please write your academy hostel fees">
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <input type="hidden" name="sid" value="370">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Close</button>
+                        <button type="submit" name="updateStudentProfile" class="btn btn-primary"><i class="fa fa-check-square-o"></i>&nbsp;Update payment details</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>-->
+        <!--Modal End-->
+
+        
+        <!-- Drawer -->
+
+        <div class="mdk-drawer js-mdk-drawer"
+             id="default-drawer">
+            <div class="mdk-drawer__content">
+                <div class="sidebar sidebar-dark-pickled-bluewood sidebar-left"
+                     data-perfect-scrollbar>
+
+                    <!-- Sidebar Content -->
+
+                    <a href="/home"
+                       class="sidebar-brand ">
+                        <!-- <img class="sidebar-brand-icon" src="/public/images/illustration/student/128/white.svg" alt="Luma"> -->
+
+                        <span class="avatar avatar-xl sidebar-brand-icon h-auto">
+
+                            <span class="avatar-title rounded bg-primary"><img src="/public/images/illustration/student/128/white.svg"
+                                     class="img-fluid"
+                                     alt="logo" /></span>
+
+                        </span>
+
+                        <span>Welcome Admin</span>
+                    </a>
+
+                    
+                        
+                    <ul class="sidebar-menu">
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/home">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">home</span>
+                                <span class="sidebar-menu-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/cashbook">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">receipt</span>
+                                <span class="sidebar-menu-text">Cashbook</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/fees_payment">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">shopping_cart</span>
+                                <span class="sidebar-menu-text">Fees Payments</span>
+                            </a>
+                        </li>
+                        <ul class="sidebar-menu">
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button js-sidebar-collapse"
+                                   data-toggle="collapse"
+                                   href="#enterprise_menu">
+                                    <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">donut_large</span>
+                                    Applications
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse sm-indent"
+                                    id="enterprise_menu">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/contact">
+                                            <span class="sidebar-menu-text">Contact</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/add_contact">
+                                            <span class="sidebar-menu-text">Add Contact</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button disabled"
+                                           href="/hr-dashboard">
+                                            <span class="sidebar-menu-text">Applications</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button disabled"
+                                           href="/employees">
+                                            <span class="sidebar-menu-text">Add Applications</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#productivity_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">local_library</span>
+                                Students
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="productivity_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/student">
+                                        <span class="sidebar-menu-text">Students</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_student">
+                                        <span class="sidebar-menu-text">Add Students</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/room">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">room</span>
+                                <span class="sidebar-menu-text">Create Room</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#ecommerce_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">people_outline</span>
+                                Staffs
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="ecommerce_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/staff">
+                                        <span class="sidebar-menu-text">Staffs</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_staff">
+                                        <span class="sidebar-menu-text">Add Staffs</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#messaging_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">dvr</span>
+                                Classes
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="messaging_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/class">
+                                        <span class="sidebar-menu-text">Classes</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_class">
+                                        <span class="sidebar-menu-text">Add Classes</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#account_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                Departments
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="account_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/department">
+                                        <span class="sidebar-menu-text">Departments</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_department">
+                                        <span class="sidebar-menu-text">Add Departments</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#community_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                Sessions
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="community_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/session">
+
+                                        <span class="sidebar-menu-text">Sessions</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_session">
+
+                                        <span class="sidebar-menu-text">Add Sessions</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#components_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">account_box</span>
+                                Users
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="components_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/user">
+                                        <span class="sidebar-menu-text">Users</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_user">
+                                        <span class="sidebar-menu-text">Add Users</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/invoice">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">message</span>
+                                <span class="sidebar-menu-text">Invoices</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/finance">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">trending_up</span>
+                                <span class="sidebar-menu-text">Finance</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/system_history">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">access_time</span>
+                                <span class="sidebar-menu-text">System History</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/bin">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">help</span>
+                                <span class="sidebar-menu-text">Recyle Bin</span>
+                            </a>
+                        </li>
+                    </ul>
+                    
+
+                    <!-- // END Sidebar Content -->
+
+                </div>
+            </div>
+        </div>
+
+        <!-- // END Drawer -->
+
+        <!-- jQuery -->
+        <script src="./public/vendor/jquery.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="./public/vendor/popper.min.js"></script>
+        <script src="./public/vendor/bootstrap.min.js"></script>
+
+        <!-- Perfect Scrollbar -->
+        <script src="./public/vendor/perfect-scrollbar.min.js"></script>
+
+        <!-- DOM Factory -->
+        <script src="./public/vendor/dom-factory.js"></script>
+
+        <!-- MDK -->
+        <script src="./public/vendor/material-design-kit.js"></script>
+
+        <!-- App JS -->
+        <script src="./public/js/app.js"></script>
+
+        <!-- Preloader -->
+        <script src="./public/js/preloader.js"></script>
+
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+
+
+        <script>
+            $(document).on('click','#cmd',function(){
+            let pdf = new jsPDF();
+            let section=$('#content');
+            let page= function() {
+                pdf.save('expenses-bill.pdf');
+            
+            };
+            
+            pdf.addHTML(section,page);
+            })
+        </script>
+
+    </body>
+</html>

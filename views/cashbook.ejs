@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en"
+      dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+              <title> Hashimia International Academy</title>
+              <link rel="icon" href="logo.jpeg" type="image/gif" sizes="16x16">
+
+        <!-- Prevent the demo from appearing in search engines -->
+        <meta name="robots"
+              content="noindex">
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/vendor/spinkit.css"
+              rel="stylesheet">
+
+        <!-- Perfect Scrollbar -->
+        <link type="text/css"
+              href="./public/vendor/perfect-scrollbar.css"
+              rel="stylesheet">
+
+        <!-- Material Design Icons -->
+        <link type="text/css"
+              href="./public/css/material-icons.css"
+              rel="stylesheet">
+
+        <!-- Font Awesome Icons -->
+        <link type="text/css"
+              href="./public/css/fontawesome.css"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/css/preloader.css"
+              rel="stylesheet">
+
+        <!-- App CSS -->
+        <link type="text/css"
+              href="./public/css/app.css"
+              rel="stylesheet">
+
+        <!-- jQuery -->
+        <script src="./public/vendor/jquery.min.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+
+    <body class="layout-sticky-subnav layout-default ">
+
+        <div class="preloader">
+            <div class="sk-chase">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+            </div>
+
+            <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+            <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples -->
+        </div>
+
+        <!-- Header Layout -->
+        <div class="mdk-header-layout js-mdk-header-layout">
+
+            <!-- Header -->
+
+            <div id="header"
+                 class="mdk-header js-mdk-header mb-0"
+                 data-fixed
+                 data-effects="">
+                <div class="mdk-header__content">
+
+                    <!-- Navbar -->
+
+                    <div class="navbar navbar-expand pr-0 navbar-dark-pickled-bluewood navbar-shadow"
+                         id="default-navbar"
+                         data-primary>
+
+                        <!-- Navbar Toggler -->
+
+                        <button class="navbar-toggler w-auto mr-16pt d-block rounded-0"
+                                type="button"
+                                data-toggle="sidebar">
+                            <span class="material-icons">short_text</span>
+                        </button>
+
+                        <!-- // END Navbar Toggler -->
+
+                        <!-- Navbar Brand -->
+
+                        <a href="/home"
+                           class="navbar-brand mr-16pt">
+
+                            <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
+
+                                <span class="avatar-title rounded"><img src="logo.jpeg"
+                                    alt="logo"
+                                    class="img-fluid" /></span>
+
+                            </span>
+
+                            <span class="d-none d-lg-block">Welcome Admin</span>
+                        </a>
+
+                        <!-- // END Navbar Brand -->
+
+                        
+
+                        <!-- // END Navbar Search -->
+
+                        <div class="flex"></div>
+
+                        <!-- Navbar Menu -->
+
+                        <div class="nav navbar-nav flex-nowrap d-flex mr-16pt">
+
+                            <div class="nav-item dropdown">
+                                <a href="#"
+                                   class="nav-link d-flex align-items-center dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   data-caret="false">
+
+                                    <span class="avatar avatar-sm mr-8pt2">
+
+                                        <span class="avatar-title rounded-circle bg-primary"><i class="material-icons">account_box</i></span>
+
+                                    </span>
+
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <div class="dropdown-header"><strong>Account</strong></div>
+                                    <a class="dropdown-item"
+                                       href="/edit-account">Edit Account</a>
+                                    <a class="dropdown-item"
+                                       href="/logout">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- // END Navbar Menu -->
+
+                    </div>
+
+                    <!-- // END Navbar -->
+
+                </div>
+            </div>
+
+            <!-- // END Header -->
+
+            <!-- Header Layout Content -->
+            <div class="mdk-header-layout__content page-content ">
+
+                <div class="pt-32pt">
+                    <div class="container page__container d-flex flex-column flex-md-row align-items-center text-center text-sm-left">
+                        <div class="flex d-flex flex-column flex-sm-row align-items-center">
+                            
+                            <div class="mb-24pt mb-sm-0 mr-sm-24pt">
+                                <h4 class="page-title">Credit & Debit</h4>
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/home"></a>Home</a></li>
+                                    <li class="breadcrumb-item"><a href="javaScript:void()">Credit & Debit</a></li>
+                                </ol>
+                            </div>
+                            <div class="col-sm-9">
+                                <div class="btn-group float-sm-right">
+                                    <button type="button" onclick="exportTableToExcel('cashbook_table','Cashbook-Details')" class="btn btn-outline-success btn-sm waves-effect waves-light m-1 pull-right" style="height: 50px; width: 110px; font-size: larger;"> <i class="fa fa-file-excel-o" style="font-size:25px"></i> &nbsp; Excel </button>
+                                </div>
+                            </div>
+                            <script>
+                                function exportTableToExcel(tableID, filename = ''){
+                                    var downloadLink;
+                                    var dataType = 'application/vnd.ms-excel';
+                                    var tableSelect = document.getElementById(tableID);
+                                    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+                                    
+                                    // Specify file name
+                                    filename = filename?filename+'.xls':'excel_data.xls';
+                                    
+                                    // Create download link element
+                                    downloadLink = document.createElement("a");
+                                    
+                                    document.body.appendChild(downloadLink);
+                                    
+                                    if(navigator.msSaveOrOpenBlob){
+                                        var blob = new Blob(['\ufeff', tableHTML], {
+                                            type: dataType
+                                        });
+                                        navigator.msSaveOrOpenBlob( blob, filename);
+                                    }else{
+                                        // Create a link to the file
+                                        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+                                    
+                                        // Setting the file name
+                                        downloadLink.download = filename;
+                                        
+                                        //triggering the function
+                                        downloadLink.click();
+                                    }
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="page-section container page__container">
+                    <form id="dateForm">
+                        <div class="input-group">
+                            <input type="date" id="date-picker" name="date" class="form-control">
+
+                            <label for="input-21" class="col-sm-3 col-form-label">Select a month</label>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <div class="input-group">
+                                        <select id="month" name="month" class="form-control single-select">
+                                            <option value=""></option>
+                                            <option value="01">January</option>
+                                            <option value="02">February</option>
+                                            <option value="03">March</option>
+                                            <option value="04">April</option>
+                                            <option value="05">May</option>
+                                            <option value="06">June</option>
+                                            <option value="07">July</option>
+                                            <option value="08">August</option>
+                                            <option value="09">September</option>
+                                            <option value="10">October</option>
+                                            <option value="11">November</option>
+                                            <option value="12">December</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/pikaday.min.js" type="text/javascript"></script>
+                            <link href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/css/pikaday.min.css" rel="stylesheet" type="text/css" />
+                            
+                            
+                        </div>
+                    </form>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary pull-left" onclick="submit()"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group-append pull-right">
+                                <button class="btn btn-primary" onclick="submit2()"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card table-responsive">
+                        <table id="cashbook_table" class="table table-flush table-nowrap table-light table-striped shadow-light">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Bill Id</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Student Name</th>
+                                    <th scope="col">Student ID</th>
+                                    <th scope="col">Roll. No.</th>
+                                    <th scope="col">Class</th>
+                                
+                                    <th scope="col">Credit</th>
+                                    <th scope="col">Debit</th>
+                                    
+                                    <th scope="col">Transaction Date</th>
+                                    <th scope="col">Transaction Time</th>
+                                    <th scope="col">Month</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cashbook">
+                                
+                            </tbody>
+                        </table>
+
+                        <script>
+                            var date;
+                            
+                    
+                            function submit() { 
+                    
+                                var formEl = document.forms.dateForm;
+                                var formData = new FormData(formEl);
+                                date = formData.get('date');
+                                
+                                
+                    
+                    
+                                
+                    
+                                //document.getElementById("date_time").innerHTML = "Date - " + date + "<br><br>";
+                    
+                    
+                                const url = "/cashbook/getdata/?date=" + date;
+                    
+                                if(!date){
+                                    alert("Please fill a input!") 
+                                } else {
+                                fetch(url)
+                                    .then(function (response) {
+                                        return response.json();
+                                    })
+                                    .then(function (data) {
+                                        $("#cashbook tr").remove(); 
+                                        appendData(data);
+                                    })
+                                    .catch(function (err) {
+                                        console.log('error: ' + err);
+                                    });
+                                }
+                    
+                                
+                    
+                                function appendData(data) {
+                                    var mainContainer = document.getElementById("cashbook");
+
+                                    var credit, debit;
+                                    var credit_sum = Number(0);
+                                    var debit_sum = Number(0);
+                                    
+                                    var month;
+                                    var month_val;
+                                    var t_date;
+                                    for (var i = 0; i < data.length; i++) {
+                    
+                                         t_date = data[i].transaction_date;
+                                         t_date = t_date.split("-", 2);
+
+                                         month = t_date[1];
+
+                                        //-------------------------------------------------//
+                                        if(month == 01){
+                                            var month_val = 'January';
+                                         }
+                                         if(month == 02){
+                                            var month_val = 'February';
+                                         } 
+                                         if(month == 03){
+                                            var month_val = 'March';
+                                         } 
+                                         if(month == 04){
+                                            var month_val = 'April';
+                                         }
+                                         if(month == 05){
+                                            var month_val = 'May';
+                                         }
+                                         if(month == 06){
+                                            var month_val = 'June';
+                                         }
+                                         if(month == 07){
+                                            var month_val = 'July';
+                                         }
+                                         if(month == 08){
+                                            var month_val = 'August';
+                                         }
+                                         if(month == 09){
+                                            var month_val = 'September';
+                                         }
+                                         if(month == 10){
+                                            var month_val = 'October';
+                                         }
+                                         if(month == 11){
+                                            var month_val = 'November';
+                                         }
+                                         if(month == 12){
+                                            var month_val = 'December';
+                                         }
+                                        //-------------------------------------------------//
+
+                                         id = data[i].id;
+
+                                        if(data[i].credit !== null){
+                                            credit = data[i].credit;
+                                            credit_sum += Number(credit);
+                                            
+                                        }else{
+                                            credit = '&nbsp';
+                                        }
+                                    
+                                        if(data[i].debit !== null){
+                                            debit = data[i].debit;
+                                            debit_sum += Number(debit);
+                                        }else{
+                                            debit = '&nbsp';
+                                        }
+
+                            
+                    
+                                        var div = document.createElement("tr");
+                                        div.innerHTML = '<tr>' +
+                                                            '<td>' + id + '</td>' +
+                                                            '<td>' + data[i].description + '</td>' +
+                                                            '<td>' + data[i].name + '</td>' +
+                                                            '<td>' + data[i].student_id + '</td>' +
+                                                            '<td>' + data[i].roll_no + '</td>' +
+                                                            '<td>' + data[i].student_class + '</td>' +
+                                                            '<td>' + credit + '</td>' +
+                                                            '<td>' + debit + '</td>' +
+                                                           
+                                                            '<td>' + data[i].transaction_date + '</td>' +
+                                                            '<td>' + data[i].transaction_time + '</td>' +
+                                                            '<td>' + month_val + '</td>' +
+                                                         
+                                                    
+                                                        '</tr>' ;
+                                        mainContainer.appendChild(div);
+                    
+                                    }
+
+                                    var earning = credit_sum - debit_sum;
+
+                                    var div = document.createElement("tr");
+                                        div.innerHTML = '<tr>' +
+                                                            '<td>' + '</td>' +
+                                                            '<td>' + '<b>Total Credit and Debit: </b>' + '</td>' +
+                                                            '<td>' +  '</td>' +
+                                                            '<td>' + '</td>' +
+                                                            '<td>' + '</td>' +
+                                                            '<td>' + '</td>' +
+                                                            '<td><b>' + credit_sum + '</b></td>' +
+                                                            '<td><b>' + debit_sum  + '</b></td>' +
+                                                            '<td>' + '</td>' +
+                                                            '<td>' + '</td>' +
+                                                            '<td>' + '</td>' +
+                                                         
+                                                    
+                                                        '</tr>' ;
+                                        mainContainer.appendChild(div);
+                                        var div = document.createElement("tr");
+                                        div.innerHTML = '<tr>' +
+                                                            '<td>' + '</td>' +
+                                                            '<td>' + '<h4>Total Earning: </h4>' + '</td>' +
+                                                            '<td>' +  '</td>' +
+                                                            '<td>' + '</td>' +
+                                                            '<td>' + '</td>' +
+                                                            '<td>' + '</td>' +
+                                                            '<td><b>' + '</b></td>' +
+                                                            '<td><b>' + '</b></td>' +
+                                                            '<td>' + '</td>' +
+                                                            '<td><h4>' + earning + '</h4></td>' +
+                                                            '<td>' + '</td>' +
+                                                         
+                                                    
+                                                        '</tr>' ;
+                                        mainContainer.appendChild(div);
+                                }
+                            }
+                            
+                            function submit2() { 
+                    
+                    var formEl = document.forms.dateForm;
+                    var formData = new FormData(formEl);
+                    month = formData.get('month');
+                    
+                    
+        
+        
+                    
+        
+                    //document.getElementById("date_time").innerHTML = "Date - " + date + "<br><br>";
+        
+        
+                    const url2 = "/cashbook/getdata2/?month=" + month;
+                                
+                    if(!month){
+                        alert("Please fill this input!")
+                    } else {
+                        fetch(url2)
+                            .then(function (response) {
+                                return response.json();
+                            })
+                            .then(function (data) {
+                                $("#cashbook tr").remove(); 
+                                appendData(data);
+                            })
+                            .catch(function (err) {
+                                console.log('error: ' + err);
+                            });
+                        }  
+        
+                    
+        
+                    function appendData(data) {
+                        var mainContainer = document.getElementById("cashbook");
+
+                        var credit, debit;
+                        var credit_sum = Number(0);
+                        var debit_sum = Number(0);
+
+                        var month;
+                        var month_val;
+                        var t_date;
+                        
+                        for (var i = 0; i < data.length; i++) {
+
+                            t_date = data[i].transaction_date;
+                                         t_date = t_date.split("-", 2);
+
+                                         month = t_date[1];
+
+                                        //-------------------------------------------------//
+                                        if(month == 01){
+                                            var month_val = 'January';
+                                         }
+                                         if(month == 02){
+                                            var month_val = 'February';
+                                         } 
+                                         if(month == 03){
+                                            var month_val = 'March';
+                                         } 
+                                         if(month == 04){
+                                            var month_val = 'April';
+                                         }
+                                         if(month == 05){
+                                            var month_val = 'May';
+                                         }
+                                         if(month == 06){
+                                            var month_val = 'June';
+                                         }
+                                         if(month == 07){
+                                            var month_val = 'July';
+                                         }
+                                         if(month == 08){
+                                            var month_val = 'August';
+                                         }
+                                         if(month == 09){
+                                            var month_val = 'September';
+                                         }
+                                         if(month == 10){
+                                            var month_val = 'October';
+                                         }
+                                         if(month == 11){
+                                            var month_val = 'November';
+                                         }
+                                         if(month == 12){
+                                            var month_val = 'December';
+                                         }
+        
+                          
+        
+                             id = data[i].id;
+
+                            if(data[i].credit !== null){
+                                credit = data[i].credit;
+                                credit_sum += Number(credit);
+                                
+                            }else{
+                                credit = '&nbsp';
+                            }
+                        
+                            if(data[i].debit !== null){
+                                debit = data[i].debit;
+                                debit_sum += Number(debit);
+                            }else{
+                                debit = '&nbsp';
+                            }
+
+                          
+        
+                            var div = document.createElement("tr");
+                            div.innerHTML = '<tr>' +
+                                                '<td>' + id + '</td>' +
+                                                '<td>' + data[i].description + '</td>' +
+                                                '<td>' + data[i].name + '</td>' +
+                                                '<td>' + data[i].student_id + '</td>' +
+                                                '<td>' + data[i].roll_no + '</td>' +
+                                                '<td>' + data[i].student_class + '</td>' +
+                                                '<td>' + credit + '</td>' +
+                                                '<td>' + debit + '</td>' +
+                                               
+                                                '<td>' + data[i].transaction_date + '</td>' +
+                                                '<td>' + data[i].transaction_time + '</td>' +
+                                                '<td>' + month_val + '</td>' +
+                                        
+                                            '</tr>' ;
+                            mainContainer.appendChild(div);
+        
+                        }
+
+                        var earning = credit_sum - debit_sum;
+
+                        var div = document.createElement("tr");
+                            div.innerHTML = '<tr>' +
+                                                '<td>' + '</td>' +
+                                                '<td>' + '<b>Total Credit and Debit: </b>' + '</td>' +
+                                                '<td>' +  '</td>' +
+                                                '<td>' + '</td>' +
+                                                '<td>' + '</td>' +
+                                                '<td>' + '</td>' +
+                                                '<td><b>' + credit_sum + '</b></td>' +
+                                                '<td><b>' + debit_sum  + '</b></td>' +
+                                                '<td>' + '</td>' +
+                                                '<td>' + '</td>' +
+                                                '<td>' + '</td>' +
+                                             
+                                        
+                                            '</tr>' ;
+                            mainContainer.appendChild(div);
+                            var div = document.createElement("tr");
+                            div.innerHTML = '<tr>' +
+                                                '<td>' + '</td>' +
+                                                '<td>' + '<h4>Total Earning: </h4>' + '</td>' +
+                                                '<td>' +  '</td>' +
+                                                '<td>' + '</td>' +
+                                                '<td>' + '</td>' +
+                                                '<td>' + '</td>' +
+                                                '<td><b>' + '</b></td>' +
+                                                '<td><b>' + '</b></td>' +
+                                                '<td>' + '</td>' +
+                                                '<td><h4>' + earning + '</h4></td>' +
+                                                '<td>' + '</td>' +
+                                             
+                                        
+                                            '</tr>' ;
+                            mainContainer.appendChild(div);
+                    }
+                }
+                        
+                        
+                        </script>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- End container-fluid-->
+            <div class="overlay"></div>
+        </div>
+        <!--End content-wrapper-->
+                
+    
+
+
+    <!--End Back To Top Button-->
+            <!-- // END Header Layout Content -->
+
+            <!-- Footer 
+
+            <div class="bg-white border-top-2 mt-auto">
+                <div class="container page__container page-section d-flex flex-column">
+                    <p class="text-70 brand mb-24pt">
+                        <img class="brand-icon"
+                             src="./public/images/logo/black-70@2x.jpeg"
+                             width="30"
+                             alt="Luma"> Luma
+                    </p>
+                    <p class="measure-lead-max text-50 small mr-8pt">Luma is a beautifully crafted user interface for modern Education Platforms, including Courses & Tutorials, Video Lessons, Student and Teacher Dashboard, Curriculum Management, Earnings and Reporting, ERP, HR, CMS, Tasks, Projects, eCommerce and more.</p>
+                    <p class="mb-8pt d-flex">
+                        <a href=""
+                           class="text-70 text-underline mr-8pt small">Terms</a>
+                        <a href=""
+                           class="text-70 text-underline small">Privacy policy</a>
+                    </p>
+                    <p class="text-50 small mt-n1 mb-0">Copyright 2019 &copy; All rights reserved.</p>
+                </div>
+            </div>-->
+
+            <!-- // END Footer -->
+            <div class="bg-white border-top-2 mt-auto">
+                <div class="container page__container page-section d-flex flex-column">
+                    <p class="text-70 brand mb-24pt">
+                        <img class="brand-icon"
+                             src="maze.jpeg"
+                             width="150"
+                             alt="mazesoftsolution">
+                    </p>
+                    <p class="measure-lead-max text-50 small mr-8pt">We have reached an age where the entire world is reduced to a global village. In this realm of connected living and sharing, we envision a future that will redefine the very purpose of our existence. Today, the solutions are more refined than the demand itself. What we get is better than what we asked for. Businesses, big or small, look for companies that will refine their business needs, more than offering a ready solution. They look for companies that offer competitive web and mobile apps development, e-commerce, and Open-source CMS development to propel their business expansion.</p>
+                    <p class="text-50 small mt-n1 mb-0">Developed by <a href="http://www.mazesoftsolutions.com/">Maze Soft Solution</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- // END Header Layout -->
+
+        <!-- Drawer -->
+
+        <div class="mdk-drawer js-mdk-drawer"
+             id="default-drawer">
+            <div class="mdk-drawer__content">
+                <div class="sidebar sidebar-dark-pickled-bluewood sidebar-left"
+                     data-perfect-scrollbar>
+
+                    <!-- Sidebar Content -->
+
+                    <a href="/home"
+                       class="sidebar-brand ">
+                        <!-- <img class="sidebar-brand-icon" src="/public/images/illustration/student/128/white.svg" alt="Luma"> -->
+
+                        <span class="avatar avatar-xl sidebar-brand-icon h-auto">
+
+                            <span class="avatar-title rounded"><img src="logo.jpeg"
+                                alt="logo"
+                                class="img-fluid" /></span>
+
+                        </span>
+
+                        <span>Welcome Admin</span>
+                    </a>
+
+                    
+                        
+                    <ul class="sidebar-menu">
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/home">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">home</span>
+                                <span class="sidebar-menu-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/cashbook">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">receipt</span>
+                                <span class="sidebar-menu-text">Cashbook</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/fees_payment">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">shopping_cart</span>
+                                <span class="sidebar-menu-text">Fees Payments</span>
+                            </a>
+                        </li>
+                        <ul class="sidebar-menu">
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button js-sidebar-collapse"
+                                   data-toggle="collapse"
+                                   href="#enterprise_menu">
+                                    <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">donut_large</span>
+                                    Applications
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse sm-indent"
+                                    id="enterprise_menu">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/contact">
+                                            <span class="sidebar-menu-text">Contact</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/add_contact">
+                                            <span class="sidebar-menu-text">Add Contact</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button disabled"
+                                           href="/hr-dashboard">
+                                            <span class="sidebar-menu-text">Applications</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button disabled"
+                                           href="/employees">
+                                            <span class="sidebar-menu-text">Add Applications</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#productivity_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">local_library</span>
+                                Students
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="productivity_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/student">
+                                        <span class="sidebar-menu-text">Students</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_student">
+                                        <span class="sidebar-menu-text">Add Students</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/room">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">room</span>
+                                <span class="sidebar-menu-text">Create Room</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#ecommerce_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">people_outline</span>
+                                Staffs
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="ecommerce_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/staff">
+                                        <span class="sidebar-menu-text">Staffs</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_staff">
+                                        <span class="sidebar-menu-text">Add Staffs</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#messaging_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">dvr</span>
+                                Classes
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="messaging_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/class">
+                                        <span class="sidebar-menu-text">Classes</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_class">
+                                        <span class="sidebar-menu-text">Add Classes</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#account_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                Departments
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="account_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/department">
+                                        <span class="sidebar-menu-text">Departments</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_department">
+                                        <span class="sidebar-menu-text">Add Departments</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#community_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                Sessions
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="community_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/session">
+
+                                        <span class="sidebar-menu-text">Sessions</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_session">
+
+                                        <span class="sidebar-menu-text">Add Sessions</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#components_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">account_box</span>
+                                Users
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="components_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/user">
+                                        <span class="sidebar-menu-text">Users</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_user">
+                                        <span class="sidebar-menu-text">Add Users</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/invoice">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">message</span>
+                                <span class="sidebar-menu-text">Invoices</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/finance">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">trending_up</span>
+                                <span class="sidebar-menu-text">Finance</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/system_history">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">access_time</span>
+                                <span class="sidebar-menu-text">System History</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/bin">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">help</span>
+                                <span class="sidebar-menu-text">Recyle Bin</span>
+                            </a>
+                        </li>
+                    </ul>
+                    
+
+                    <!-- // END Sidebar Content -->
+
+                </div>
+            </div>
+        </div>
+
+        <!-- // END Drawer -->
+
+        
+
+        <!-- Bootstrap -->
+        <script src="./public/vendor/popper.min.js"></script>
+        <script src="./public/vendor/bootstrap.min.js"></script>
+
+        <!-- Perfect Scrollbar -->
+        <script src="./public/vendor/perfect-scrollbar.min.js"></script>
+
+        <!-- DOM Factory -->
+        <script src="./public/vendor/dom-factory.js"></script>
+
+        <!-- MDK -->
+        <script src="./public/vendor/material-design-kit.js"></script>
+
+        <!-- App JS -->
+        <script src="./public/js/app.js"></script>
+
+        <!-- Preloader -->
+        <script src="./public/js/preloader.js"></script>
+
+    </body>
+
+</html>

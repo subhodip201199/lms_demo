@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en"
+      dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+              <title> Hashimia International Academy</title>
+              <link rel="icon" href="logo.jpeg" type="image/gif" sizes="16x16">
+
+        <!-- Prevent the demo from appearing in search engines -->
+        <meta name="robots"
+              content="noindex">
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/vendor/spinkit.css"
+              rel="stylesheet">
+
+        <!-- Perfect Scrollbar -->
+        <link type="text/css"
+              href="./public/vendor/perfect-scrollbar.css"
+              rel="stylesheet">
+
+        <!-- Material Design Icons -->
+        <link type="text/css"
+              href="./public/css/material-icons.css"
+              rel="stylesheet">
+
+        <!-- Font Awesome Icons -->
+        <link type="text/css"
+              href="./public/css/fontawesome.css"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/css/preloader.css"
+              rel="stylesheet">
+
+        <!-- App CSS -->
+        <link type="text/css"
+              href="./public/css/app.css"
+              rel="stylesheet">
+            
+         <!-- jQuery -->
+         <script src="./public/vendor/jquery.min.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+        
+        <script>
+           
+            var username;
+                const url = "/user_info/getdata";
+    
+                fetch(url)
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (data) {
+                        username = data[0].username;
+                        var name = data[0].name;
+
+                        var access = new Array();
+                        access.push(data[0].access1);
+                        access.push(data[0].access2);
+                        access.push(data[0].access3);
+                        access.push(data[0].access4);
+                        access.push(data[0].access5);
+
+                        var bool1 = access.includes("cashbook");
+                        var bool2 = access.includes("students");
+                        
+                        var bool4 = access.includes("stdfeesPayment");
+                        var bool5 = access.includes("create_room");
+                        var bool6 = access.includes("staffs");
+                       
+                        var bool8 = access.includes("sessions");
+                        var bool9 = access.includes("classes");
+                        var bool10 = access.includes("semesters");
+                        var bool11 = access.includes("departments");
+                        var bool12 = access.includes("smsMsg");
+                        var bool13 = access.includes("finance");
+                        var bool14 = access.includes("documents");
+
+                      
+
+                        
+                          if(bool1 == true){
+
+                            $("#cashbook").attr('checked', !$("#sName").attr('checked'));
+                          }
+
+                          if(bool2 == true){
+                            $("#students").attr('checked', !$("#sName").attr('checked'));
+                          }
+                         
+                          if(bool4 == true){
+                            $("#stdfeesPayment").attr('checked', !$("#sName").attr('checked'));
+                          }
+                          if(bool5 == true){
+                            $("#create_room").attr('checked', !$("#sName").attr('checked'));
+                          }
+                          if(bool6 == true){
+                            $("#staffs").attr('checked', !$("#sName").attr('checked'));
+                          }
+                          if(bool8 == true){
+                            $("#sessions").attr('checked', !$("#sName").attr('checked'));
+                          }
+                          if(bool9 == true){
+                            $("#classes").attr('checked', !$("#sName").attr('checked'));
+                          }
+                          if(bool10 == true){
+                            $("#semesters").attr('checked', !$("#sName").attr('checked'));
+                          }
+                          if(bool11 == true){
+                            checked11 = 'checked';
+                            $("#departments").attr('checked', !$("#sName").attr('checked'));
+                          }
+                          if(bool12 == true){
+                            $("#smsMsg").attr('checked', !$("#sName").attr('checked'));
+                          }
+                          if(bool13 == true){
+                            $("#finance").attr('checked', !$("#sName").attr('checked'));
+                          }
+                          if(bool14 == true){
+                            $("#documents").attr('checked', !$("#sName").attr('checked'));
+                          }
+
+
+                        $('#username').append('<h5 class="pull-left">USERNAME : ' + username + '</h5>');
+
+                        //<h2>abc k<small>@user1</small><small>9887899</small><small>kjkkk</small></h2>
+
+                        $('#name').append('<h4>' + name + ' <small>@' + username + '</small></h4>');
+                        //$('#std_det1').append('<h5>STUDENT ID : ' + std_id + '</h5>');
+                        //$('#std_det1').append('<h6>Class : ' + std_class + '</h6>');
+                        //$('#std_det1').append('<h6>Semester : ' + std_semester + '</h6>');
+                        //$('#std_det1').append('<h6>Session : ' + std_session + '</h6>');
+                        //$('#std_det1').append('<h6>Roll No. : ' + std_rollNo + '</h6>');
+//
+                        //$('#td1').append(''+ std_father_name +'');
+                        //$('#td2').append(''+ std_mother_name +'');
+                        //$('#td3').append(''+ std_guardian_name +'');
+                        //$('#td4').append(''+ std_relation +'');
+                        //$('#td5').append(''+ std_guardian_phone +'');
+                        //$('#td6').append(''+ std_student_phone +'');
+                        //$('#td7').append(''+ std_student_email +'');
+                        //$('#td8').append(''+ std_student_aadhaar +'');
+                        //$('#td9').append(''+ std_student_address +'');
+                    })
+                    .catch(function (err) {
+                        console.log('error: ' + err);
+                    });
+
+        </script>
+    
+    </head>
+
+    <body class="layout-sticky-subnav layout-default ">
+
+        <div class="preloader">
+            <div class="sk-chase">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+            </div>
+
+            <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+            <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples -->
+        </div>
+
+        <!-- Header Layout -->
+        <div class="mdk-header-layout js-mdk-header-layout">
+
+            <!-- Header -->
+
+            
+
+            <!-- // END Header -->
+
+            <!-- Header Layout Content -->
+            <div class="mdk-header-layout__content page-content ">
+                <div class="container page__container page-section">
+                <div class="clearfix"></div>
+            <div class="content-wrapper">
+                <div class="container-fluid softnic-container-fluid">
+                    <!-- Breadcrumb-->
+                    <div class="row pt-2 pb-2">
+                        <div class="col-sm-9">
+                            <h4 class="page-title">User Profile</h4>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                                <li class="breadcrumb-item"><a href="javaScript:void();">User Profile</a></li>
+                            </ol>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="btn-group float-sm-right">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Breadcrumb-->
+                    <div class="row">
+                        <div class="col-lg-12">
+                                                        <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card mb-2">
+                                        <div class="card-header" id="username">
+                                            
+                                            
+                                        </div>
+                                        <div >
+                                            <div class="card-body">
+                                                <div class="col-12 col-lg-5 pull-left">
+                                                    <div class="card profile-card-1 man-user-profile-card">
+                                                        
+                                                        <img src="profile_avatar.png" alt="profile-image" class="profile">                                                        
+                                                        <div class="card-content" id="name">
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                
+                                                    <div class="col-12 col-lg-7 pull-left">
+                                                    
+                                                        <div class="page-access"><h4>ACCESS PAGE</h4></div>
+                                                        <hr>
+                                                        <div class="page-access-inp-div">
+                                                            <div class="col-md-6">
+                                                                <div class="icheck-material-primary">
+                                                                    <input type="checkbox" class="single-checkbox" name="checkbox" id="cashbook" value="cashbook" >
+                                                                    <label for="cashbook">Cashbook</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="icheck-material-primary">
+                                                                    <input type="checkbox" class="single-checkbox" name="checkbox" id="students" value="students">
+                                                                    <label for="students">Students</label>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="col-md-6">
+                                                                <div class="icheck-material-primary">
+                                                                    <input type="checkbox" class="single-checkbox" name="checkbox" id="stdfeesPayment" value="stdfeesPayment" >
+                                                                    <label for="stdfeesPayment">Student Fees Payment</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="icheck-material-primary">
+                                                                    <input type="checkbox" class="single-checkbox" name="checkbox" id="create_room" value="create_room" >
+                                                                    <label for="create_room">Create Room</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="icheck-material-primary">
+                                                                    <input type="checkbox" class="single-checkbox" name="checkbox" id="staffs" value="staffs" >
+                                                                    <label for="staffs">Staffs</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="icheck-material-primary">
+                                                                    <input type="checkbox" class="single-checkbox" name="checkbox" id="sessions" value="sessions" >
+                                                                    <label for="classes">Sessions</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="icheck-material-primary">
+                                                                    <input type="checkbox" class="single-checkbox" name="checkbox" id="classes" value="classes" >
+                                                                    <label for="classes">Classes</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="icheck-material-primary">
+                                                                    <input type="checkbox" class="single-checkbox" name="checkbox" id="semesters" value="semesters" >
+                                                                    <label for="semesters">Semesters</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="icheck-material-primary">
+                                                                    <input type="checkbox" class="single-checkbox" name="checkbox" id="departments" value="departments" >
+                                                                    <label for="departments">Departments</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="icheck-material-primary">
+                                                                    <input type="checkbox" class="single-checkbox" name="checkbox" id="smsMsg" value="smsMsg" >
+                                                                    <label for="smsMsg">SMS Message</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="icheck-material-primary">
+                                                                    <input type="checkbox" class="single-checkbox" name="checkbox" id="finance" value="finance" >
+                                                                    <label for="finance">Finance</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="icheck-material-primary">
+                                                                    <input type="checkbox" class="single-checkbox" name="checkbox" id="documents" value="documents" >
+                                                                    <label for="documents">Documents</label>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    
+                                                    </div>
+                                                
+                                                    <div class="clearfix"></div>
+                                                    
+
+                                                    <hr>
+                                                    <input type="hidden" name="uid" value="8">
+                                                    <div class="form-group row pull-right">
+                                                        <div class="col-sm-10">
+                                                            <a type="button" name="updateUserAccess" class="sendEmail btn btn-dark shadow-dark px-5">UPDATE</a>
+                                                        </div>
+                                                    </div>
+                                                
+
+                                                <script>
+                                                    var allowed_length = 5;
+                                                    $('input[type=checkbox]').on('change', function (e) {
+                                                        if ($('input[type=checkbox]:checked').length > allowed_length) {
+                                                            $(this).prop('checked', false);
+                                                            alert("Maximum allowed only " + allowed_length);
+                                                        }
+                                                    });
+
+                                                    var chk1 = $("input[type='checkbox'][value='students']");
+                                                    var chk2 = $("input[type='checkbox'][value='stdfeesPayment']");
+                                                                                                    
+                                                    chk1.on('change', function(){
+                                                        chk2.prop('checked',this.checked);
+                                                    });
+
+                                                    var link;                
+
+                                                    $(document).ready(function () {
+                                                    
+                                                        $(".sendEmail").click(function() {
+
+
+                                                        
+                                                            var emails = [];
+                                                            
+                                                            var checkboxes = document.getElementsByClassName("single-checkbox");
+                                                            
+                                                        
+                                                        
+                                                            for (var i = 0; i <= checkboxes.length-1; i++) {
+                                                                if (checkboxes[i].type === "checkbox" && checkboxes[i].checked) {
+                                                                    emails.push(checkboxes[i].value);
+                                                                }
+                                                            }
+                                                            
+                                                        
+                                                            link = "/user_info/edit_parmission?emails=test";
+                                                        
+                                                            for(var i = 0; i <= emails.length-1; i++){
+                                                                link += "&emails=" + emails[i];
+                                                                if(i < emails.length-1){
+                                                                    link +=  "&";
+                                                                }
+                                                            }
+                                                            
+                                                            console.log(emails);
+                                                            console.log(link);
+                                                        
+                                                            $(this).attr("href", link);
+
+
+                                                        });
+                                                    });
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                	</div>
+                	<!-- End container-fluid-->
+                	<div class="overlay"></div>
+            	</div>
+            <!--End content-wrapper-->  
+            </div>
+            <div class="bg-white border-top-2 mt-auto">
+                <div class="container page__container page-section d-flex flex-column">
+                    <p class="text-70 brand mb-24pt">
+                        <img class="brand-icon"
+                             src="maze.jpeg"
+                             width="150"
+                             alt="mazesoftsolution">
+                    </p>
+                    <p class="measure-lead-max text-50 small mr-8pt">We have reached an age where the entire world is reduced to a global village. In this realm of connected living and sharing, we envision a future that will redefine the very purpose of our existence. Today, the solutions are more refined than the demand itself. What we get is better than what we asked for. Businesses, big or small, look for companies that will refine their business needs, more than offering a ready solution. They look for companies that offer competitive web and mobile apps development, e-commerce, and Open-source CMS development to propel their business expansion.</p>
+                    <p class="text-50 small mt-n1 mb-0">Developed by <a href="http://www.mazesoftsolutions.com/">Maze Soft Solution</a></p>
+                </div>
+            </div>
+        </div>   
+    
+
+
+    
+
+        <!-- Drawer -->
+
+        <div class="mdk-drawer js-mdk-drawer"
+             id="default-drawer">
+            <div class="mdk-drawer__content">
+                <div class="sidebar sidebar-dark-pickled-bluewood sidebar-left"
+                     data-perfect-scrollbar>
+
+                    <!-- Sidebar Content -->
+
+                    <a href="/home"
+                       class="sidebar-brand ">
+                        <!-- <img class="sidebar-brand-icon" src="/public/images/illustration/student/128/white.svg" alt="Luma"> -->
+
+                        <span class="avatar avatar-xl sidebar-brand-icon h-auto">
+
+                            <span class="avatar-title rounded bg-primary"><img src="/public/images/illustration/student/128/white.svg"
+                                     class="img-fluid"
+                                     alt="logo" /></span>
+
+                        </span>
+
+                        <span>Welcome Admin</span>
+                    </a>
+
+                    
+                        
+                    <ul class="sidebar-menu">
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/home">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">home</span>
+                                <span class="sidebar-menu-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/cashbook">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">receipt</span>
+                                <span class="sidebar-menu-text">Cashbook</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/fees_payment">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">shopping_cart</span>
+                                <span class="sidebar-menu-text">Fees Payments</span>
+                            </a>
+                        </li>
+                        <ul class="sidebar-menu">
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button js-sidebar-collapse"
+                                   data-toggle="collapse"
+                                   href="#enterprise_menu">
+                                    <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">donut_large</span>
+                                    Applications
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse sm-indent"
+                                    id="enterprise_menu">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/contact">
+                                            <span class="sidebar-menu-text">Contact</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/add_contact">
+                                            <span class="sidebar-menu-text">Add Contact</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button disabled"
+                                           href="/hr-dashboard">
+                                            <span class="sidebar-menu-text">Applications</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button disabled"
+                                           href="/employees">
+                                            <span class="sidebar-menu-text">Add Applications</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#productivity_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">local_library</span>
+                                Students
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="productivity_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/student">
+                                        <span class="sidebar-menu-text">Students</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_student">
+                                        <span class="sidebar-menu-text">Add Students</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/room">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">room</span>
+                                <span class="sidebar-menu-text">Create Room</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#ecommerce_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">people_outline</span>
+                                Staffs
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="ecommerce_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/staff">
+                                        <span class="sidebar-menu-text">Staffs</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_staff">
+                                        <span class="sidebar-menu-text">Add Staffs</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#messaging_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">dvr</span>
+                                Classes
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="messaging_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/class">
+                                        <span class="sidebar-menu-text">Classes</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_class">
+                                        <span class="sidebar-menu-text">Add Classes</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#account_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                Departments
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="account_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/department">
+                                        <span class="sidebar-menu-text">Departments</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_department">
+                                        <span class="sidebar-menu-text">Add Departments</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#community_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                Sessions
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="community_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/session">
+
+                                        <span class="sidebar-menu-text">Sessions</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_session">
+
+                                        <span class="sidebar-menu-text">Add Sessions</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#components_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">account_box</span>
+                                Users
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="components_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/user">
+                                        <span class="sidebar-menu-text">Users</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_user">
+                                        <span class="sidebar-menu-text">Add Users</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/invoice">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">message</span>
+                                <span class="sidebar-menu-text">Invoices</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/finance">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">trending_up</span>
+                                <span class="sidebar-menu-text">Finance</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/system_history">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">access_time</span>
+                                <span class="sidebar-menu-text">System History</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/bin">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">help</span>
+                                <span class="sidebar-menu-text">Recyle Bin</span>
+                            </a>
+                        </li>
+                    </ul>
+                    
+
+                    <!-- // END Sidebar Content -->
+
+                </div>
+            </div>
+        </div>
+
+        <!-- // END Drawer -->
+
+       
+
+        <!-- Bootstrap -->
+        <script src="./public/vendor/popper.min.js"></script>
+        <script src="./public/vendor/bootstrap.min.js"></script>
+
+        <!-- Perfect Scrollbar -->
+        <script src="./public/vendor/perfect-scrollbar.min.js"></script>
+
+        <!-- DOM Factory -->
+        <script src="./public/vendor/dom-factory.js"></script>
+
+        <!-- MDK -->
+        <script src="./public/vendor/material-design-kit.js"></script>
+
+        <!-- App JS -->
+        <script src="./public/js/app.js"></script>
+
+        <!-- Preloader -->
+        <script src="./public/js/preloader.js"></script>
+
+
+        <script >
+            $(document).ready(function(){
+                //select all checkbox
+                $('#selectAll').click(function(){
+                    $('.singleCheckBox').not(this).prop('checked', this.checked);
+                });
+
+
+                $('#sendToSelected').on('click', function(){
+                    var numberIdsArray = [];
+                    $.each($("input[name='cKInputNumId']:checked"), function(){            
+                        numberIdsArray.push($(this).val());
+                    });
+                    var numberIds = numberIdsArray.join(",");
+                    if (numberIds.length>0) {
+                        window.location.href = "sms.php?type=students&ids="+numberIds;
+                    }else{
+                        swal("Empty Selection", "Please select students to send SMS", "info");
+                    }
+                    
+                });
+
+
+                $('#massEditButton').on('click', function(){
+                    var numberIdsArray = [];
+                    $.each($("input[name='cKInputNumId']:checked"), function(){            
+                        numberIdsArray.push($(this).val());
+                    });
+                    var numberIds = numberIdsArray.join(",");
+                    if (numberIds.length>0) {
+                    	$('#selectedStdCount').text(numberIdsArray.length);
+                    	$('#editProfileSids').val(numberIds);
+                        $('#editStudentProfile').modal('show');
+                    }else{
+                        swal("Empty Selection", "Please select students to update", "info");
+                    }
+                    
+                });
+
+            });
+        </script>
+
+    </body>
+</html>

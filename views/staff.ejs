@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en"
+      dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+              <title> Hashimia International Academy</title>
+              <link rel="icon" href="logo.jpeg" type="image/gif" sizes="16x16">
+
+        <!-- Prevent the demo from appearing in search engines -->
+        <meta name="robots"
+              content="noindex">
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/vendor/spinkit.css"
+              rel="stylesheet">
+
+        <!-- Perfect Scrollbar -->
+        <link type="text/css"
+              href="./public/vendor/perfect-scrollbar.css"
+              rel="stylesheet">
+
+        <!-- Material Design Icons -->
+        <link type="text/css"
+              href="./public/css/material-icons.css"
+              rel="stylesheet">
+
+        <!-- Font Awesome Icons -->
+        <link type="text/css"
+              href="./public/css/fontawesome.css"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/css/preloader.css"
+              rel="stylesheet">
+
+        <!-- App CSS -->
+        <link type="text/css"
+              href="./public/css/app.css"
+              rel="stylesheet">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+        <!-- jQuery -->
+        <script src="./public/vendor/jquery.min.js"></script>
+
+    </head>
+
+    <body class="layout-sticky-subnav layout-default ">
+
+        <div class="preloader">
+            <div class="sk-chase">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+            </div>
+
+            <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+            <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples -->
+        </div>
+
+        <!-- Header Layout -->
+        <div class="mdk-header-layout js-mdk-header-layout">
+
+            <!-- Header -->
+
+            <div id="header"
+                 class="mdk-header js-mdk-header mb-0"
+                 data-fixed
+                 data-effects="">
+                <div class="mdk-header__content">
+
+                    <!-- Navbar -->
+
+                    <div class="navbar navbar-expand pr-0 navbar-dark-pickled-bluewood navbar-shadow"
+                         id="default-navbar"
+                         data-primary>
+
+                        <!-- Navbar Toggler -->
+
+                        <button class="navbar-toggler w-auto mr-16pt d-block rounded-0"
+                                type="button"
+                                data-toggle="sidebar">
+                            <span class="material-icons">short_text</span>
+                        </button>
+
+                        <!-- // END Navbar Toggler -->
+
+                        <!-- Navbar Brand -->
+
+                        <a href="/home"
+                           class="navbar-brand mr-16pt">
+
+                            <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
+
+                                <span class="avatar-title rounded"><img src="logo.jpeg"
+                                    alt="logo"
+                                    class="img-fluid" /></span>
+
+                            </span>
+
+                            <span class="d-none d-lg-block">Welcome Admin</span>
+                        </a>
+
+                        <!-- // END Navbar Brand -->
+
+                        
+
+                        <!-- // END Navbar Search -->
+
+                        <div class="flex"></div>
+
+                        <!-- Navbar Menu -->
+
+                        <div class="nav navbar-nav flex-nowrap d-flex mr-16pt">
+
+                            <div class="nav-item dropdown">
+                                <a href="#"
+                                   class="nav-link d-flex align-items-center dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   data-caret="false">
+
+                                    <span class="avatar avatar-sm mr-8pt2">
+
+                                        <span class="avatar-title rounded-circle bg-primary"><i class="material-icons">account_box</i></span>
+
+                                    </span>
+
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <div class="dropdown-header"><strong>Account</strong></div>
+                                    <a class="dropdown-item"
+                                       href="/edit-account">Edit Account</a>
+                                    <a class="dropdown-item"
+                                       href="/logout">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- // END Navbar Menu -->
+
+                    </div>
+
+                    <!-- // END Navbar -->
+
+                </div>
+            </div>
+
+            <!-- // END Header -->
+
+            <!-- Header Layout Content -->
+            <div class="mdk-header-layout__content page-content ">
+
+                <div class="pt-32pt">
+                    <div class="container page__container d-flex flex-column flex-md-row align-items-center text-center text-sm-left">
+                        <div class="flex d-flex flex-column flex-sm-row align-items-center">
+                            
+                            <div class="mb-24pt mb-sm-0 mr-sm-24pt">
+                                <h4 class="page-title">Employee</h4>
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/home"></a>Home</a></li>
+                                    <li class="breadcrumb-item"><a href="javaScript:void();">Employee</a></li>
+                                </ol>
+                            </div>
+                                <!--<div class="col-sm-3">
+                                    <div class="btn-group float-sm-right">
+                                        <button type="button" class="btn btn-outline-primary waves-effect waves-light"><i class="fa fa-eye mr-1"></i> View</button>
+                                        <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split waves-effect waves-light" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        </button>
+                                        <div class="dropdown-menu" style="padding-left: 10px;">
+                                        </div>
+                                    </div>
+                                </div>-->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="container page__container page-section">
+                    <div class="col-md-6 p-0">
+                        <form id="staff_form">
+                            <div class="form-group">
+                                <label class="form-label">Staff ID</label>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="Staff ID"
+                                       name="staff_id"
+                                       />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Department</label>
+                                
+                            
+                            <select  id="dept" name="staff_department"class="form-control">
+                                <option value="">Select Department</option>
+                                
+                            </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-12 p-0">
+                        <button class="btn btn-primary" onclick="submit()"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
+                        <button type="button" onclick="exportTableToExcel('staff_det','Staff-Details')" class="btn btn-outline-success pull-right"> <i class="fa fa-file-excel-o"></i> &nbsp; Excel </button>
+                        <script>
+                            function exportTableToExcel(tableID, filename = ''){
+                                var downloadLink;
+                                var dataType = 'application/vnd.ms-excel';
+                                var tableSelect = document.getElementById(tableID);
+                                var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+                                
+                                // Specify file name
+                                filename = filename?filename+'.xls':'excel_data.xls';
+                                
+                                // Create download link element
+                                downloadLink = document.createElement("a");
+                                
+                                document.body.appendChild(downloadLink);
+                                
+                                if(navigator.msSaveOrOpenBlob){
+                                    var blob = new Blob(['\ufeff', tableHTML], {
+                                        type: dataType
+                                    });
+                                    navigator.msSaveOrOpenBlob( blob, filename);
+                                }else{
+                                    // Create a link to the file
+                                    downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+                                
+                                    // Setting the file name
+                                    downloadLink.download = filename;
+                                    
+                                    //triggering the function
+                                    downloadLink.click();
+                                }
+                            }
+                        </script>
+                        <script>
+                            const url = "/studentDepartment/getdata";
+
+                            fetch(url)
+                                .then(function (response) {
+                                    return response.json();
+                                })
+                                .then(function (data) {
+                                
+                                    appendData(data);
+                                })
+                                .catch(function (err) {
+                                    console.log('error: ' + err);
+                                });
+                            
+                                function appendData(data) {
+                                            //var mainContainer = document.getElementById("doctor_id");
+                                
+                                            for (var i = 0; i < data.length; i++) {
+                                            
+                                            
+                                            
+                                                var id = data[i].id;
+                                            
+                                                var daySelect = document.getElementById("dept");
+                                                var myOption = document.createElement("option");
+                                                myOption.text = data[i].department_name;
+                                                myOption.value = data[i].department_name;
+                                                daySelect.add(myOption);
+                                                                    
+                                            }
+                                }
+
+                        </script>
+                    </div>
+                    <br>
+                    <div class="card table-responsive">
+                        <div>
+                            <br>
+                            <center>
+                                <button type="button" id="sendToSelected" class="btn btn-outline-dark waves-effect waves-light btn-sm m-1" data-toggle="modal" data-target="#mysms"> <i class="fa fa-envelope"></i>&nbsp;<span>Send SMS</span> </button>
+                            </center>
+                        <hr>
+                    </div>
+                        <table class="table table-flush table-nowrap table-light table-striped shadow-light" id="staff_det">
+                            <thead>
+                                <tr>
+                                    <th scope="col"><input type="checkbox" name="checkAll" id="selectAll"></th>
+                                    <th scope="col">Employee ID</th>
+                                    <th scope="col">Name</th>
+                                    
+                                    <th scope="col">Department</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col">Email</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody">
+                                
+                            </tbody>
+                        </table>
+
+                        <script>
+                            var staff_id;
+                            var staff_department;
+                            
+                    
+                             function submit() { 
+                    
+                                var formEl = document.forms.staff_form;
+                                var formData = new FormData(formEl);
+                                staff_id = formData.get('staff_id');
+                                staff_department = formData.get('staff_department');
+                               
+                    
+                                const url = "/search_staffs?staff_id=" + staff_id + "&" + "staff_department=" + staff_department;
+                                
+
+                                if(!staff_id && !staff_department){
+                                alert("Please fill a input!")
+                                } else {
+                                fetch(url)
+                                    .then(function (response) {
+                                        return response.json();
+                                    })
+                                    .then(function (data) {
+                                        $("#staff_det tbody tr").remove(); 
+                                        appendData(data);
+                                    })
+                                    .catch(function (err) {
+                                        console.log('error: ' + err);
+                                    });
+                                }
+                    
+                                
+                    
+                                function appendData(data) {
+                                    var mainContainer = document.getElementById("tbody");
+                                    
+                                    for (var i = 0; i < data.length; i++) {
+                    
+                                       
+                    
+                                        var id = data[i].staff_id;
+                                        
+                    
+                                        var div = document.createElement("tr");
+                                        div.innerHTML = '<tr>' +
+                                                            
+                                                            '<td scope="col">' + 
+                                                                '<input type="checkbox" value="' + id + '" name="cKInputNumId" class="checkbox singleCheckBox" />' + 
+                                                            '</td>' +
+                                                            '<td>' +
+                                                                '<a href="/staff-profile?staff_id=' + id + '"" style="color: blue;">' + id + '</a>' +
+                                                            '</td>' +
+                                                            '<td>' + 
+                                                                '<a href="/staff-profile?staff_id=' + id + '"" style="color: blue;">' + data[i].first_name + '&nbsp' + data[i].last_name + '</a>' +
+                                                            '</td>' +
+                                                            '<td>'+ 
+                                                                data[i].department +
+                                                            '</td>' +
+                                                            '<td>' + 
+                                                                data[i].phone + 
+                                                            '</td>' +
+                    
+                                                            '<td>' +
+                                                                data[i].email +
+                                                            '</td>' +
+                                                        '</tr>' ;
+                                        mainContainer.appendChild(div);
+
+
+                                    }
+                                }
+                            }
+                        
+                                
+                        </script>
+
+                    </div>
+                    <br>
+                   
+                   
+                </div>
+            </div>
+            <!-- End container-fluid-->
+            <div class="overlay"></div>
+        </div>
+        <!--End content-wrapper-->
+         
+
+        </div>
+        <!-- // END Header Layout -->
+
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+            
+              <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                  
+                    
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+              
+            </div>
+        </div>
+
+        <div class="modal fade" id="mysms" role="dialog">
+            <div class="modal-dialog">
+            
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        
+                                <div class="card-body">
+                                    <form action="action/user.action.php" method="POST" id="sendSmsForm">
+                                       
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="msgHolder" name="msg" placeholder="Message here.." style="height: 200px"></textarea>
+                                            <center><div id="countChr" style="padding: 10px;">Characters: 0, SMS Cost: 1, Total Cost: 100</div></center>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" name="sendTextSms" class="btn btn-primary waves-effect waves-light m-1"><i class="fa fa-send mr-1"></i> Send</button>
+                                            <button type="button" class="btn btn-dark waves-effect waves-light m-1"><i class="fa fa-trash mr-1"></i> <span>Discard</span> </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            
+                        
+                    </div>
+              
+                </div>
+            </div>
+            <div class="bg-white border-top-2 mt-auto">
+                <div class="container page__container page-section d-flex flex-column">
+                    <p class="text-70 brand mb-24pt">
+                        <img class="brand-icon"
+                             src="maze.jpeg"
+                             width="150"
+                             alt="mazesoftsolution">
+                    </p>
+                    <p class="measure-lead-max text-50 small mr-8pt">We have reached an age where the entire world is reduced to a global village. In this realm of connected living and sharing, we envision a future that will redefine the very purpose of our existence. Today, the solutions are more refined than the demand itself. What we get is better than what we asked for. Businesses, big or small, look for companies that will refine their business needs, more than offering a ready solution. They look for companies that offer competitive web and mobile apps development, e-commerce, and Open-source CMS development to propel their business expansion.</p>
+                    <p class="text-50 small mt-n1 mb-0">Developed by <a href="http://www.mazesoftsolutions.com/">Maze Soft Solution</a></p>
+                </div>
+            </div>
+        </div>
+        <script>
+            var total_number = 100;
+            $(document).ready(function(){
+
+                $('#msgHolder').keyup(function(){
+                    var text_ch = $(this).val();
+                    var count = text_ch.length;
+                    if (count < 161) {
+                        var sms_cost = 1;
+                    } else if (count > 160 && count < 307) {
+                        var sms_cost = 2;
+                    } else{
+                        var sms_cost = 3;
+                    }
+                    var total_cost = total_number * sms_cost;
+                    $('#countChr').text('Characters: '+count+', SMS Cost: '+sms_cost+', Total Cost: '+total_cost);
+                });
+
+
+                $('#sendSmsForm').on('submit', function(){
+                    $('#loader').show();
+                    setTimeout(function() {
+                        $('.loading_text').text('SMS sending in progress..');
+                    }, 3000);
+                });
+                
+            });
+        </script>
+
+        <!-- Drawer -->
+
+        <div class="mdk-drawer js-mdk-drawer"
+             id="default-drawer">
+            <div class="mdk-drawer__content">
+                <div class="sidebar sidebar-dark-pickled-bluewood sidebar-left"
+                     data-perfect-scrollbar>
+
+                    <!-- Sidebar Content -->
+
+                    <a href="/home"
+                       class="sidebar-brand ">
+                        <!-- <img class="sidebar-brand-icon" src="/public/images/illustration/student/128/white.svg" alt="Luma"> -->
+
+                        <span class="avatar avatar-xl sidebar-brand-icon h-auto">
+
+                            <span class="avatar-title rounded"><img src="logo.jpeg"
+                                alt="logo"
+                                class="img-fluid" /></span>
+
+                        </span>
+
+                        <span>Welcome Admin</span>
+                    </a>
+
+                    
+                        
+                    <ul class="sidebar-menu">
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/home">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">home</span>
+                                <span class="sidebar-menu-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/cashbook">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">receipt</span>
+                                <span class="sidebar-menu-text">Cashbook</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/fees_payment">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">shopping_cart</span>
+                                <span class="sidebar-menu-text">Fees Payments</span>
+                            </a>
+                        </li>
+                        <ul class="sidebar-menu">
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button js-sidebar-collapse"
+                                   data-toggle="collapse"
+                                   href="#enterprise_menu">
+                                    <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">donut_large</span>
+                                    Applications
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse sm-indent"
+                                    id="enterprise_menu">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/contact">
+                                            <span class="sidebar-menu-text">Contact</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/add_contact">
+                                            <span class="sidebar-menu-text">Add Contact</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button disabled"
+                                           href="/hr-dashboard">
+                                            <span class="sidebar-menu-text">Applications</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button disabled"
+                                           href="/employees">
+                                            <span class="sidebar-menu-text">Add Applications</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#productivity_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">local_library</span>
+                                Students
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="productivity_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/student">
+                                        <span class="sidebar-menu-text">Students</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_student">
+                                        <span class="sidebar-menu-text">Add Students</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/room">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">room</span>
+                                <span class="sidebar-menu-text">Create Room</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#ecommerce_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">people_outline</span>
+                                Staffs
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="ecommerce_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/staff">
+                                        <span class="sidebar-menu-text">Staffs</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_staff">
+                                        <span class="sidebar-menu-text">Add Staffs</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#messaging_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">dvr</span>
+                                Classes
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="messaging_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/class">
+                                        <span class="sidebar-menu-text">Classes</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_class">
+                                        <span class="sidebar-menu-text">Add Classes</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#account_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                Departments
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="account_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/department">
+                                        <span class="sidebar-menu-text">Departments</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_department">
+                                        <span class="sidebar-menu-text">Add Departments</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#community_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                Sessions
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="community_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/session">
+
+                                        <span class="sidebar-menu-text">Sessions</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_session">
+
+                                        <span class="sidebar-menu-text">Add Sessions</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#components_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">account_box</span>
+                                Users
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="components_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/user">
+                                        <span class="sidebar-menu-text">Users</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_user">
+                                        <span class="sidebar-menu-text">Add Users</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/invoice">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">message</span>
+                                <span class="sidebar-menu-text">Invoices</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/finance">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">trending_up</span>
+                                <span class="sidebar-menu-text">Finance</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/system_history">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">access_time</span>
+                                <span class="sidebar-menu-text">System History</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/bin">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">help</span>
+                                <span class="sidebar-menu-text">Recyle Bin</span>
+                            </a>
+                        </li>
+                    </ul>
+                    
+
+                    <!-- // END Sidebar Content -->
+
+                </div>
+            </div>
+        </div>
+
+        <!-- // END Drawer -->
+
+        <!-- jQuery -->
+        <script src="./public/vendor/jquery.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="./public/vendor/popper.min.js"></script>
+        <script src="./public/vendor/bootstrap.min.js"></script>
+
+        <!-- Perfect Scrollbar -->
+        <script src="./public/vendor/perfect-scrollbar.min.js"></script>
+
+        <!-- DOM Factory -->
+        <script src="./public/vendor/dom-factory.js"></script>
+
+        <!-- MDK -->
+        <script src="./public/vendor/material-design-kit.js"></script>
+
+        <!-- App JS -->
+        <script src="./public/js/app.js"></script>
+
+        <!-- Preloader -->
+        <script src="./public/js/preloader.js"></script>
+
+        <script >
+            $(document).ready(function(){
+                //select all checkbox
+                $('#selectAll').click(function(){
+                    $('.singleCheckBox').not(this).prop('checked', this.checked);
+                });
+
+
+                $('#sendToSelected').on('click', function(){
+                    var numberIdsArray = [];
+                    $.each($("input[name='cKInputNumId']:checked"), function(){            
+                        numberIdsArray.push($(this).val());
+                    });
+                    var numberIds = numberIdsArray.join(",");
+                    if (numberIds.length>0) {
+                        window.location.href = "sms.php?type=students&ids="+numberIds;
+                    }else{
+                        swal("Empty Selection", "Please select students to send SMS", "info");
+                    }
+                    
+                });
+
+
+                $('#massEditButton').on('click', function(){
+                    var numberIdsArray = [];
+                    $.each($("input[name='cKInputNumId']:checked"), function(){            
+                        numberIdsArray.push($(this).val());
+                    });
+                    var numberIds = numberIdsArray.join(",");
+                    if (numberIds.length>0) {
+                    	$('#selectedStdCount').text(numberIdsArray.length);
+                    	$('#editProfileSids').val(numberIds);
+                        $('#editStudentProfile').modal('show');
+                    }else{
+                        swal("Empty Selection", "Please select students to update", "info");
+                    }
+                    
+                });
+
+            });
+        </script>
+        
+
+    </body>
+</html>

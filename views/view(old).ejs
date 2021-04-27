@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en"
+      dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+              <title> Hashimia International Academy</title>
+              <link rel="icon" href="logo.jpeg" type="image/gif" sizes="16x16">
+
+        <!-- Prevent the demo from appearing in search engines -->
+        <meta name="robots"
+              content="noindex">
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/vendor/spinkit.css"
+              rel="stylesheet">
+
+        <!-- Perfect Scrollbar -->
+        <link type="text/css"
+              href="./public/vendor/perfect-scrollbar.css"
+              rel="stylesheet">
+
+        <!-- Material Design Icons -->
+        <link type="text/css"
+              href="./public/css/material-icons.css"
+              rel="stylesheet">
+
+        <!-- Font Awesome Icons -->
+        <link type="text/css"
+              href="./public/css/fontawesome.css"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/css/preloader.css"
+              rel="stylesheet">
+
+        <!-- App CSS -->
+        <link type="text/css"
+              href="./public/css/app.css"
+              rel="stylesheet">
+              
+         <!-- jQuery -->
+         <script src="./public/vendor/jquery.min.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script>
+            var month_name = [];
+            var month_val = [];
+            var month_date = [];
+
+            var admsn;
+            var jan;
+            var feb;
+            var mar;
+            var apr;
+            var may;
+            var jun;
+            var jul;
+            var aug;
+            var sep;
+            var oct;
+            var nov;
+            var dec;
+
+            var total_amount = new Number();
+
+            var name;
+
+            //------------------date----------------------//
+  
+            // Date object initialized as per Indian (kolkata) timezone. Returns a datetime string
+            let nz_date_string = new Date().toLocaleString("en-US", { timeZone: "Asia/Calcutta" });
+                   
+            // Date object initialized from the above datetime string
+            let date_nz = new Date(nz_date_string);
+                    
+            // year as (YYYY) format
+            let year = date_nz.getFullYear();
+                    
+            // month as (MM) format
+            let month = ("0" + (date_nz.getMonth() + 1)).slice(-2);
+                    
+            // date as (DD) format
+            let date = ("0" + date_nz.getDate()).slice(-2);
+                    
+            // date as YYYY-MM-DD format
+            let date_yyyy_mm_dd = year + "-" + month + "-" + date;
+            let date_dd_mm_yyyy = date + "-" + month + "-" + year;
+
+
+
+            const url4 = "/student_payment_bill/getdata4" ;
+            fetch(url4)
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (data) {
+                        name = data[0].first_name + ' ' + data[0].last_name;
+
+                        $('#student_id').append("Student ID: <b>" + data[0].student_id + "</b>");
+                        $('#date').append("Issue Date: <b>" + date_dd_mm_yyyy + "</b>");
+                        $('#name').append(data[0].first_name + ' ' + data[0].last_name);
+                        $('#class').append(data[0].student_class);
+                        $('#session').append(data[0].session);
+                        $('#roll').append(data[0].roll_no);
+                        $('#mobile').append(data[0].guardian_phone);
+                        $('#email').append(data[0].email);
+                        $('#thanks').append(data[0].first_name + ' ' + data[0].last_name);
+                        
+                        
+
+                    })
+                    .catch(function (err) {
+                        console.log('error: ' + err);
+                    });
+       
+            const url = "/student_payment_bill/getdata" ;
+
+                fetch(url)
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (data) {
+                       
+                        $("#tbody tr").remove(); 
+                        appendData(data);
+                    })
+                    .catch(function (err) {
+                        console.log('error: ' + err);
+                    });
+
+           function calculations(data) {
+                
+
+                //array of values
+            }
+                    
+           
+
+            function appendData(data) {
+
+                admsn = data[0].admission_fees;
+                jan = data[0].january;
+                feb = data[0].february;
+                mar = data[0].march;
+                apr = data[0].april;
+                may = data[0].may;
+                jun = data[0].june;
+                jul = data[0].july;
+                aug = data[0].august;
+                sep = data[0].september;
+                oct = data[0].october;
+                nov = data[0].november;
+                dec = data[0].december;
+
+                if((admsn !== null) && (admsn !== undefined)) {
+                    month_name.push('Admission Fees');
+                    month_val.push(admsn);
+                }
+                if( (jan !== null) && (jan !== undefined)) {
+                    month_name.push('January Fees')  ;
+                    month_val.push(jan)  ;
+                }
+                if( (feb !== null)&& (feb !== undefined)) {
+                    month_name.push('February Fees')  ;  
+                    month_val.push(feb) ;
+                }
+                if( (mar !== null) && (mar !== undefined)) {
+                    month_name.push('March Fees')  ;
+                    month_val.push(mar) ;
+                }
+                if( (apr !== null) && (apr !== undefined)) {
+                    month_name.push('April Fees')  ; 
+                    month_val.push(apr) ;
+                }
+                if( (may !== null) && (may !== undefined)) {
+                    month_name.push('May Fees')  ;  
+                    month_val.push(may) ;
+                }
+                if( (jun !== null) && (jun !== undefined)) {
+                    month_name.push('June Fees')  ;  
+                    month_val.push(jun) ; 
+                }
+                if( (jul !== null) && (jul !== undefined)) {
+                    month_name.push('July Fees')  ; 
+                    month_val.push(jul) ;  
+                }
+                if( (aug !== null) && (aug !== undefined)) {
+                    month_name.push('August Fees')  ; 
+                    month_val.push(aug) ;
+                }
+                if( (sep !== null) && (sep !== undefined)) {
+                    month_name.push('September Fees')  ; 
+                    month_val.push(sep) ;
+                }
+                if( (oct !== null) && (oct !== undefined)) {
+                    month_name.push('October Fees')  ; 
+                    month_val.push(oct) ;
+                }
+                if( (nov !== null) && (nov !== undefined)) {
+                    month_name.push('November Fees')  ; 
+                    month_val.push(nov) ;
+                }
+                if( (dec !== null) && (dec !== undefined)) {
+                    month_name.push('December Fees')  ;  
+                    month_val.push(dec) ;
+                }
+
+                
+                
+
+
+                const url2 = "/student_payment_bill/getdata2" ;
+
+                fetch(url2)
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (data) {
+                       if((admsn !== null) && (admsn !== undefined)){
+                           month_date.push(data[0].admission_fees_date);
+                       }
+                       if((jan !== null) && (jan !== undefined)){
+                           month_date.push(data[0].january_date);
+                       }
+                       if((feb !== null) && (feb !== undefined)){
+                           month_date.push(data[0].february_date);
+                       }
+                       if((mar !== null) && (mar !== undefined)){
+                           month_date.push(data[0].march_date);
+                       }
+                       if((apr !== null) && (apr !== undefined)){
+                           month_date.push(data[0].april_date);
+                       }
+                       if((may !== null) && (may !== undefined)){
+                           month_date.push(data[0].may_date);
+                       }
+                       if((jun !== null) && (jun !== undefined)){
+                           month_date.push(data[0].june_date);
+                       } 
+                       if((jul !== null) && (jul !== undefined)){
+                           month_date.push(data[0].july_date);
+                       }
+                       if((aug !== null) && (aug !== undefined)){
+                           month_date.push(data[0].august_date);
+                       }
+                       if((sep !== null) && (sep !== undefined)){
+                           month_date.push(data[0].september_date);
+                       }
+                       if((oct !== null) && (oct !== undefined)){
+                           month_date.push(data[0].october_date);
+                       }
+                       if((nov !== null) && (nov !== undefined)){
+                           month_date.push(data[0].november_date);
+                       }
+                       if((dec !== null) && (dec !== undefined)){
+                           month_date.push(data[0].december_date);
+                       }
+                       console.log( month_val);
+                       console.log( month_name);
+                       console.log( month_date);
+
+
+
+                        //------------------add to table-----------------------------------//
+                var mainContainer = document.getElementById("tbody");
+
+                
+                
+                for (var i = 0; i < month_val.length; i++) {
+                    total_amount += parseInt(month_val[i]);
+                   
+
+                    //var id = data[i].id;
+
+                    var div = document.createElement("tr");
+                    div.innerHTML = '<tr>' +
+                                        
+                                        '<td>' + month_name[i] + '</td>' +
+                                        '<td>' + month_date[i] + '</td>' +
+                                        '<td style="float: right;">' + month_val[i] + '</td>' +
+                                       
+                                      
+                                   '</tr>' ;
+                 mainContainer.appendChild(div);
+
+               }
+                        
+                    })
+                    .catch(function (err) {
+                        console.log('error: ' + err);
+                    });
+
+               
+               
+           
+
+
+           const url3 = "/student_payment_bill/getdata3" ;
+
+                fetch(url3)
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (data) {
+                       
+
+
+
+                //------------------add to table-----------------------------------//
+                var mainContainer = document.getElementById("tbody");
+                
+                for (var i = 0; i < data.length; i++) {
+
+                    total_amount += parseInt(data[i].amount);
+                    
+                    //var id = data[i].id;
+
+                    var div = document.createElement("tr");
+                    div.innerHTML = '<tr>' +
+                                        
+                                        '<td>' + data[i].purpose + '</td>' +
+                                        '<td>' + data[i].transaction_date + '</td>' +
+                                        '<td style="float: right;">' + data[i].amount + '</td>' +
+                                       
+                                      
+                                   '</tr>' ;
+                 mainContainer.appendChild(div);                
+
+               }
+               
+
+               setTimeout(
+                    function() 
+                    {
+                      //do something special
+                      document.getElementById("cmd").disabled = false;
+                      $('#total').append(total_amount);
+                      alert("Bill is ready to print!")
+                    }, 1000);
+                        
+                    })
+                    .catch(function (err) {
+                        console.log('error: ' + err);
+                    });
+  
+           }
+
+           
+            function bill(){
+               
+            var invoice_id;
+            const url5 = "/student_payment_bill/invoice?name=" + name + "&date=" + date_yyyy_mm_dd;
+            fetch(url5)
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (data) {
+                        invoice_id = data[0].id;
+
+                        document.getElementById("receipt").innerHTML = 'Receipt : <b>' + invoice_id + '</b>';
+
+                        //-------------print download-------------//
+                        let pdf = new jsPDF();
+                        
+                        let section=$('#content');
+                        let page= function() {
+                        pdf.save(invoice_id + '_bill.pdf');
+                        };
+                        pdf.addHTML(section,page);
+
+                    })
+                    .catch(function (err) {
+                        console.log('error: ' + err);
+                    });   
+            }
+   
+    </script>
+    </head>
+
+    <body class="layout-sticky-subnav layout-default ">
+
+        <div class="preloader">
+            <div class="sk-chase">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+            </div>
+
+            <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+            <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples -->
+        </div>
+
+        
+
+            <!-- // END Header -->
+
+            <!-- Header Layout Content -->
+            <div class="mdk-header-layout__content page-content ">
+
+                <div class="clearfix"></div>
+                <div class="content-wrapper">
+                <div class="container-fluid softnic-container-fluid">
+                    <!-- Breadcrumb-->
+                    <div class="row pt-2 pb-2">
+                        <div class="col-sm-9">
+                            <h4 class="page-title">View Payment</h4>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                                <li class="breadcrumb-item"><a href="javaScript:void();">View Payment</a></li>
+                            </ol>
+                        </div>
+                        
+                    </div>
+                    <!-- End Breadcrumb-->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                      <div class="card mb-2">
+                                        <div class="card-header">
+                                            <h5 class="pull-left">View Payment</h5>
+                                            <!--<button type="button" class="btn btn-primary waves-effect waves-light m-1 pull-right softnic-profile-edit-btn" data-toggle="modal" data-target="#editProfile"> <i class="fa fa-pencil"></i> &nbsp; Edit </button>-->
+                                            <button type="button" id="cmd" class="btn btn-primary waves-effect waves-light m-1 pull-right softnic-profile-edit-btn" disabled> <i class="fas fa-download" onclick="bill()"></i> &nbsp; Print </button>
+                                        </div>
+                                        <div id="content" style="background-color: white;">
+                                            <div class="card-body pt-0">
+                                                <div class="col-lg-12">
+                                                    
+                                                    <div style="margin-left:2%;margin-right:2%;width:96%;font-family:arial;font-size:15px;color: #222;margin-top:15px;">
+                                                        <table style="width:100%;">
+                                                            <tr>
+                                                                <td style="width:30%;"><img style="max-width: 120px; max-height: 120px;" src="logo.png" /></td>
+                                                                <td style="width:70%;text-align:right;">
+                                                                    <span style="font-weight: 400;font-size: 24px;color: #141299;margin-bottom:0px;padding-bottom:0px;">Hashimia International Academy</span>
+                                                                    <br>Piyara, West Bengal 743425
+                                                             <br>+91 9564948722 | admin@hia.org                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <table style="border-bottom:3px dashed black;margin-top:30px;width:100%;">
+                                                            <tr>
+                                                                <td id="student_id" style="width:50%;font-weight: bolder;color:#000000;font-size: 17px;"></td>
+                                                                <td id="receipt" style="width:50%;text-align:right;color: #000000;font-size:18px; font-weight: bolder;"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td id="date" style="width:50%;font-weight: bolder;color:#000000;font-size: 17px;"></td>
+                                                                <!--<td style="width:50%;text-align:right;color: #000000;font-size:18px; font-weight: bolder;">Mode Of Payment :<b> cash</b></td>-->
+                                                            </tr>
+                                                            <tr style="width:50%;font-weight: bolder;color:#000000;font-size: 17px;">
+                                                            </tr>
+                                                        </table><br>
+
+                                                        <table style="width:100%; line-height: 40px; border: 1px solid #000000; position: relative; font-size: larger;">
+                                                            <tr>
+                                                                <td style="height:25px;width:7%;padding-left:10px; color:#000000;">Name <span style="float: right;">:</span> </td>
+                                                                <td id="name" style="height:25px;width:15%;padding-left: 15px; color:#000000;"></td>
+                                                                <td style="height:25px;width:7%; color:#000000;">Class <span style="float: right;">:</span></td>
+                                                                <td id="class" style="height:25px;width:15%; padding-left: 15px; color:#000000;"></td>
+                                                                
+                                                            </tr>
+                                                            <tr>
+                                                                <!--<td style="height:25px;width:7%;padding-left:10px;">Department <span style="float: right;">:</span></td>
+                                                                <td style="height:25px;width:20%; padding-left: 15px;"></td>
+                                                                <td style="height:25px;width:7%;">Semester <span style="float: right;">:</span> </td>
+                                                                <td style="height:25px;width:15%; padding-left: 15px;">1st Semester</td>-->
+                                                                
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td style="height:25px;width:7%;padding-left:10px;">Session <span style="float: right;">:</span></td>
+                                                                <td id="session" style="height:25px;width:15%; padding-left: 15px;"></td>
+                                                                <td style="height:25px;width:7%;">Roll No. <span style="float: right;">:</span></td>
+                                                                <td id="roll" style="height:25px;width:20%; padding-left: 15px;"></td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td style="height:25px;width:7%;padding-left:10px;">Mobile <span style="float: right;">:</span></td>
+                                                                <td id="mobile" style="height:25px;width:15%; padding-left: 15px;"></td>
+                                                                <td style="height:25px;width:7%;">E-mail <span style="float: right;">:</span></td>
+                                                                <td id="email" style="height:25px;width:20%; padding-left: 15px;"></td>
+                                                            </tr>
+
+                                                            
+                                                        </table>
+
+                                                        <table style="width:100%;margin-top:20px;">
+                                                            <tr>
+                                                                
+                                                                <td style="width:20%;"></td>
+                                                                
+                                                            </tr>
+                                                        </table>
+                                                        
+                                                        <table style="font-size:20px;text-align:left;width:100%;">
+                                                            <thead>
+                                                                <tr>
+                                                                    <td style="height:15px;width:60%;font-weight:bolder;">PAYMENT PURPOSE</td>
+                                                                    <td style="height:15px;width:100%;font-weight:bolder;">PAYMENT DATE</td>
+                                                                    <td style="height:15px;width:100%;font-weight:bolder;">AMOUNT</td>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="tbody">
+
+                                                            </tbody>
+                                                            
+                                                            
+                                                        </table>
+
+                                                        <hr style="border-top: 3px dashed black;">
+                                                        
+                                                         <table style="word-spacing: 20px;font-size:20px;width:100%;">
+                                                             <tr>
+                                                                 <td style="width:50%;line-height: 28px;color:#141299;font-weight:bolder;font-size:20px; text-align: left;">Total :</td>
+                                                                 <td id="total" style="width:50%;font-size:20px;line-height: 28px;font-weight:bold; text-align: right;"> </td>
+                                                             </tr>
+                                                         </table>
+                                                         
+                                                        
+                                                        
+                                                        
+                                                        <div style="float: left; padding-top: 2px;">
+                                                            
+                                                            <br><br><br><br>
+                                                            <p id="thanks" style="float: right;margin-top: 5px; font-size: larger;">Thank you </p>
+                                                            
+                                                        </div>
+
+                                                        <div style="float: right;">
+                                                            <br><br><br><br>
+                                                            <span style="border-top: 1px solid #020202; padding-top: 5px; font-size: larger;">Received by <b>Hashimia International Academy</b></span>
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    
+
+                                                </div>
+
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div id="editor"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="bg-white border-top-2 mt-auto">
+                <div class="container page__container page-section d-flex flex-column">
+                    <p class="text-70 brand mb-24pt">
+                        <img class="brand-icon"
+                             src="maze.jpeg"
+                             width="150"
+                             alt="mazesoftsolution">
+                    </p>
+                    <p class="measure-lead-max text-50 small mr-8pt">We have reached an age where the entire world is reduced to a global village. In this realm of connected living and sharing, we envision a future that will redefine the very purpose of our existence. Today, the solutions are more refined than the demand itself. What we get is better than what we asked for. Businesses, big or small, look for companies that will refine their business needs, more than offering a ready solution. They look for companies that offer competitive web and mobile apps development, e-commerce, and Open-source CMS development to propel their business expansion.</p>
+                    <p class="text-50 small mt-n1 mb-0">Developed by <a href="http://www.mazesoftsolutions.com/">Maze Soft Solution</a></p>
+                </div>
+            </div>
+        </div>
+    
+        
+        <!-- Drawer -->
+
+        <div class="mdk-drawer js-mdk-drawer"
+             id="default-drawer">
+            <div class="mdk-drawer__content">
+                <div class="sidebar sidebar-dark-pickled-bluewood sidebar-left"
+                     data-perfect-scrollbar>
+
+                    <!-- Sidebar Content -->
+
+                    <a href="/home"
+                       class="sidebar-brand ">
+                        <!-- <img class="sidebar-brand-icon" src="/public/images/illustration/student/128/white.svg" alt="Luma"> -->
+
+                        <span class="avatar avatar-xl sidebar-brand-icon h-auto">
+
+                            <span class="avatar-title rounded bg-primary"><img src="/public/images/illustration/student/128/white.svg"
+                                     class="img-fluid"
+                                     alt="logo" /></span>
+
+                        </span>
+
+                        <span>Welcome Admin</span>
+                    </a>
+
+                    
+                        
+                    <ul class="sidebar-menu">
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/home">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">home</span>
+                                <span class="sidebar-menu-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/cashbook">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">receipt</span>
+                                <span class="sidebar-menu-text">Cashbook</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/fees_payment">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">shopping_cart</span>
+                                <span class="sidebar-menu-text">Fees Payments</span>
+                            </a>
+                        </li>
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button js-sidebar-collapse"
+                                   data-toggle="collapse"
+                                   href="#enterprise_menu">
+                                    <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">donut_large</span>
+                                    Applications
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse sm-indent" id="enterprise_menu">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/contact">
+                                            <span class="sidebar-menu-text">Contact</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/add_contact">
+                                            <span class="sidebar-menu-text">Add Contact</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button disabled"
+                                           href="/hr-dashboard">
+                                            <span class="sidebar-menu-text">Applications</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button disabled"
+                                           href="/employees">
+                                            <span class="sidebar-menu-text">Add Applications</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#productivity_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">local_library</span>
+                                Students
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="productivity_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/student">
+                                        <span class="sidebar-menu-text">Students</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_student">
+                                        <span class="sidebar-menu-text">Add Students</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/room">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">room</span>
+                                <span class="sidebar-menu-text">Create Room</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#ecommerce_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">people_outline</span>
+                                Staffs
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="ecommerce_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/staff">
+                                        <span class="sidebar-menu-text">Staffs</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_staff">
+                                        <span class="sidebar-menu-text">Add Staffs</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#messaging_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">dvr</span>
+                                Classes
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="messaging_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/class">
+                                        <span class="sidebar-menu-text">Classes</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_class">
+                                        <span class="sidebar-menu-text">Add Classes</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#account_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                Departments
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="account_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/department">
+                                        <span class="sidebar-menu-text">Departments</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_department">
+                                        <span class="sidebar-menu-text">Add Departments</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#community_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                Sessions
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="community_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/session">
+
+                                        <span class="sidebar-menu-text">Sessions</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_session">
+
+                                        <span class="sidebar-menu-text">Add Sessions</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#components_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">account_box</span>
+                                Users
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="components_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/user">
+                                        <span class="sidebar-menu-text">Users</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_user">
+                                        <span class="sidebar-menu-text">Add Users</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/invoice">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">message</span>
+                                <span class="sidebar-menu-text">Invoices</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/finance">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">trending_up</span>
+                                <span class="sidebar-menu-text">Finance</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/system_history">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">access_time</span>
+                                <span class="sidebar-menu-text">System History</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/bin">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">help</span>
+                                <span class="sidebar-menu-text">Recyle Bin</span>
+                            </a>
+                        </li>
+                    </ul>
+                    
+
+                    <!-- // END Sidebar Content -->
+
+                </div>
+            </div>
+        </div>
+
+        <!-- // END Drawer -->
+
+       
+
+        <!-- Bootstrap -->
+        <script src="./public/vendor/popper.min.js"></script>
+        <script src="./public/vendor/bootstrap.min.js"></script>
+
+        <!-- Perfect Scrollbar -->
+        <script src="./public/vendor/perfect-scrollbar.min.js"></script>
+
+        <!-- DOM Factory -->
+        <script src="./public/vendor/dom-factory.js"></script>
+
+        <!-- MDK -->
+        <script src="./public/vendor/material-design-kit.js"></script>
+
+        <!-- App JS -->
+        <script src="./public/js/app.js"></script>
+
+        <!-- Preloader -->
+        <script src="./public/js/preloader.js"></script>
+
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+
+
+    </body>
+</html>

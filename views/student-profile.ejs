@@ -1,0 +1,2523 @@
+<!DOCTYPE html>
+<html lang="en"
+      dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+              <title> Hashimia International Academy</title>
+              <link rel="icon" href="logo.jpeg" type="image/gif" sizes="16x16">
+
+        <!-- Prevent the demo from appearing in search engines -->
+        <meta name="robots"
+              content="noindex">
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/vendor/spinkit.css"
+              rel="stylesheet">
+
+        <!-- Perfect Scrollbar -->
+        <link type="text/css"
+              href="./public/vendor/perfect-scrollbar.css"
+              rel="stylesheet">
+
+        <!-- Material Design Icons -->
+        <link type="text/css"
+              href="./public/css/material-icons.css"
+              rel="stylesheet">
+
+        <!-- Font Awesome Icons -->
+        <link type="text/css"
+              href="./public/css/fontawesome.css"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/css/preloader.css"
+              rel="stylesheet">
+
+        <!-- App CSS -->
+        <link type="text/css"
+              href="./public/css/app.css"
+              rel="stylesheet">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- jQuery -->
+        <script src="./public/vendor/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.css"></script>
+        <script scr="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.map"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.min.css"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.min.js"></script>
+        
+        <script>           
+            var std_id;
+                const url = "/search_students/getdata";
+    
+                fetch(url)
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (data) {
+                        var std_id = data[0].student_id;
+                        var std_fname = data[0].first_name;
+                        var std_lname = data[0].last_name;
+                        var std_class = data[0].student_class;
+                        var std_semester = data[0].semester;
+                        var std_session = data[0].session;
+                        var std_rollNo = data[0].roll_no;
+                        var std_father_name = data[0].father_name;
+                        var std_mother_name = data[0].mother_name;
+                        var std_guardian_name = data[0].guardian_name;
+                        var std_relation = data[0].relation;
+                        var std_guardian_phone = data[0].guardian_phone;
+                        var std_student_phone = data[0].student_phone;
+                        var std_student_email = data[0].email;
+                        var std_student_aadhaar = data[0].aadhaar_no;
+                        var std_student_address = data[0].address;
+
+                        $('#show_aadhaar').attr('src', '/documents/' + std_id + '_aadhaar.pdf');
+                        $('#show_pan').attr('src', '/documents/' + std_id + '_pan.pdf');
+                        $('#show_bank').attr('src', '/documents/' + std_id + '_bank.pdf');
+
+                        $('#std_det_id').append('<h5 class="pull-left">STUDENT ID : ' + std_id + '</h5>');
+
+                        $('#std_det1').append('<h3>' + std_fname + ' ' +std_lname + '</h3>');
+                        $('#std_det1').append('<h5>STUDENT ID : ' + std_id + '</h5>');
+                        $('#std_det1').append('<h6>Class : ' + std_class + '</h6>');
+                        //$('#std_det1').append('<h6>Semester : ' + std_semester + '</h6>');
+                        $('#std_det1').append('<h6>Session : ' + std_session + '</h6>');
+                        $('#std_det1').append('<h6>Roll No. : ' + std_rollNo + '</h6>');
+
+                        $('#input_name').append('<h2>' + std_fname + ' ' +std_lname + '</h2>');
+                        $('#input_ID').append('<h5>STUDENT ID : ' + std_id + '</h5>');
+                        $('#input_address').append(''+ std_student_address +'');
+                        $('#input_guardian').append(''+ std_father_name +'');
+                        $('#input_phone').append(''+ std_guardian_phone +'');
+
+                        $('#td1').append(''+ std_father_name +'');
+                        $('#td2').append(''+ std_mother_name +'');
+                        $('#td3').append(''+ std_guardian_name +'');
+                        $('#td4').append(''+ std_relation +'');
+                        $('#td5').append(''+ std_guardian_phone +'');
+                        $('#td6').append(''+ std_student_phone +'');
+                        $('#td7').append(''+ std_student_email +'');
+                        $('#td8').append(''+ std_student_aadhaar +'');
+                        $('#td9').append(''+ std_student_address +'');
+
+
+                        $('#edit_form').attr('action', '/student-profile/edit?student_id=' + std_id + '');
+
+                        $('#qualification_form').attr('action', '/StudentQualifications/add?student_id=' + std_id + '');
+
+
+                        $('#input1').append('<input id="input_1" type="text" name="firstname" class="form-control" placeholder="Firstname" required="" >');
+                        document.getElementById('input_1').setAttribute('value', std_fname);
+                        
+                        
+                        $('#input2').append('<input id="input_2" type="text" name="lastname" class="form-control" placeholder="Lastname" required=""  >');
+                        document.getElementById('input_2').setAttribute('value', std_lname);
+                        
+                        
+                        $('#input3').append('<input id="input_3" type="text" name="fatherName" class="form-control" placeholder="Father Name" >');
+                        document.getElementById('input_3').setAttribute('value', std_father_name);
+                       
+
+                        $('#input4').append('<input id="input_4" type="text" name="motherName" class="form-control" placeholder="Mother Name" >');
+                        document.getElementById('input_4').setAttribute('value', std_mother_name);
+                        
+
+                        $('#input5').append('<input id="input_5" type="text" name="guardianName" class="form-control" placeholder="Guardian Name" >');
+                        document.getElementById('input_5').setAttribute('value', std_guardian_name);
+                        
+                        
+                        $('#input6').append('<input id="input_6" type="text" name="relation" class="form-control" placeholder="Relation with Guardian" >');
+                        document.getElementById('input_6').setAttribute('value', std_relation);
+                        
+                        
+                        $('#input7').append(' <input id="input_7" type="text" name="guardianPhone" class="form-control" placeholder="Guardian Phone" >');
+                        document.getElementById('input_7').setAttribute('value', std_guardian_phone);
+                        
+                        
+                        $('#input8').append('<input id="input_8" type="text" name="studentPhone" class="form-control" placeholder="Student Phone" required="" >');
+                        document.getElementById('input_8').setAttribute('value', std_student_phone);
+                        
+                        
+                        $('#input9').append('<input id="input_9" type="text" name="email" class="form-control" placeholder="E-mail" >');
+                        document.getElementById('input_9').setAttribute('value', std_student_email);
+                        
+                        
+                        $('#input10').append('<input id="input_10" type="text" name="rollNo" class="form-control" placeholder="Roll Number" >');
+                        document.getElementById('input_10').setAttribute('value', std_rollNo);
+                        
+                        $('#input11').append('<input id="input_11" type="text" name="aadhaar" class="form-control" placeholder="Aadhaar Number" >');
+                        document.getElementById('input_11').setAttribute('value', std_student_aadhaar);
+                        
+                        
+                        $('#input12').append(' <textarea rows="6" name="address" class="form-control" placeholder="Address">' + std_student_address + '</textarea>');
+                                   
+                        $('#input_profile_photo').append('<img src="'+ std_id +'_profile-picture.jpg"' + ' class="img-thumbnail img-responsive student-profile-image" alt="profile photo" style="height: 150px; width:130px;">');
+                        
+                        $('#profile_photo').append('<img src="'+ std_id +'_profile-picture.jpg"' + ' class="img-thumbnail img-responsive student-profile-image" alt="profile photo">');
+                        $('#profile_photo_edit').append('<img src="'+ std_id +'_profile-picture.jpg"' + ' class="img-thumbnail img-responsive add-student-profile-image" alt="profile photo">');
+                        
+                    })
+                    .catch(function (err) {
+                        console.log('error: ' + err);
+                    });
+    
+    
+        
+
+        
+                                                   
+            const url1 = "/StudentQualifications/getdata";
+
+            fetch(url1)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    $("#tbody_qual tr").remove(); 
+                    appendData5(data);
+                })
+                .catch(function (err) {
+                    console.log('error: ' + err);
+                });
+
+
+            
+
+            function appendData5(data) {
+                var mainContainer = document.getElementById("tbody_qual");
+
+                for (var i = 0; i < data.length; i++) {
+
+                   
+
+                    var id = data[i].id;
+                    
+
+                    var div = document.createElement("tr");
+                    div.innerHTML = '<tr>' +
+                                        
+                                        '<td>'+ 
+                                            data[i].examination +
+                                        '</td>' +
+                                        '<td>' + 
+                                            data[i].board + 
+                                        '</td>' +
+                                        '<td>' + 
+                                            data[i].subjects +
+                                        '</td>' +
+                                        '<td>' +
+                                            data[i].total_marks +
+                                        '</td>' +
+                                        '<td>' +
+                                            data[i].obtained +
+                                        '</td>' +
+                                        '<td>' +
+                                            data[i].percentage +
+                                        '</td>' +
+                                        '<td>' +
+                                            data[i].year +
+                                        '</td>' +
+                                    '</tr>' ;
+                    mainContainer.appendChild(div);
+                }
+            }
+                                                            
+  
+//----for payment section-----//
+
+var session;
+
+
+
+function show() { 
+
+    var formEl = document.forms.session_dropdown;
+    var formData = new FormData(formEl);
+    session = formData.get('session');
+    
+    var totalFees = new Number();
+    var totalFees_paid = new Number();
+    var totalFees_pending = new Number();
+    
+
+    document.getElementById("show_session").innerHTML = "&nbsp&nbsp&nbsp <b>Session: " + session + "</b><br><br>"
+    
+
+    const month_status = [];
+
+    const month_date=[];
+
+    var admission_fees_status;
+
+  
+                                                   
+    const url1111 = "/StudentPaymentHistory_status/getdata?session=" + session;
+
+    
+
+    fetch(url1111)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            admission_fees_status = data[0].admission_fees;
+            admission_fees_date = data[0].admission_fees_date;
+           
+
+            month_status.push(data[0].january, data[0].february, data[0].march, data[0].april, data[0].may, data[0].june, data[0].july, data[0].august, data[0].september, data[0].october, data[0].november, data[0].december);
+            month_date.push(data[0].january_date, data[0].february_date, data[0].march_date, data[0].april_date, data[0].may_date, data[0].june_date, data[0].july_date, data[0].august_date, data[0].september_date, data[0].october_date, data[0].november_date, data[0].december_date);
+
+            
+            
+        })
+        .catch(function (err) {
+            console.log('error: ' + err);
+        });
+
+     
+        
+    
+                                                    
+    const url11 = "/StudentPaymentHistory/getdata?session=" + session;
+
+    fetch(url11)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            $("#tbody_payment_hist tr").remove();
+            
+            appendData(data);
+        })
+        .catch(function (err) {
+            console.log('error: ' + err);
+        });
+
+
+    
+
+    function appendData(data) {
+        var mainContainer = document.getElementById("tbody_payment_hist");
+
+        //var arr_month = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+        
+        var month_value = [];
+        var month_name = [];
+        var month_name_2 = [];
+
+        month_name.push("January Fees");
+        month_name_2.push("january");
+        month_name.push("February Fees");
+        month_name_2.push("february");
+        month_name.push("March Fees");
+        month_name_2.push("march");
+        month_name.push("April Fees");
+        month_name_2.push("april");
+        month_name.push("May Fees");
+        month_name_2.push("may");
+        month_name.push("June Fees");
+        month_name_2.push("june");
+        month_name.push("July Fees");
+        month_name_2.push("july");
+        month_name.push("August Fees");
+        month_name_2.push("august");
+        month_name.push("September Fees");
+        month_name_2.push("september");
+        month_name.push("October Fees");
+        month_name_2.push("october");
+        month_name.push("November Fees");
+        month_name_2.push("november");
+        month_name.push("December Fees");
+        month_name_2.push("december");
+
+
+
+        
+            
+        function wait() { 
+
+            
+                var admission_fees = data[0].admission_fees;
+
+                            
+                var jan = data[0].january;
+                var feb = data[0].february;
+                var mar = data[0].march;
+                var apr = data[0].april;
+                var may = data[0].may; 
+                var jun = data[0].june;
+                var jul = data[0].july; 
+                var aug = data[0].august;
+                var sep = data[0].september;
+                var oct = data[0].october;
+                var nov = data[0].november;
+                var dec = data[0].december;
+                            
+                if(jan !== null){
+                    month_value.push(jan);
+                    
+                }
+                if(feb !== null){
+                    month_value.push(feb);
+                    
+                }
+                if(mar !== null){
+                    month_value.push(mar);
+                    
+                }
+                if(apr !== null){
+                    month_value.push(apr);
+                    
+                }
+                if(may !== null){
+                    month_value.push(may);
+                    
+                }
+                if(jun !== null){
+                    month_value.push(jun);
+                    
+                }
+                if(jul !== null){
+                    month_value.push(jul);
+                    
+                }
+                if(aug !== null){
+                    month_value.push(aug);
+                    
+                }
+                if(sep !== null){
+                    month_value.push(sep);
+                    
+                }
+                
+                if(oct !== null){
+                    month_value.push(oct);
+                    
+                }
+                if(nov !== null){
+                    month_value.push(nov);
+                    
+                }
+                if(dec !== null){
+                    month_value.push(dec);
+                    
+                }
+                
+                
+                
+                
+                
+                var disabled_1;
+                var checked_1;
+               
+                var disabled_print;
+                var disabled_wrong;
+                
+                if(admission_fees_status == 'Paid'){
+                        disabled_1 = "disabled";
+                        checked_1 = "checked";
+                       
+                        disabled_print = "";
+                }
+
+                if(admission_fees_status == 'Not Paid'){
+                        
+                        disabled_print = "disabled";
+                        disabled_1 = "";
+                        disabled_wrong = "disabled"
+                        checked_1 = "";
+                }
+
+                totalFees += parseInt(admission_fees);
+                
+                if(admission_fees_status == 'Paid'){
+                    totalFees_paid += parseInt(admission_fees);
+                    
+                }
+                
+                
+                var div = document.createElement("tr");
+                div.innerHTML = 
+                
+                                '<tr>' +
+                                    '<td>' + '<input   ' + disabled_print + ' type="checkbox" value="admission_fees" name="cKInputNumId" class="checkbox_print singleCheckBox" />' + '</td>' +
+                                    '<td>' + 'Admission Fees' + '</td>' +
+                                    '<td>' + '</td>' +
+                                
+                                    '<td>'  + admission_fees_date + '</td>' +
+                                    '<td>'  + admission_fees + '</td>' +
+                                    '<td>' +admission_fees_status+ '</td>' +
+                                    '<td>' +
+                                        '<button ' + disabled_wrong + ' id="admission_fees"  onClick="wrongClick(this.id)" type="button" ' +
+                                                'cid="2" ' +
+                                                'class="btn btn-outline-danger waves-effect waves-light m-1 btn-sm-softnic removeContClk" ' +
+                                                'data-toggle="modal" data-target="#removeClassModal"> <i class="fa fa-trash"></i> ' +
+                                        '</button>' +
+                                        '<button ' + disabled_1 + ' id="admission_fees" onClick="payClick(this.id)" type="button" ' +
+                                                'cid="2" ' +
+                                                'class="btn btn-outline-success waves-effect waves-light m-1 btn-sm-softnic removeContClk" ' +
+                                                'data-toggle="modal" data-target="#removeClassModal"> <i class="fa fa-check"></i> ' +
+                                            '</button>' +
+                                     '</td>' +
+                                     '<td>' + '<input  ' + disabled_1 + '    type="checkbox" value="admission_fees" name="cKInputNumId" class="checkbox singleCheckBox" />' + '</td>' +
+                                     
+                                '</tr>';
+                                    
+                mainContainer.appendChild(div);
+                                    
+                                    
+                                    
+                                        
+                var disabled;
+                var checked;
+                
+                
+
+                                    
+                                    
+                for(var i = 0; i < month_value.length; i++) {
+                
+                    var button_month_arr = [];
+                
+                    var button_month = month_name_2[i];
+                
+                    console.log(button_month);
+                
+                
+                    if(month_status[i] == 'Paid'){
+                        disabled = "disabled";
+                        checked = "checked";
+                        disabledB = "";
+                        checkedB = "";
+                        disabled_print_month = "";
+                    
+                    } else {
+                        disabled = "";
+                        checked = "";
+                        disabledB = "disabled";
+                        checkedB = "disabled";
+                        disabled_print_month = "disabled";
+                    }
+
+                    totalFees += parseInt(month_value[i]);
+
+                    if(month_status[i] == 'Paid'){
+                        totalFees_paid += parseInt(month_value[i]);
+                    }
+                    
+
+                
+                var div = document.createElement("tr");
+                div.innerHTML = 
+                
+                                
+                
+                                '<tr>' +
+                                    
+                                            '<td>' + '<input ' + disabled_print_month + '  type="checkbox" value="' + month_name_2[i] + '" name="cKInputNumId" class="checkbox_print " />' + '</td>' +
+                                
+                                            '<td>' + month_name[i]  + '</td>' +
+                                
+                                            '<td>' + '</td>' +
+                                
+                                            '<td>'  + month_date[i] + '</td>' +
+                                
+                                            '<td>'  + month_value[i] + '</td>' +
+                                
+                                            '<td>' + month_status[i] + '</td>' +
+                                
+                                            '<td>' + 
+                                            
+                                            '<button ' + disabledB + '  id="' + month_name_2[i] + '" onClick="wrongClick(this.id)" type="button" ' +
+                                                'cid="2" ' +
+                                                'class="btn btn-outline-danger waves-effect waves-light m-1 btn-sm-softnic removeContClk" ' +
+                                                'data-toggle="modal" data-target="#removeClassModal"> <i class="fa fa-trash"></i> ' +
+                                                '</button>' +
+                                                '<button ' + disabled + ' id="' + month_name_2[i] + '" onClick="payClick(this.id)" type="button" ' +
+                                                'cid="2" ' +
+                                                'class="btn btn-outline-success waves-effect waves-light m-1 btn-sm-softnic removeContClk" ' +
+                                                'data-toggle="modal" data-target="#removeClassModal"> <i class="fa fa-check"></i> ' +
+                                            '</button>' +
+                                            '</td>' +
+                                            '<td>' + '<input ' + disabled + '    type="checkbox" value="' + month_name_2[i] + '" name="cKInputNumId" class="checkbox singleCheckBox" />' + '</td>' +
+                                            
+                                '</tr>' ;
+                                            
+                mainContainer.appendChild(div);
+                                            
+                }
+         
+                totalFees_pending = totalFees - totalFees_paid
+
+        document.getElementById("totalAmountPaid").innerHTML = '<span>Total Paid</span><h4 class="text-success"><i class="fa fa-inr ">&nbsp;</i>' + totalFees_paid + '</h4>'   
+        document.getElementById("totalAmount").innerHTML = '<span>Total Amount</span><h4 class="text-primary"><i class="fa fa-inr">&nbsp;</i>' + totalFees  + '</h4>'   
+        document.getElementById("totalAmountPending").innerHTML = '<span>Pending Amount</span><h4 class="text-danger"><i class="fa fa-inr">&nbsp;</i>' + totalFees_pending + '</h4>'   
+
+        }setTimeout(wait, 1000);
+
+    }
+                                          
+                                                        
+
+
+    
+
+
+    const url000 = "/payment_history/other_expenses/getdata?session="+session;
+
+    fetch(url000)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            $("#other_payments tr").remove();
+            appendData_otherPayments(data);
+        })
+        .catch(function (err) {
+            console.log('error: ' + err);
+        });
+
+        function appendData_otherPayments(data) {
+            var mainContainer = document.getElementById("other_payments");
+
+            var disabled_othersB;
+            var checked_othersB;
+            var disabled_others;
+            var checked_others;
+            
+            var disabled_print_others;
+            var transaction_date; 
+
+                for (var i = 0; i < data.length; i++) {
+
+                   
+                    if(data[i].status == 'Paid'){
+                        disabled_others = "disabled";
+                        checked_others = "checked";
+                        disabled_othersB = "";
+                        disabled_othersB = "";
+                        disabled_print_others = "";
+                    } else {
+                        disabled_others = "";
+                        checked_others = "";
+                        disabled_othersB = "disabled";
+                        checked_othersB = "disabled";
+                        disabled_print_others = "disabled";
+                    }
+
+
+                    var id = data[i].id;
+
+                    totalFees += parseInt(data[i].amount);
+
+                    if(data[i].status == 'Paid'){
+                        totalFees_paid += parseInt(data[i].amount);
+                    }
+                    
+                    
+                    if(data[i].status == 'Pending'){
+                        transaction_date = 'N/A'
+                    }else{
+                        transaction_date = data[i].transaction_date
+                    }
+
+                    var div = document.createElement("tr");
+                    div.innerHTML = '<tr>' +
+                                        '<td>' + '<input ' + disabled_print_others +'  type="checkbox" class="checkbox_print2 singleCheckBox" value="' + id + '" />' + '</td>' +
+                                        '<td>' + data[i].purpose + '</td>' +
+                                        '<td>' + data[i].transaction_type + '</td>' +
+                                        '<td>' + transaction_date + '</td>' +
+                                        '<td>' + data[i].amount + '</td>' +
+                                        '<td>' + data[i].status + '</td>' +
+                                        
+                                        
+                                        '<td>' + 
+                                            '<button  id="' + id + '" onClick="wrongClickOthers(this.id)" type="button" ' +
+                                                'cid="2" ' +
+                                                'class="btn btn-outline-danger waves-effect waves-light m-1 btn-sm-softnic removeContClk" ' +
+                                                'data-toggle="modal" data-target="#removeClassModal"> <i class="fa fa-trash"></i> ' +
+                                            '</button>' +
+                                            '<button ' + disabled_others +  ' id="' + id + '" onClick="payClickOthers(this.id)" type="button" ' +
+                                                'cid="2" ' +
+                                                'class="btn btn-outline-success waves-effect waves-light m-1 btn-sm-softnic removeContClk" ' +
+                                                'data-toggle="modal" data-target="#removeClassModal"> <i class="fa fa-check"></i> ' +
+                                            '</button>' +
+                                        '</td>' +
+                                        '<td>' + '<input ' + disabled_others + '   type="checkbox" class="checkbox2 singleCheckBox" value="' + id + '" />' + '</td>' +
+                                    '</tr>' ;
+                    mainContainer.appendChild(div);
+
+                }
+                
+        }
+        
+}
+
+    var print_link;                
+
+    $(document).ready(function () {
+    
+        $(".sendprint").click(function() {
+
+            
+        
+            var print = [];
+            var others_print = [];
+            var checkboxes_print = document.getElementsByClassName("checkbox_print");
+            var checkboxes2_print = document.getElementsByClassName("checkbox_print2");
+        
+        
+            for (var i = 0; i <= checkboxes_print.length-1; i++) {
+                if (checkboxes_print[i].type === "checkbox" && checkboxes_print[i].checked) {
+                    print.push(checkboxes_print[i].value);
+                }
+            }
+            for (var i = 0; i <= checkboxes2_print.length-1; i++) {
+                if (checkboxes2_print[i].type === "checkbox" && checkboxes2_print[i].checked) {
+                    others_print.push(checkboxes2_print[i].value);
+                }
+            }
+        
+            print_link = "/payment_history/bill_print?emails=test&emails=test&others=test&others=test";
+        
+            for(var i = 0; i <= print.length-1; i++){
+                print_link += "&emails=" + print[i];
+                
+            }
+            for(var i = 0; i <= others_print.length-1; i++){
+                print_link += "&others=" + others_print[i];
+                
+            }
+            //console.log(emails);
+            console.log(print_link);
+
+            if(!print[0] && !others_print[0]){
+                alert("Please select a item!")
+            } else{
+                $(this).attr("href", print_link);
+            }
+        
+            
+            
+            
+        });
+    });
+
+        function remove_student(){
+            alert("Student successfully removed!");
+            
+
+            window.location.href = "/students/remove"; 
+        }
+
+
+        var link;                
+
+$(document).ready(function () {
+
+    $(".sendEmail").click(function() {
+
+        
+    
+        var emails = [];
+        var others = [];
+        var checkboxes = document.getElementsByClassName("checkbox");
+        var checkboxes2 = document.getElementsByClassName("checkbox2");
+    
+    
+        for (var i = 0; i <= checkboxes.length-1; i++) {
+            if (checkboxes[i].type === "checkbox" && checkboxes[i].checked) {
+                emails.push(checkboxes[i].value);
+            }
+        }
+        for (var i = 0; i <= checkboxes2.length-1; i++) {
+            if (checkboxes2[i].type === "checkbox" && checkboxes2[i].checked) {
+                others.push(checkboxes2[i].value);
+            }
+        }
+    
+        link = "/payment_history/pay_now?emails=test&emails=test&others=test&others=test";
+    
+        for(var i = 0; i <= emails.length-1; i++){
+            link += "&emails=" + emails[i];
+            if(i < emails.length-1){
+                link +=  "&";
+            }
+        }
+        for(var i = 0; i <= others.length-1; i++){
+            link += "&others=" + others[i];
+            if(i < others.length-1){
+                link +=  "&";
+            }
+        }
+        //console.log(emails);
+        //console.log(link);
+    
+        //$(this).attr("href", link);
+
+        if(!emails[0] && !others[0]){
+            alert("Please select a item!")
+        } else {
+            fetch(link)
+            .then(function (response) {
+                
+            })
+            .then(function () {
+                alert("Payment Successful!");
+               show();
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+        }
+      
+    });
+});
+
+</script>
+
+
+
+
+    </head>
+
+    <body class="layout-sticky-subnav layout-default ">
+
+        <div class="preloader">
+            <div class="sk-chase">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+            </div>
+
+            <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+            <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples -->
+        </div>
+
+        <!-- Header Layout -->
+        <div class="mdk-header-layout js-mdk-header-layout">
+
+            <!-- Header -->
+
+            <div id="header"
+                 class="mdk-header js-mdk-header mb-0"
+                 data-fixed
+                 data-effects="">
+                <div class="mdk-header__content">
+
+                    <!-- Navbar -->
+
+                    <div class="navbar navbar-expand pr-0 navbar-dark-pickled-bluewood navbar-shadow"
+                         id="default-navbar"
+                         data-primary>
+
+                        <!-- Navbar Toggler -->
+
+                        <button class="navbar-toggler w-auto mr-16pt d-block rounded-0"
+                                type="button"
+                                data-toggle="sidebar">
+                            <span class="material-icons">short_text</span>
+                        </button>
+
+                        <!-- // END Navbar Toggler -->
+
+                        <!-- Navbar Brand -->
+
+                        <a href="/home"
+                           class="navbar-brand mr-16pt">
+
+                            <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
+
+                                <span class="avatar-title rounded"><img src="logo.jpeg"
+                                    alt="logo"
+                                    class="img-fluid" /></span>
+
+                            </span>
+
+                            <span class="d-none d-lg-block">Welcome Admin</span>
+                        </a>
+
+                        <!-- // END Navbar Brand -->
+
+                        
+
+                        <!-- // END Navbar Search -->
+
+                        <div class="flex"></div>
+
+                        <!-- Navbar Menu -->
+
+                        <div class="nav navbar-nav flex-nowrap d-flex mr-16pt">
+
+                            <div class="nav-item dropdown">
+                                <a href="#"
+                                   class="nav-link d-flex align-items-center dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   data-caret="false">
+
+                                    <span class="avatar avatar-sm mr-8pt2">
+
+                                        <span class="avatar-title rounded-circle bg-primary"><i class="material-icons">account_box</i></span>
+
+                                    </span>
+
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <div class="dropdown-header"><strong>Account</strong></div>
+                                    <a class="dropdown-item"
+                                       href="/edit-account">Edit Account</a>
+                                    <a class="dropdown-item"
+                                       href="/logout">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- // END Navbar Menu -->
+
+                    </div>
+
+                    <!-- // END Navbar -->
+
+                </div>
+            </div>
+
+            <!-- // END Header -->
+
+            <!-- Header Layout Content -->
+            <div class="mdk-header-layout__content page-content ">
+                <div class="clearfix"></div>
+            <div class="content-wrapper">
+                <div class="container-fluid softnic-container-fluid">
+                    <!-- Breadcrumb-->
+                    <div class="row pt-2 pb-2">
+                        <div class="col-sm-9">
+                            <h4 class="page-title">Student Profile</h4>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                                <li class="breadcrumb-item"><a href="javaScript: void()">Student Profile</a></li>
+                            </ol>
+                        </div>
+                        
+                    </div>
+                    <!-- End Breadcrumb-->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            
+                            <div id="accordion8">
+
+                                <div class="card mb-2 border border-primary">
+                                            <div>
+                                                <div>
+                                                <button class="btn shadow-none" data-toggle="collapse" data-target="#collapse-8" aria-expanded="false" aria-controls="collapse-8">
+                                                    <h4 style="position: relative;top: 8px;">Student Details</h4>
+                                                </button>
+                                                </div>
+                                            </div>
+                                            <div id="collapse-8" class="collapse" data-parent="#accordion8">
+                                                <div class="card-body">
+                                                    <button type="button" onclick="remove_student()" class="btn btn-outline-danger btn-sm waves-effect waves-light m-1 pull-right" data-toggle="modal" data-target="#removeStudentPassModal"><i class="fa fa-trash mr-1"></i> REMOVE</button>
+                                            
+                                                        <button type="button" class="btn btn-outline-dark btn-sm waves-effect waves-light m-1 pull-right" data-toggle="modal" data-target="#editProfile"> <i class="fa fa-pencil"></i> &nbsp;EDIT </button>
+                                                                
+                                                        <a href="/result"><button type="button" class="btn btn-outline-success btn-sm waves-effect waves-light m-1 pull-right"><i class="fas fa-graduation-cap"></i> &nbsp;RESULT</button></a>
+
+                                                        <button type="button" class="btn btn-outline-dark btn-sm waves-effect waves-light m-1 pull-right" data-toggle="modal" data-target="#readdmission"> <i class="fa fa-university"></i> &nbsp;Re-Admisssion </button>
+
+                                                        <button type="button" class="btn btn-outline-info btn-sm waves-effect waves-light m-1 pull-right" data-toggle="modal" data-target="#idgenerate"> <i class="fa fa-id-card"></i> &nbsp;ID Generate </button>
+
+                                                        <button type="button" class="btn btn-outline-dark btn-sm waves-effect waves-light m-1 pull-right" data-toggle="modal" data-target="#propic"> <i class="fa fa-user"></i> &nbsp;Profile Photo </button>
+                                                    <div id="profile_photo" class="col-lg-2 softnic-f-l">
+                                                                                                          
+                                                    </div>
+                                                    <br>
+                                                    <div class="col-lg-10 softnic-f-l" id="std_det1">
+                                    
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <hr>
+                                                    <div class="col-lg-12">
+                                                        <div class="table-responsive">
+                                                            <table class="table softnic-profile-table">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th scope="row">Father Name<span>:</span></th>
+                                                                        <td id="td1"></td>
+                                                                        
+                                                                        <th scope="row">Mother Name<span>:</span></th>
+                                                                        <td id="td2"></td>
+                                                                        
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">Guardian Name<span>:</span></th>
+                                                                        <td id="td3"></td>
+                                                                        
+                                                                        <th scope="row">Relation<span>:</span></th>
+                                                                        <td id="td4"></td>
+                                                                        
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">Guardian Phone<span>:</span></th>
+                                                                        <td id="td5"></td>
+                                                                        
+                                                                        <th scope="row">Student Phone<span>:</span></th>
+                                                                        <td id="td6"></td>
+                                                                        
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">E-mail<span>:</span></th>
+                                                                        <td id="td7"></td>
+                                                                    
+                                                                        <th scope="row">Aadhaar No<span>:</span></th>
+                                                                        <td id="td8"></td>
+                                                                        
+                                                                        
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <table class="table softnic-profile-table">
+                                                                <tbody>
+                                                                    <tr class="softnic-no-border-top">
+                                                                        <th scope="row">Address<span>:</span></th> 
+                                                                        <td id="td9"></td>
+                                                                        
+                                                                        
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                </div>
+
+                                <div class="card mb-2 border border-primary">
+                                            <div>
+                                                <div>
+                                                <button class="btn shadow-none" data-toggle="collapse" data-target="#collapse-7" aria-expanded="false" aria-controls="collapse-7">
+                                                    <h4 style="position: relative;top: 8px;">Fees Details</h4>
+                                                </button>
+                                                </div>
+                                            </div>
+                                            <div id="collapse-7" class="collapse" data-parent="#accordion8">
+    
+                                                <a href="/sms"><button type="button" class="btn btn-outline-dark waves-effect waves-light btn-sm m-1 pull-right" style="position: relative; right: 10px;height: 50px; width: 130px; font-size: larger;"> <i class="fa fa-envelope"></i>&nbsp;<span>Send SMS</span> </button></a>
+                                                <label for="input-21" class="col-sm-3 col-form-label">Session</label>
+                                                <div class="col-sm-3">
+                                                    <form id="session_dropdown">
+                                                        <div class="input-group">
+                                                        	<select id="sessions1" name="session" class="form-control single-select" required="">
+                                                                <option value="">Select</option>
+
+
+                                                            </select>
+                                                            <div id="show_session">
+                                                                
+                                                            </div>
+                                                    	</div>
+                                                    </form>
+                                                    
+                                                </div>
+                                                &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-outline-dark waves-effect waves-light btn-sm m-1" style="height: 30px; width: 100px; font-size: large;" onclick="show()"> <span>Show</span> </button>
+                                                <br><br><br>
+                                                <div class="col-md-12 input-group p-0">
+                                                    
+                                                    <div class="col-md-4">
+                                                        <div class="card border border-primary">
+                                                            <div class="card-body">
+                                                                
+                                                                <div class="media">
+                                                                    <div class="align-self-center" id="sparklinechart2">
+
+                                                                    </div>
+                                                                    <div id="totalAmount" class="media-body text-right">
+                                                                        <span>Total Amount</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="card border border-success">
+                                                            <div class="card-body">
+                                                                <div class="media">
+                                                                    <div class="align-self-center" id="sparklinechart2">
+                                                                        
+                                                                    </div>
+                                                                    <div id="totalAmountPaid" class="media-body text-right">
+                                                                        <span>Total Paid</span>
+                                                                       
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="card border border-danger">
+                                                            <div class="card-body">
+                                                                <div class="media">
+                                                                    <div class="align-self-center" id="sparklinechart2">
+                                                                        
+                                                                    </div>
+                                                                    <div id="totalAmountPending" class="media-body text-right">
+                                                                        <span>Pending Amount</span>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <h5>Payment History</h5>
+                                                    <hr>
+                                                    <div class="table-responsive">
+                                                        <table id="std_payment_hist" class="table softnic-profile-edu-table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col">Print</th>
+                                                                    <th>Purpose</th>
+                                                                    <th>Type</th>
+                                                                    <th>Tran Date</th>
+                                                                    <th>Amount</th>
+                                                                    <th>Status</th>
+                                                                    <th>Action</th>
+                                                                    <th scope="col">Payment</th>
+                                                                    
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="tbody_payment_hist">
+                                                                
+                                                                      
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <h5>Other Payments</h5><button type="button" class="btn btn-outline-dark btn-sm waves-effect waves-light m-1 pull-right" data-toggle="modal" data-target="#makeManualPayment" style="height: 50px; width: 100px; font-size: larger;"> <i class="fa fa-plus"></i> &nbsp;Add On </button>
+                                                    <hr>
+                                                    <div class="table-responsive">
+                                                        <table class="table softnic-profile-edu-table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col">Print</th>
+                                                                    <th>Purpose</th>
+                                                                    <th>Type</th>
+                                                                    <th>Tran Date</th>
+                                                                    <th>Amount</th>
+                                                                    <th>Status</th>
+                                                                    <th>Action</th>
+                                                                    <th scope="col">Payment</th>
+                                                                    
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="other_payments">
+                                                                
+                                                                      
+                                                            </tbody>
+                                                        </table>
+                                                        <div class="row" style="max-width: 100%;">
+                                                            <div class="col-lg-3">
+                                                                <a type="button" class="sendprint btn btn-sm btn-outline-danger btn-round btn-block" style="height: 50px; font-size: larger;"><i class="fa fa-print"></i>&nbsp; Print</a>
+                                                                <!--<a href="/view"><button class="sendprint btn btn-sm btn-outline-danger btn-round btn-block" style="height: 50px; font-size: larger;"><i class="fa fa-print"></i>&nbsp; Print</button></a>-->
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <!--<a href="/view"><button class="sendEmail btn btn-sm btn-outline-success btn-round btn-block" style="height: 50px; font-size: larger;"><i class="fa fa-trash"></i>&nbsp; Pay</button></a>-->
+                                                                <button class="sendEmail btn btn-sm btn-outline-success btn-round btn-block" style="height: 50px; font-size: larger;"><i class="fa fa-trash"></i>&nbsp; Pay</button>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                        <br>
+                                                        <br>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+
+                                        <div class="card mb-2 border border-primary">
+                                            <div>
+                                                <div>
+                                                <button class="btn shadow-none" data-toggle="collapse" data-target="#collapse-6" aria-expanded="false" aria-controls="collapse-8">
+                                                    <h4 style="position: relative;top: 8px;">Educational Qualification</h4>
+                                                </button>
+                                                </div>
+                                            </div>
+                                            <div id="collapse-6" class="collapse" data-parent="#accordion8">
+                                                <div class="card-body">
+                                                    <button type="button" class="btn btn-outline-dark btn-sm waves-effect waves-light m-1 pull-right softnic-profile-edit-btn" data-toggle="modal" data-target="#addEducation"> <i class="fa fa-plus"></i> Add </button>
+                                                    
+                                                    <div class="card-body">
+                                                
+                                                        <div class="col-lg-12">
+                                                            <div class="table-responsive">
+                                                                <br>
+                                                                <table id="std_qual" class="table softnic-profile-edu-table">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th scope="row">Examnation</th>
+                                                                            <th scope="row">Board</th>
+                                                                            <th scope="row">Subjects</th>
+                                                                            <th scope="row">Total Markes</th>
+                                                                            <th scope="row">Obtained</th>
+                                                                            <th scope="row">Percentage</th>
+                                                                            <th scope="row">Year</th>
+                                                                            <!--<th scope="row">Action</th>-->
+                                                                        </tr>
+                                                                                                                                                
+                                                                    </thead>
+        
+                                                                    <tbody id="tbody_qual">
+        
+                                                                    </tbody>
+                                                                </table>
+        
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="card mb-2 border border-primary">
+                                            <div>
+                                                <div>
+                                                <button class="btn shadow-none" data-toggle="collapse" data-target="#collapse-5" aria-expanded="false" aria-controls="collapse-8">
+                                                    <h4 style="position: relative;top: 8px;">Documentation</h4>
+                                                </button>
+                                                </div>
+                                            </div>
+                                            <div id="collapse-5" class="collapse" data-parent="#accordion8">
+                                                <div class="card-body">
+                                                    
+                                                    <div class="card-body">
+                                                        <div class="col-lg-12">
+                                                            <form  action="/document_upload/student/aadhaar" method="post" enctype="multipart/form-data">	
+                                                                <div class="row">
+                                                                    <label for="aadhaar">Aadhaar Card: &nbsp;</label>
+                                                                    <input id="aadhaar" name="aadhaar" type="file" name="studentDoc"> 
+                                                                    
+                                                                    
+                                                                    
+                                                                    
+                                                                    <input type="hidden" name="sid" value="370">
+                                                                    <button type="submit" name="addStudentDoc" class="btn btn-primary"><i class="fa fa-plus"></i> Add</button>
+                                                                </div>
+                                                                <br><br>
+                                                            </form>
+                                                            <form  action="/document_upload/student/pan" method="post" enctype="multipart/form-data">	
+                                                                
+                                                                <div class="row">
+                                                                <label for="pan">PAN Card: &nbsp;</label>
+                                                                <input id="pan" name="pan" type="file" name="studentDoc"> 
+                                                                
+                                                                
+                                                                
+                                                                <input type="hidden" name="sid" value="370">
+                                                                <button type="submit" name="addStudentDoc" class="btn btn-primary"><i class="fa fa-plus"></i> Add</button>
+                                                                
+                                                                </div>
+                                                                <br><br>
+                                                            </form>
+                                                            <form  action="/document_upload/student/bank" method="post" enctype="multipart/form-data">	
+                                                                
+                                                                <div class="row">
+                                                                <label for="bank">Bank Statement: &nbsp;</label>
+                                                                <input id="bank" name="bank" type="file" name="studentDoc"> 
+                                                                
+                                                                
+                                                                <input type="hidden" name="sid" value="370">
+                                                                <button type="submit" name="addStudentDoc" class="btn btn-primary"><i class="fa fa-plus"></i> Add</button>
+                                                                </div>
+                                                                <br><br>
+                                                            </form>
+
+                        
+        
+                                                            <hr>
+                                                            <embed id="show_aadhaar" src="" width="350px" height="550px" />
+                                                            <embed id="show_pan" src="" width="350px" height="550px" />
+                                                            <embed id="show_bank" src="" width="350px" height="550px" />
+        
+                                                            <div>
+                                                                <div class="clearfix"></div>
+                                                            </div>
+                                                        </div>
+                                                            
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        
+
+
+
+
+
+
+
+                            </div>
+                                        
+
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End container-fluid-->
+                <div class="overlay"></div>
+            </div>
+            <!--End content-wrapper-->
+
+            </div>
+            <!--End of Header Layout Content-->
+            <!-- modal data start -->
+
+        <div class="modal fade" id="editProfile" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Profile <font style="color: red;">(<b>*</b> You need to fill up all the field)</font></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form action="" method="post"  id="edit_form" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Firstname</label>
+                            <div class="col-sm-9">
+                                <div class="input-group" id="input1">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Lastname</label>
+                            <div class="col-sm-9">
+                                <div class="input-group" id="input2">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Father Name</label>
+                            <div class="col-sm-9">
+                                <div class="input-group" id="input3">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Mother Name</label>
+                            <div class="col-sm-9">
+                                <div class="input-group" id="input4">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Guardian Name</label>
+                            <div class="col-sm-9">
+                                <div class="input-group" id="input5">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Relation</label>
+                            <div class="col-sm-9">
+                                <div class="input-group" id="input6">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Guardian Phone</label>
+                            <div class="col-sm-9">
+                                <div class="input-group" id="input7">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Student Phone</label>
+                            <div class="col-sm-9">
+                                <div class="input-group" id="input8">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">E-mail</label>
+                            <div class="col-sm-9">
+                                <div class="input-group" id="input9">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Roll No</label>
+                            <div class="col-sm-9">
+                                <div class="input-group" id="input10">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Aadhaar No</label>
+                            <div class="col-sm-9">
+                                <div class="input-group" id="input11">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Class <b style="color: red;">*</b></label>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <select class="form-control single-select" id="classes" name="student_class" required>
+                                        <option value="">Select Class</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <label for="input-21" class="col-sm-3 col-form-label">Semester</label>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <div class="input-group">
+                                    <select id="sem" name="semester" class="form-control single-select" disabled>
+                                        <option value="">Select</option>
+                                        </select>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Department</label>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <div class="input-group">
+                                        <select id="dept" name="department" class="form-control single-select" required>
+                                            <option value="">Select Department</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <label for="input-21" class="col-sm-3 col-form-label">Session <b style="color: red;">*</b></label>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <div class="input-group">
+                                    	<select id="sessions" name="session" class="form-control single-select" required="">
+                                            <option value="">Select</option>
+                                            
+                                                                                 
+                                        </select>
+                                	</div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Address</label>
+                            <div class="col-sm-3">
+                                <div class="input-group" id="input12">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="sid" value="370">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        <button type="submit" name="updateStudentProfile" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Update Profile</button>
+                    </div>
+                    </form>
+
+                    
+                   
+                    <script>
+                        const url3 = "/studentDepartment/getdata";
+
+                        fetch(url3)
+                            .then(function (response) {
+                                return response.json();
+                            })
+                            .then(function (data) {
+                            
+                                appendData0(data);
+                            })
+                            .catch(function (err) {
+                                console.log('error: ' + err);
+                            });
+                        
+                            function appendData0(data) {
+                                        //var mainContainer = document.getElementById("doctor_id");
+                            
+                                        for (var i = 0; i < data.length; i++) {
+                                        
+                                        
+                                        
+                                            var id = data[i].id;
+                                        
+                                            var daySelect = document.getElementById("dept");
+                                            var myOption = document.createElement("option");
+                                            myOption.text = data[i].department_name;
+                                            myOption.value = data[i].department_name;
+                                            daySelect.add(myOption);
+                                                                
+                                        }
+                            }
+
+                    </script>
+
+                    <script>
+                        const url4 = "/studentSession/getdata";
+                    
+                        fetch(url4)
+                            .then(function (response) {
+                                return response.json();
+                            })
+                            .then(function (data) {
+                            
+                                appendData1(data);
+                            })
+                            .catch(function (err) {
+                                console.log('error: ' + err);
+                            });
+                        
+                            function appendData1(data) {
+                                        //var mainContainer = document.getElementById("doctor_id");
+                            
+                                        for (var i = 0; i < data.length; i++) {
+                                        
+                                        
+                                        
+                                            var id = data[i].id;
+                                        
+                                            var daySelect = document.getElementById("sessions");
+                                            var myOption = document.createElement("option");
+                                            myOption.text = data[i].session_name;
+                                            myOption.value = data[i].session_name;
+                                            daySelect.add(myOption);
+
+                                            var daySelect1 = document.getElementById("sessions1");
+                                            var myOption1 = document.createElement("option");
+                                            myOption1.text = data[i].session_name;
+                                            myOption1.value = data[i].session_name;
+                                            daySelect1.add(myOption1);
+
+                                        }
+                            }
+                        
+                    </script>
+
+                    <script>
+                        const url5 = "/studentClass/getdata";
+                    
+                        fetch(url5)
+                            .then(function (response) {
+                                return response.json();
+                            })
+                            .then(function (data) {
+                            
+                                appendData2(data);
+                            })
+                            .catch(function (err) {
+                                console.log('error: ' + err);
+                            });
+                        
+                            function appendData2(data) {
+                                        //var mainContainer = document.getElementById("doctor_id");
+                            
+                                        for (var i = 0; i < data.length; i++) {
+                                        
+                                        
+                                        
+                                            var id = data[i].id;
+                                        
+                                            var daySelect = document.getElementById("classes");
+                                            var myOption = document.createElement("option");
+                                            myOption.text = data[i].class_name;
+                                            myOption.value = data[i].class_name;
+                                            daySelect.add(myOption);
+
+                                        }
+                            }
+                        
+                    </script>
+
+                    <script>
+                        const url6 = "/studentSemester/getdata";
+                    
+                        fetch(url6)
+                            .then(function (response) {
+                                return response.json();
+                            })
+                            .then(function (data) {
+                            
+                                appendData3(data);
+                            })
+                            .catch(function (err) {
+                                console.log('error: ' + err);
+                            });
+                        
+                            function appendData3(data) {
+                                        //var mainContainer = document.getElementById("doctor_id");
+                            
+                                        for (var i = 0; i < data.length; i++) {
+                                        
+                                        
+                                        
+                                            var id = data[i].id;
+                                        
+                                            var daySelect = document.getElementById("sem");
+                                            var myOption = document.createElement("option");
+                                            myOption.text = data[i].semester_name;
+                                            myOption.value = data[i].semester_name;
+                                            daySelect.add(myOption);
+                                        
+                                        }
+                            }
+                        
+                    </script>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="addEducation" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Qualification</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form id="qualification_form" action="" method="POST">
+	                    <div class="modal-body">
+	                        <div class="table-responsive">
+	                            <table class="table softnic-profile-edu-table">
+	                                <tbody>
+	                                    <tr>
+	                                        <th scope="row">Examnation</th>
+	                                        <th scope="row">Board</th>
+	                                        <th scope="row">Subjects</th>
+	                                        <th scope="row">Total Markes</th>
+	                                        <th scope="row">Obtained</th>
+	                                        <th scope="row">Percentage (%)</th>
+                                            <th scope="row">Year</th>
+	                                    </tr>
+	                                    <tr>
+	                                        <td><input class="form-control" type="text" name="exam" required></td>
+	                                        <td><input class="form-control" type="text" name="board" required></td>
+	                                        <td><textarea rows="1" class="form-control" name="subjects" required></textarea></td>
+	                                        <td><input class="form-control" type="text" name="totalMarks" required></td>
+	                                        <td><input class="form-control" type="text" name="obtained" required></td>
+	                                        <td><input class="form-control" type="text" name="percentage" required></td>
+                                            <td><input class="form-control" type="text" name="year" required></td>
+	                                    </tr>
+	                                </tbody>
+	                            </table>
+	                        </div>
+	                    </div>
+	                    <input type="hidden" name="sid" value="370">
+	                    <div class="modal-footer">
+	                        <button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+	                        <button type="submit" name="updateStudentQualification" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Add Qualification</button>
+	                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="makeManualPayment" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content animated">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add requirements for others payment</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form id="manualPaymentForm">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <input type="text" name="purpose" class="form-control" placeholder="Purpose of payment" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="amount" class="form-control" placeholder="amount" required>
+                            </div>
+                            <div class="form-group">
+                                <select name="paymentType" class="form-control" required>
+                                    <option value="Paid">Pay Now</option>
+                                    <option value="Pending">Pay later</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select name="transactionType" class="form-control">
+                                    <option value="">Payment Method</option>
+                                    <option value="Cash">Cash Payment</option>
+                                    <option value="Account">Online Payment</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                        
+                    </form>
+
+                    <div class="modal-footer">
+                        <button onclick="add_on()" class="btn btn-danger"><i class="fa fa-plus"></i>&nbsp; Add</button>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function add_on() {
+
+              var formE2 = document.forms.manualPaymentForm;
+              var formData = new FormData(formE2);
+              var purpose = formData.get('purpose');
+              var amount = formData.get('amount');
+              var paymentType = formData.get('paymentType');
+              var transactionType = formData.get('transactionType');
+
+              $("#makeManualPayment").modal('hide');
+
+              const url9876 = "/payment_history/other_expenses/add?purpose=" + purpose + "&amount=" + amount + "&paymentType=" + paymentType + "&transactionType=" + transactionType; 
+              
+              console.log(url9876) ; 
+
+              if(!purpose || !amount || !paymentType || !transactionType){
+                  alert("Please fill all the inputs!")
+                  
+              } else {
+                fetch(url9876)
+                  .then(function (response) {  
+                  })
+                  .then(function () {
+                      alert("Successfully Added!");
+                      show();
+                  })
+                  .catch(function (err) {
+                      console.log('error: ' + err);
+                  }); 
+              }
+
+              
+            }  
+        </script>
+
+        <div class="modal fade" id="readdmission" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content animated">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add requirements for Re-Admission</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form action="/StudentReadmission" method="POST">
+                        <div class="modal-body">
+
+                            <label for="input-21" class="col-sm-6 col-form-label">Student Roll Number</label>
+                                            
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                </div>
+                                <input type="text" name="rollNo" class="form-control" placeholder="Enter Roll Number" required>
+                            </div>
+
+
+                            <label for="input-21" class="col-sm-3 col-form-label">Session</label>
+                             <div class="input-group">
+                             	<select id="sessions2" name="session" class="form-control" required="">
+                                     <option value="">Select</option>
+                                     
+                                                                          
+                                 </select>
+                            </div>
+                        
+                            <label for="input-21" class="col-sm-3 col-form-label">Class</label>
+                        
+                            <div class="input-group">
+                                <select class="form-control" id="classes1" name="student_class" required>
+                                    <option value="">Select Class</option>
+                                </select>
+                            </div>
+
+                            <label for="input-21" class="col-sm-6 col-form-label">Total Fees</label>
+                                            
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-money"></i></span>
+                                </div>
+                                <input type="text" name="totalFees" class="form-control" id="firstNumber" placeholder="Total Fees" required>
+                            </div>
+                            
+                            <label for="input-21" class="col-sm-2 col-form-label">Monthly</label>
+        
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-list"></i></span>
+                                </div>
+                                <select name="monthCount" id="monthCount" class="form-control single-select" required>
+                                    <option value="">Select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                            </div>
+
+                            <div id="monFeesHtmlHolder">
+                                            
+                            </div> 
+                            
+                            <label for="input-21" class="col-sm-6 col-form-label">Admission Fees</label>
+                                            
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-money"></i></span>
+                                </div>
+                                <input type="text" name="admissionFees" class="form-control" placeholder="Admission Fees" required>
+                            </div>
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit"  class="btn btn-danger"><i class="fa fa-plus"></i>&nbsp; Add</button>
+                        </div>
+                    </form>
+                    <script>
+                        const url8 = "/studentSession/getdata";
+                    
+                        fetch(url8)
+                            .then(function (response) {
+                                return response.json();
+                            })
+                            .then(function (data) {
+                            
+                                appendData11(data);
+                            })
+                            .catch(function (err) {
+                                console.log('error: ' + err);
+                            });
+                        
+                            function appendData11(data) {
+                                        //var mainContainer = document.getElementById("doctor_id");
+                            
+                                        for (var i = 0; i < data.length; i++) {
+                                        
+                                        
+                                        
+                                            var id = data[i].id;
+                                        
+                                            var daySelect = document.getElementById("sessions2");
+                                            var myOption = document.createElement("option");
+                                            myOption.text = data[i].session_name;
+                                            myOption.value = data[i].session_name;
+                                            daySelect.add(myOption);
+
+                                        }
+                            }
+                    </script>
+                    <script>
+
+
+                            $('#monthCount').on('change', function(){
+                            var month = ["","January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                            var count = $(this).val();
+                            var thtml = '';
+                            for (i=1; i <= count; i++) {
+                                thtml += '<div class="form-group row"><label for="input-21" class="col-sm-2 col-form-label">'+month[i]+'</label><div class="col-sm-4"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-money"></i></span></div><input type="text" name="'+month[i]+'" class="form-control" placeholder=" '+month[i]+'"></div></div></div>';
+                            }
+                            $('#monFeesHtmlHolder').html(thtml);
+
+                            });
+                    </script>
+                    <script>
+                        const url9 = "/studentClass/getdata";
+                    
+                        fetch(url9)
+                            .then(function (response) {
+                                return response.json();
+                            })
+                            .then(function (data) {
+                            
+                                appendData12(data);
+                            })
+                            .catch(function (err) {
+                                console.log('error: ' + err);
+                            });
+                        
+                            function appendData12(data) {
+                                        //var mainContainer = document.getElementById("doctor_id");
+                            
+                                        for (var i = 0; i < data.length; i++) {
+                                        
+                                        
+                                        
+                                            var id = data[i].id;
+                                        
+                                            var daySelect = document.getElementById("classes1");
+                                            var myOption = document.createElement("option");
+                                            myOption.text = data[i].class_name;
+                                            myOption.value = data[i].class_name;
+                                            daySelect.add(myOption);
+
+                                        }
+                            }
+                        
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="idgenerate" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content animated">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Generate Your Student ID</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div>
+                        <div class="card-body" id="idcontent">
+                            <div class="col-lg-12">
+                                
+                                <div style="margin-left:2%;margin-right:2%;width:96%;font-family:arial;font-size:15px;color: #222;margin-top:15px;">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <img src="logo.png" style="height: 70px; width: 70px;">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <font style="color: rgb(25, 25, 107); text-align: center; font-size: larger;">
+                                            <br>Hashimia International</font>
+                                        </div>
+                                    </div>
+                                    <center><div id="input_ID"></div></center>
+                                    <div>
+                                        <table class="table softnic-profile-table">
+                                            <tbody>
+                                                <tr class="softnic-no-border-top">
+                                                    <td id="input_profile_photo" >
+                                                    
+                                                    </td>
+                                                    <td id="input_address" ></td>
+                                                
+                                                </tr>
+                                                <tr>
+                                                    <td id="input_name" colspan="2"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Guardian Name<span>:</span></th>
+                                                    <td id="input_guardian"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Guardian Phone<span>:</span></th>
+                                                    <td id="input_phone"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><img src="signature.png" style="height: 50px; width: 130px;">
+                                                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Head Sir</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button"  class="btn btn-success" onclick=generate()><i class="fa fa-download"></i>&nbsp; Generate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="propic" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content animated">
+                    <form action="/student_profilepic/add" method="post" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Set a Profile Picture</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div id="content" style="overflow: hidden; background-color: white;">
+                        <div class="card-body pt-0">
+                            <div class="col-lg-12">
+                                
+                                
+                                    <div class="form-group row">
+                                        <label for="input-21" class="col-sm-6 col-form-label">Student Photo (.jpg, .jpeg, .png files only) <b style="color: red;">*</b></label>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <input id="studentPhotoId" class="form-control" type="file" name="studentPhoto" accept=".jpg, .jpeg, .png" onchange="validateFileType()" required>
+                                            </div>
+                                            <div id="profile_photo_edit">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit"  class="btn btn-success"><i class="fa fa-plus"></i>&nbsp; Submit</button>
+                    </div>
+                </form>
+                <script type="text/javascript">
+                    function validateFileType(){
+                        var fileName = document.getElementById("studentPhotoId").value;
+                        var idxDot = fileName.lastIndexOf(".") + 1;
+                        var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+                        if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+                            //TO DO
+                        }else{
+                            alert("Only .jpg, .jpeg and .png files are allowed!");
+                        }   
+                    }
+                </script>
+                </div>
+            </div>
+            <div class="bg-white border-top-2 mt-auto">
+                <div class="container page__container page-section d-flex flex-column">
+                    <p class="text-70 brand mb-24pt">
+                        <img class="brand-icon"
+                             src="maze.jpeg"
+                             width="150"
+                             alt="mazesoftsolution">
+                    </p>
+                    <p class="measure-lead-max text-50 small mr-8pt">We have reached an age where the entire world is reduced to a global village. In this realm of connected living and sharing, we envision a future that will redefine the very purpose of our existence. Today, the solutions are more refined than the demand itself. What we get is better than what we asked for. Businesses, big or small, look for companies that will refine their business needs, more than offering a ready solution. They look for companies that offer competitive web and mobile apps development, e-commerce, and Open-source CMS development to propel their business expansion.</p>
+                    <p class="text-50 small mt-n1 mb-0">Developed by <a href="http://www.mazesoftsolutions.com/">Maze Soft Solution</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Drawer -->
+
+        <div class="mdk-drawer js-mdk-drawer"
+             id="default-drawer">
+            <div class="mdk-drawer__content">
+                <div class="sidebar sidebar-dark-pickled-bluewood sidebar-left"
+                     data-perfect-scrollbar>
+
+                    <!-- Sidebar Content -->
+
+                    <a href="/home"
+                       class="sidebar-brand ">
+                        <!-- <img class="sidebar-brand-icon" src="/public/images/illustration/student/128/white.svg" alt="Luma"> -->
+
+                        <span class="avatar avatar-xl sidebar-brand-icon h-auto">
+
+                            <span class="avatar-title rounded"><img src="logo.jpeg"
+                                alt="logo"
+                                class="img-fluid" /></span>
+
+                        </span>
+
+                        <span>Welcome Admin</span>
+                    </a>
+
+                    
+                        
+                    <ul class="sidebar-menu">
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/home">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">home</span>
+                                <span class="sidebar-menu-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/cashbook">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">receipt</span>
+                                <span class="sidebar-menu-text">Cashbook</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/fees_payment">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">shopping_cart</span>
+                                <span class="sidebar-menu-text">Fees Payments</span>
+                            </a>
+                        </li>
+                        <ul class="sidebar-menu">
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button js-sidebar-collapse"
+                                   data-toggle="collapse"
+                                   href="#enterprise_menu">
+                                    <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">donut_large</span>
+                                    Applications
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse sm-indent"
+                                    id="enterprise_menu">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/contact">
+                                            <span class="sidebar-menu-text">Contact</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/add_contact">
+                                            <span class="sidebar-menu-text">Add Contact</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button disabled"
+                                           href="/hr-dashboard">
+                                            <span class="sidebar-menu-text">Applications</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button disabled"
+                                           href="/employees">
+                                            <span class="sidebar-menu-text">Add Applications</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#productivity_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">local_library</span>
+                                Students
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="productivity_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/student">
+                                        <span class="sidebar-menu-text">Students</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_student">
+                                        <span class="sidebar-menu-text">Add Students</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/room">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">room</span>
+                                <span class="sidebar-menu-text">Create Room</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#ecommerce_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">people_outline</span>
+                                Staffs
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="ecommerce_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/staff">
+                                        <span class="sidebar-menu-text">Staffs</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_staff">
+                                        <span class="sidebar-menu-text">Add Staffs</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#messaging_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">dvr</span>
+                                Classes
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="messaging_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/class">
+                                        <span class="sidebar-menu-text">Classes</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_class">
+                                        <span class="sidebar-menu-text">Add Classes</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#account_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                Departments
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="account_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/department">
+                                        <span class="sidebar-menu-text">Departments</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_department">
+                                        <span class="sidebar-menu-text">Add Departments</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#community_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                Sessions
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="community_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/session">
+
+                                        <span class="sidebar-menu-text">Sessions</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_session">
+
+                                        <span class="sidebar-menu-text">Add Sessions</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#components_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">account_box</span>
+                                Users
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="components_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/user">
+                                        <span class="sidebar-menu-text">Users</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_user">
+                                        <span class="sidebar-menu-text">Add Users</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/invoice">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">message</span>
+                                <span class="sidebar-menu-text">Invoices</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/finance">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">trending_up</span>
+                                <span class="sidebar-menu-text">Finance</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/system_history">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">access_time</span>
+                                <span class="sidebar-menu-text">System History</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/bin">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">help</span>
+                                <span class="sidebar-menu-text">Recyle Bin</span>
+                            </a>
+                        </li>
+                    </ul>
+                    
+
+                    <!-- // END Sidebar Content -->
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- // END Drawer -->
+
+       
+
+        <!-- Bootstrap -->
+        <script src="./public/vendor/popper.min.js"></script>
+        <script src="./public/vendor/bootstrap.min.js"></script>
+
+        <!-- Perfect Scrollbar -->
+        <script src="./public/vendor/perfect-scrollbar.min.js"></script>
+
+        <!-- DOM Factory -->
+        <script src="./public/vendor/dom-factory.js"></script>
+
+        <!-- MDK -->
+        <script src="./public/vendor/material-design-kit.js"></script>
+
+        <!-- App JS -->
+        <script src="./public/js/app.js"></script>
+
+        <!-- Preloader -->
+        <script src="./public/js/preloader.js"></script>
+
+
+        <script>
+            $(document).ready(function(){
+                $('.makeRestoreClick').on('click', function(event){
+                    event.preventDefault();
+                    swal({
+                        title: "Are you sure?",
+                        text: "Once pressed ok, changes will be restored.",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            window.location = $(this).attr('href');
+                        }
+                    });
+                });
+
+                $('.makeEmptyClick').on('click', function(event){
+                    event.preventDefault();
+                    swal({
+                        title: "Are you sure?",
+                        text: "Once pressed ok, you can not restore the data",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            window.location = $(this).attr('href');
+                        }
+                    });
+                });
+
+
+            });
+
+            function  wrongClick(clicked_id) {
+                const url5678 = "/payment_history/pay_now/wrong_transaction?month="+clicked_id; 
+                fetch(url5678)
+                    .then(function (response) {  
+                    })
+                    .then(function () {
+                        alert("Payment Reverted!");
+                        show();
+                    })
+                    .catch(function (err) {
+                        console.log('error: ' + err);
+                    });  
+            }
+
+            function  payClick(clicked_id) {
+                const url1234 = "/payment_history/pay_now/pay_single?month="+clicked_id; 
+                fetch(url1234)
+                    .then(function (response) {  
+                    })
+                    .then(function () {
+                        alert("Payment Successful!");
+                        show()
+                    })
+                    .catch(function (err) {
+                        console.log('error: ' + err);
+                    });  
+            }
+
+
+            //-----------
+
+            function  wrongClickOthers(clicked_id) {            
+                const url3456 = "/payment_history/other_expenses/wrong_transaction?id="+clicked_id; 
+                fetch(url3456)
+                    .then(function (response) {  
+                    })
+                    .then(function () {
+                        alert("Payment Reverted!");
+                        show();
+                    })
+                    .catch(function (err) {
+                        console.log('error: ' + err);
+                    }); 
+            }
+
+            function  payClickOthers(clicked_id) {        
+                const url7890 = "/payment_history/other_expenses/pay_single?id="+clicked_id;  
+                    fetch(url7890)
+                        .then(function (response) {  
+                        })
+                        .then(function () {
+                            alert("Payment Successful!");
+                            show();
+                        })
+                        .catch(function (err) {
+                            console.log('error: ' + err);
+                        }); 
+            }
+
+        </script>
+
+        <script>
+        
+        
+            $('#monthCount').on('change', function(){
+                num1 = document.getElementById("firstNumber").value;
+                num2 = document.getElementById("monthCount").value;
+                //document.getElementById("result").innerHTML = num1 / num2;
+                 var fees = num1/num2;
+                
+                var month = ["","January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                var count = $(this).val();
+                var thtml = '';
+                for (i=1; i <= count; i++) {
+                    thtml += '<div class="form-group row"><label for="input-21" class="col-sm-2 col-form-label">'+month[i]+'</label><div class="col-sm-4"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-money"></i></span></div><input type="text" name="'+month[i]+'"  value="'+ fees +'" class="form-control" id></div></div></div>';
+                    
+                }
+                $('#monFeesHtmlHolder').html(thtml);
+
+            });
+        </script>
+
+
+<!--<script>
+    $(document).on('click','#cmd',function(){
+    let pdf = new jsPDF({
+  orientation: "potrait",
+  unit: "in",
+  format: [4, 5]
+});
+    let section=$('#content');
+    let page= function() {
+        pdf.save('student_ID.pdf');
+    
+    };
+    
+    pdf.addHTML(section,page);
+    })
+</script>-->
+
+<!-- jQuery -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.css"></script>
+<script scr="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.map"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.min.css"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.min.js"></script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+
+<script>
+    function generate() {
+        printJS({
+        printable: 'idcontent',
+        type: 'html',
+        targetStyles: ['*'],
+        //header: 'PrintJS - Print Form With Customized Header'
+        })
+    }   
+</script>
+
+
+    </body>
+</html>
